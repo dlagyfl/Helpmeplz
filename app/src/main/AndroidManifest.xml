@@ -12,21 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpmeplz"
         tools:targetApi="31">
+
+
+        <activity android:name=".AddFriend"/>
+        <activity android:name=".CheckFriend"/>
+        <activity android:name=".FindFriend"/>
+        <activity android:name=".Menu"/>
         <activity
             android:name=".Log_in"
             android:exported="false" />
         <activity
             android:name=".Sign_in"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
