@@ -22,6 +22,7 @@ public class Log_in extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     EditText editText_email,editText_Password;
     Button login_btn, signup_btn;
+    Button test_btn;
 
 
     @Override
@@ -33,6 +34,16 @@ public class Log_in extends AppCompatActivity {
         signup_btn = findViewById(R.id.button_sign_in);
         editText_email= findViewById(R.id.editText_email);
         editText_Password= findViewById(R.id.editText_Password);
+
+        test_btn= findViewById(R.id.test_button);
+
+        test_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Menu.class);
+                startActivity(intent);
+            }
+        });
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
