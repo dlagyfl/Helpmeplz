@@ -71,9 +71,10 @@
             android:text="PASSWORD" />
 
         <EditText
-            android:id="@+id/editText_pw"
+            android:id="@+id/editText_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="password" />
     </LinearLayout>
 
@@ -91,11 +92,22 @@
             android:text="PASSWORD CONFIRM" />
 
         <EditText
-            android:id="@+id/editText_pwcf"
+            android:id="@+id/editText_password_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="password confrim" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="가입하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutpwcf" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
