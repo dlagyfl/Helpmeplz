@@ -35,7 +35,7 @@ public class Sign_in extends AppCompatActivity {
     }
     private void signUp(){
         String name=((EditText)findViewById(R.id.editText_name)).getText().toString();
-        String email=((EditText)findViewById(R.id.editText_email)).getText().toString();
+        String email=((EditText)findViewById(R.id.editText_id)).getText().toString();
         String password=((EditText)findViewById(R.id.editText_password)).getText().toString();
         String password_confirm=((EditText)findViewById(R.id.editText_password_confirm)).getText().toString();
 
