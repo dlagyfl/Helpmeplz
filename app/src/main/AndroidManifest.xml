@@ -29,7 +29,9 @@
         <activity
             android:name=".Menu"
             android:exported="false" />
-
+        <activity
+            android:name=".MyFriend"
+            android:exported="false" />
         <activity
             android:name=".Log_in"
             android:exported="true" >

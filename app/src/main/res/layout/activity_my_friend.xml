@@ -16,13 +16,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/button_next2"-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=" "-->
-<!--        tools:layout_editor_absoluteX="20dp"-->
-<!--        tools:layout_editor_absoluteY="80dp" />-->
+    <ImageButton
+        android:id="@+id/moreImageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:padding="0dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/more"/>
+<!--        app:layout_constraintEnd_toEndOf="textView_add_id"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="textView_add_id"-->
+<!--        app:layout_constraintTop_toTopOf="textView_add_id"-->
+<!--        app:srcCompat="@drawable/more" />-->
+
+    <ImageButton
+        android:id="@+id/bellImageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="0dp"
+        app:srcCompat="@drawable/bell" />
+
+    <Button
+        android:id="@+id/button_next2"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:text="Q"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/match_parent_textview"
