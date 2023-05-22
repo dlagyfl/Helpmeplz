@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
+//import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+//import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,7 +34,7 @@ public class Log_in extends AppCompatActivity {
     Button google_login_btn;
 
     FirebaseAuth mAuth=null;
-    private GoogleSignInClient mGoogleSignInClient;
+    //private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN=9001;
 
 
@@ -52,11 +52,11 @@ public class Log_in extends AppCompatActivity {
 
         test_btn= findViewById(R.id.test_button);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id)) //default_web_client_id
                 .requestEmail()
                 .build();
-        mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
+        mGoogleSignInClient= GoogleSignIn.getClient(this,gso);*/
 
         test_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +105,7 @@ public class Log_in extends AppCompatActivity {
         google_login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn();
+                //signIn();
             }
         });
 
@@ -113,7 +113,7 @@ public class Log_in extends AppCompatActivity {
 
     }
 
-    private void signIn(){
+    /*private void signIn(){
         Intent signInIntent=mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
     }
@@ -150,7 +150,7 @@ public class Log_in extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }*/
 
     private void updateUI(FirebaseUser user) {
         if(user!=null){
