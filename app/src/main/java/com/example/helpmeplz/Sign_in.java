@@ -65,7 +65,7 @@ public class Sign_in extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(Sign_in.this, "아아디와 비밀번호를 확인해주세요." ,Toast.LENGTH_SHORT).show();
+            Toast.makeText(Sign_in.this, "아이디와 비밀번호를 확인해주세요." ,Toast.LENGTH_SHORT).show();
         }
     }
 
