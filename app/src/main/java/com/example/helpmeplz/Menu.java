@@ -16,6 +16,7 @@ public class Menu extends AppCompatActivity {
 
         Button button_MyFriend = findViewById(R.id.button_MyFriend);
         Button button_myGroup = findViewById(R.id.button_myGroup);
+        Button button_myTable = findViewById(R.id.button_myTable);
 
         button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,15 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this, GroupList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        button_myTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, UploadImage.class);
                 startActivity(intent);
                 finish();
             }
