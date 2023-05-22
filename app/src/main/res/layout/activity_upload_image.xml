@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="661dp" />
+        tools:layout_editor_absoluteY="476dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload_btn"
@@ -44,22 +44,20 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
         android:text="내 시간표 몇시까지인지 : "
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/upload_upToTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="64dp"
         android:hint="입력"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/progress_View"
+        app:layout_constraintBottom_toTopOf="@+id/upload_btn"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
