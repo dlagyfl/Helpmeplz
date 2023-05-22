@@ -13,11 +13,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Sign_in extends AppCompatActivity {
     Button signin;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class Sign_in extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         signin = findViewById(R.id.button_sign_in);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         signin.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
@@ -48,6 +53,12 @@ public class Sign_in extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
+                                    FirebaseUser user=mAuth.getCurrentUser();
+                                    if(user!=null){
+                                        String uid=user.getUid();
+                                        mDatabase.child("users").child(uid).child("name").setValue(name);
+                                        mDatabase.child("users").child(uid).child("email").setValue(email);
+                                    }
                                     Log.d("TAG", "createUserWithEmail:success");
                                     Toast.makeText(Sign_in.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                     finish();
