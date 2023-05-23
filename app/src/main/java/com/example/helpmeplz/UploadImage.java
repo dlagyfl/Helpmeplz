@@ -205,7 +205,7 @@ public class UploadImage extends AppCompatActivity {
 //
                             String userId = mAuth.getCurrentUser().getUid();
 
-                            mDatabase.child("users").child(userId).child("image").setValue(imageUrl);
+                            mDatabase.child("users").child(userId).child("timetable").setValue(imageUrl);
 
                             progressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(UploadImage.this, "업로드 성공", Toast.LENGTH_SHORT).show();
