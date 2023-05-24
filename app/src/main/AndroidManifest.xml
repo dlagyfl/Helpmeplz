@@ -12,17 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpmeplz"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".MyGroup"
+            android:name=".AddFriend"
             android:exported="false" />
-        <activity android:name=".AddFriend" />
-        <activity android:name=".CheckFriend" />
-        <activity android:name=".FindFriend" />
+        <activity
+            android:name=".AddFriendComplete"
+            android:exported="false" />
+        <activity
+            android:name=".CheckFriend"
+            android:exported="false" />
+        <activity
+            android:name=".FindFriend"
+            android:exported="false" />
         <activity
             android:name=".CreateGroup"
             android:exported="false" />
         <activity
-            android:name=".GroupList"
+            android:name=".MyGroup"
             android:exported="false" />
         <activity
             android:name=".SearchID"
@@ -35,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".Log_in"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView_add_id"
+        android:id="@+id/textView_friend_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -16,15 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    https://recipes4dev.tistory.com/60-->
+<!--    https://dreamaz.tistory.com/154-->
+
     <ImageButton
         android:id="@+id/moreImageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:padding="0dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/more"/>
+        android:padding="0dp"
+        android:src="@drawable/more"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
 <!--        app:layout_constraintEnd_toEndOf="textView_add_id"-->
 <!--        app:layout_constraintHorizontal_bias="0.0"-->
 <!--        app:layout_constraintStart_toStartOf="textView_add_id"-->
@@ -36,20 +43,25 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="0dp"
-        app:srcCompat="@drawable/bell" />
+        app:srcCompat="@drawable/bell"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
 
     <Button
         android:id="@+id/button_next2"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Q"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="80dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="@+id/textView_friend_list"
+        app:layout_constraintTop_toBottomOf="@+id/textView_friend_list" />
 
     <TextView
         android:id="@+id/match_parent_textview"
