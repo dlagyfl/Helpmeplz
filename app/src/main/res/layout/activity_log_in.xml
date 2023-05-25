@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".Log_in">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LOGIN"
-        android:textColor="@color/black"
+        android:fontFamily="@font/강원교육튼튼"
+        android:textColor="@color/faded_yellow"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="LOG IN"
+        android:textColor="@color/white"
+        android:background="@color/yellow"
+        android:fontFamily="@font/강원교육튼튼"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="SIGN IN"
+        android:textColor="@color/white"
+        android:background="@color/yellow"
+        android:fontFamily="@font/강원교육튼튼"
         app:layout_constraintTop_toBottomOf="@+id/button_login"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -74,15 +82,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />
-
-    <Button
-        android:id="@+id/button_google_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
