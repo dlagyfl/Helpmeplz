@@ -3,35 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView_check_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="@color/faded_yellow"
-        android:fontFamily="@font/강원교육튼튼"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="137dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="137dp" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="184dp"
-        android:fontFamily="@font/강원교육튼튼"
         android:text="님과"
-        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="137dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="134dp" />
 
     <TextView
         android:id="@+id/textView8"
@@ -39,8 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="친구가 되었습니다!"
-        android:textColor="@color/white"
-        android:fontFamily="@font/강원교육튼튼"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.343"
@@ -53,8 +44,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="이제부터 친구와"
-        android:textColor="@color/pink"
-        android:fontFamily="@font/강원교육튼튼"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
@@ -69,8 +58,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="시간표를 공유해볼까요?"
-        android:textColor="@color/pink"
-        android:fontFamily="@font/강원교육튼튼"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
@@ -81,9 +68,7 @@
         android:id="@+id/button_next2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_color"
-        android:fontFamily="@font/강원교육튼튼"
-        android:text="NEXT"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="655dp" />
+        android:text="NEXT->"
+        tools:layout_editor_absoluteX="265dp"
+        tools:layout_editor_absoluteY="633dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
