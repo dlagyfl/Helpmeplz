@@ -8,6 +8,10 @@ android {
     compileSdk 33
 
     defaultConfig {
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
         applicationId "com.example.helpmeplz"
         minSdk 29
         targetSdk 33

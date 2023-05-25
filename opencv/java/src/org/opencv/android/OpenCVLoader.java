@@ -124,9 +124,9 @@ public class OpenCVLoader
      * @param Callback object, that implements LoaderCallbackInterface for handling the connection status.
      * @return Returns true if initialization of OpenCV is successful.
      */
-    public static boolean initAsync(String Version, Context AppContext,
-            LoaderCallbackInterface Callback)
-    {
-        return AsyncServiceHelper.initOpenCV(Version, AppContext, Callback);
-    }
+//    public static boolean initAsync(String Version, Context AppContext,
+//            LoaderCallbackInterface Callback)
+//    {
+//        return AsyncServiceHelper.initOpenCV(Version, AppContext, Callback);
+//    }
 }

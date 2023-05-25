@@ -136,6 +136,7 @@ android {
 
     sourceSets {
         main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
             jniLibs.srcDirs = ['native/libs']
             java.srcDirs = ['java/src']
             aidl.srcDirs = ['java/src']
