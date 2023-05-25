@@ -4,33 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CreateGroup extends AppCompatActivity {
 
     private EditText editTextGroupName;
     private Button buttonCreateGroup;
-    private DatabaseReference database;
+    private DatabaseReference reference;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -41,7 +38,7 @@ public class CreateGroup extends AppCompatActivity {
         editTextGroupName = findViewById(R.id.editTextGroupName);
         buttonCreateGroup = findViewById(R.id.buttonCreateGroup);
 
-        database = FirebaseDatabase.getInstance().getReference();
+        reference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
         buttonCreateGroup.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +65,12 @@ public class CreateGroup extends AppCompatActivity {
     }
 
     private void createGroup(GroupNameInfo group) {
+        //mDatabase.child("users").child(uid).child("name").setValue(name);
         String userId = firebaseAuth.getCurrentUser().getUid();
-        String groupId = database.child("groups").child("users").child(userId).push().getKey();
-        database.child("groups").child("users").child(userId).child(groupId).setValue(group)
+        String groupId = reference.child("groups").child("users").child(userId).push().getKey();
+        HashMap<String, Object> groupMap = new HashMap<>();
+        groupMap.put(groupId, group.getName());
+        reference.child("groups").child("users").child(userId).updateChildren(groupMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
