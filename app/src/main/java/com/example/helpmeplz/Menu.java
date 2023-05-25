@@ -2,10 +2,15 @@ package com.example.helpmeplz;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Menu extends AppCompatActivity {
 
@@ -17,6 +22,13 @@ public class Menu extends AppCompatActivity {
         Button button_MyFriend = findViewById(R.id.button_MyFriend);
         Button button_myGroup = findViewById(R.id.button_myGroup);
         Button button_myTable = findViewById(R.id.button_myTable);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!=null){
+            String uid=user.getUid();
+            Log.d("uid",uid);
+        }
+
 
         button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override

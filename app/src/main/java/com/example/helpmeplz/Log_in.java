@@ -32,6 +32,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Log_in extends AppCompatActivity {
 
@@ -44,12 +46,10 @@ public class Log_in extends AppCompatActivity {
 
     FirebaseAuth mAuth=null;
     private static final int RC_SIGN_IN = 9001;
-    private static final int REQ_ONE_TAP=2;
-    private boolean showOneTapUI=true;
-    private BeginSignInRequest signInRequest;
-    private SignInClient oneTapClient;
 
     GoogleSignInClient mGoogleSignInClient;
+    DatabaseReference mDatabase;
+
 
 
 
@@ -60,6 +60,7 @@ public class Log_in extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser user=firebaseAuth.getCurrentUser();
         mAuth=FirebaseAuth.getInstance();
+        mDatabase= FirebaseDatabase.getInstance().getReference();
 
         signup_btn = findViewById(R.id.button_sign_in);
         editText_email= findViewById(R.id.editText_email);
@@ -167,6 +168,9 @@ public class Log_in extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(Log_in.this,"구글 로그인 성공",Toast.LENGTH_SHORT).show();
+                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("name").setValue(account.getDisplayName());
+                            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("email").setValue(account.getEmail());
+
                             Intent intent = new Intent(getApplicationContext(),Menu.class);
                             intent.putExtra("UserName", account.getDisplayName());
                             intent.putExtra("PhotoUrl", account.getPhotoUrl());
@@ -255,7 +259,7 @@ public class Log_in extends AppCompatActivity {
                     }
                 });
     }*/
-
+/*
     private void updateUI(FirebaseUser user) {
         if(user!=null){
             Intent intent=new Intent(this,Menu.class);
@@ -265,7 +269,7 @@ public class Log_in extends AppCompatActivity {
         else{
             Toast.makeText(this,"로그인 실패",Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
 
     public void loginUser(String email, String password) {
