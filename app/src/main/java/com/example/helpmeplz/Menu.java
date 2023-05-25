@@ -37,7 +37,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(Menu.this, MyFriend.class);
                 startActivity(myIntent);
-                finish();
             }
         });
 
@@ -46,7 +45,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this, GroupList.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -55,7 +53,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this, UploadImage.class);
                 startActivity(intent);
-                finish();
             }
         });
 

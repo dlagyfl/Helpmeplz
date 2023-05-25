@@ -10,8 +10,10 @@
         android:id="@+id/textID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="아이디로 친구찾기"
-        android:textSize="25dp"
+        android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
@@ -35,9 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="88dp"
         android:text="검색"
         app:layout_constraintStart_toEndOf="@+id/editInput"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/editInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
