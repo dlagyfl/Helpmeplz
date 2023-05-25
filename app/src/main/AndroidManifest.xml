@@ -57,6 +57,11 @@
         <activity
             android:name=".UploadImage"
             android:exported="false" />
+
+        <activity
+            android:name=".FindNullTime"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -8,6 +8,10 @@ android {
     compileSdk 33
 
     defaultConfig {
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
         applicationId "com.example.helpmeplz"
         minSdk 29
         targetSdk 33
@@ -37,6 +41,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx:20.2.1'
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
     implementation 'com.google.firebase:firebase-storage:20.2.0'
+    implementation project(path: ':opencv')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
