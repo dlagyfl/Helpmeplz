@@ -2,9 +2,7 @@ package com.example.helpmeplz;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -14,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,11 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import org.opencv.android.OpenCVLoader;
-import org.opencv.android.Utils;
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -103,6 +95,7 @@ public class FindNullTime extends AppCompatActivity {
 
                     if (count == userUIDs.length) {
                         downloadImageUsingHttp();
+
                     }
 
                 }
@@ -147,67 +140,73 @@ public class FindNullTime extends AppCompatActivity {
         }).start();
     }
 
-private void processDownloadedImages() {
-    if (imageList.size() >= 2) {
+    private void processDownloadedImages() {
+        if (imageList.size() >= 2) {
 
-        Bitmap firstBitmap = imageList.get(0);
-        int width = firstBitmap.getWidth();
-        int height = firstBitmap.getHeight();
+            Bitmap firstBitmap = imageList.get(0);
+            int width = firstBitmap.getWidth();
+            int height = firstBitmap.getHeight();
 
-        Bitmap resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            Bitmap resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
-        int startY = 30;
-        int startX = 28;
+            int startY = 30;
+            int startX = 28;
 
-        List<int[]> whiteList = new ArrayList<>();
+            List<int[]> whiteList = new ArrayList<>();
 
-        for (int y = startY; y < height; y += 40) {
-            for (int x = startX; x < width && x < startX + (40 * 5); x += 40) {
-                int combinedRed = 0;
-                int combinedGreen = 0;
-                int combinedBlue = 0;
+            for (int y = startY; y < height; y += 40) {
+                for (int x = startX; x < width && x < startX + (40 * 5); x += 40) {
+                    int red = 0;
+                    int green = 0;
+                    int blue = 0;
 
-                for (Bitmap bitmap : imageList) {
-                    int pixel = bitmap.getPixel(x, y);
+                    for (Bitmap bitmap : imageList) {
+                        int pixel = bitmap.getPixel(x, y);
 
-                    int red = Color.red(pixel);
-                    int green = Color.green(pixel);
-                    int blue = Color.blue(pixel);
+                        int add_red = Color.red(pixel);
+                        int add_green = Color.green(pixel);
+                        int add_blue = Color.blue(pixel);
 
-                    combinedRed += red;
-                    combinedGreen += green;
-                    combinedBlue += blue;
+                        red += add_red;
+                        green += add_green;
+                        blue += add_blue;
+                    }
+
+                    int numImages = imageList.size();
+                    red /= numImages;
+                    green /= numImages;
+                    blue /= numImages;
+
+                    if (red >= 0 && red <= 31 && green >= 0 && green <= 31 && blue >= 0 && blue <= 31) {
+                        red = 255;
+                        green = 255;
+                        blue = 255;
+                    }
+
+                    if (red == 255 && green == 255 && blue == 255) {
+                        int[] coordinates = {x, y};
+                        whiteList.add(coordinates);
+                    }
+
+                    int combinedPixel = Color.rgb(red, green, blue);
+                    resultBitmap.setPixel(x, y, combinedPixel);
                 }
+            }
+            startinput(whiteList);
 
-                int numImages = imageList.size();
-                combinedRed /= numImages;
-                combinedGreen /= numImages;
-                combinedBlue /= numImages;
+                for (int[] coordinates : whiteList) {
+                    int x = coordinates[0];
+                    int y = coordinates[1];
 
-                if (combinedRed >= 0 && combinedRed <= 31 && combinedGreen >= 0 && combinedGreen <= 31 && combinedBlue >= 0 && combinedBlue <= 31) {
-                        combinedRed = 255;
-                        combinedGreen = 255;
-                        combinedBlue = 255;
+                    Log.d("White Pixel", "x: " + x + ", y: " + y);
                 }
-
-                if (combinedRed == 255 && combinedGreen == 255 && combinedBlue == 255) {
-                    int[] coordinates = {x, y};
-                    whiteList.add(coordinates);
-                }
-
-                int combinedPixel = Color.rgb(combinedRed, combinedGreen, combinedBlue);
-                resultBitmap.setPixel(x, y, combinedPixel);
             }
         }
 
+    private void startinput(List<int[]> whiteList) {
+//        int x = whiteList.get(0)[0];
+//        tt.setText(String.valueOf(x));
 
-            for (int[] coordinates : whiteList) {
-                int x = coordinates[0];
-                int y = coordinates[1];
-
-                Log.d("White Pixel", "x: " + x + ", y: " + y);
-            }
-        }
     }
 
 
