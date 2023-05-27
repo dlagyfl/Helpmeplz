@@ -186,6 +186,9 @@ public class UploadImage extends AppCompatActivity {
             adjustedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
 
+            String filepath = "timetable/";
+//            System.currentTimeMillis()
+//            StorageReference fileRef = reference.child(filepath + System.currentTimeMillis() + "." + getFileExtension(uri));
             StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             UploadTask uploadTask = fileRef.putBytes(data);
 
