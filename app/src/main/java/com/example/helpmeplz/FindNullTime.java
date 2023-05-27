@@ -29,9 +29,7 @@ import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
-import org.opencv.core.Size;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -48,7 +46,7 @@ public class FindNullTime extends AppCompatActivity {
     private ImageView imageView4;
     private ImageView imageView5;
 
-    private List<Mat> matList;
+    private ArrayList<Mat> matList;
     private List<String> imageNames;
     private List<Bitmap> imageList;
     private StorageReference storageReference;
@@ -155,49 +153,60 @@ public class FindNullTime extends AppCompatActivity {
 
     private void processDownloadedImages() {
         // 이미지 처리 작업을 수행하거나 이미지를 화면에 표시하는 코드 작성
+        for(Bitmap bitmap : imageList) {
+            Mat mat = new Mat();
+            Utils.bitmapToMat(bitmap, mat);
+            matList.add(mat);
+        }
+        Mat result = combineImages(matList);
+        Bitmap test = Bitmap.createBitmap(result.cols(), result.rows(), Bitmap.Config.ARGB_8888);
 
-        // 이미지를 조합하여 하나의 이미지로 만듭니다.
-        Bitmap combinationBitmap = combineImages(imageList);
-
-        // OpenCV를 사용하여 이미지 처리 작업을 수행합니다.
-        Mat combinationMat = new Mat();
-        Utils.bitmapToMat(combinationBitmap, combinationMat);
-
-        // 색상 범위에 따라 이미지를 이진화합니다.
-        Mat dst = new Mat();
-        Core.inRange(combinationMat, new Scalar(0, 0, 0), new Scalar(31, 31, 31), dst);
-
-        // 이진화된 이미지를 원본 이미지에 적용합니다.
-        Mat result = new Mat();
-        Core.bitwise_and(combinationMat, combinationMat, result, dst);
-
-        // 특정 색상으로 변경합니다.
-        double[] color = { (byte)255, (byte)255, (byte)255 };  // 색상 설정 (여기서는 흰색)
-        Mat maskedResult = new Mat();
-        Core.copyTo(result, maskedResult, dst);
-        maskedResult.setTo(new Scalar(color));
-
-        // 처리된 이미지를 화면에 표시합니다.
-        Bitmap processedBitmap = Bitmap.createBitmap(maskedResult.cols(), maskedResult.rows(), Bitmap.Config.ARGB_8888);
-        Utils.matToBitmap(maskedResult, processedBitmap);
-        tt.setText("1");
-        imageView1.setImageBitmap(processedBitmap);
+        Utils.matToBitmap(result, test);
+        imageView1.setImageBitmap(test);
     }
 
-    private Bitmap combineImages(List<Bitmap> images) {
-        // 이미지를 조합하여 하나의 이미지로 만듭니다.
-        int width = images.get(0).getWidth();
-        int height = images.get(0).getHeight();
-        Bitmap combinationBitmap = Bitmap.createBitmap(width * images.size(), height, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(combinationBitmap);
+    private Mat combineImages(ArrayList<Mat> images) {
+        int rows = images.get(0).rows();
+        int cols = images.get(0).cols();
+        Mat combinationImg = new Mat(rows, cols, CvType.CV_8UC3, new Scalar(0, 0, 0));
 
-        for (int i = 0; i < images.size(); i++) {
-            Bitmap image = images.get(i);
-            canvas.drawBitmap(image, width * i, 0, null);
+        for (Mat image : images) {
+            for (int row = 0; row < rows; row++) {
+                for (int col = 0; col < cols; col++) {
+                    double[] pixel = image.get(row, col);
+                    double[] combinedPixel = combinationImg.get(row, col);
+
+                    for (int channel = 0; channel < 3; channel++) {
+                        combinedPixel[channel] += pixel[channel];
+                    }
+
+                    combinationImg.put(row, col, combinedPixel);
+                }
+            }
         }
 
-        return combinationBitmap;
+        return combinationImg;
     }
+
+
+
+
+
+
+//    private Bitmap combineImages(List<Bitmap> images) {
+//        // 이미지를 조합하여 하나의 이미지로 만듭니다.
+//        int width = images.get(0).getWidth();
+//        int height = images.get(0).getHeight();
+//        Bitmap combinationBitmap = Bitmap.createBitmap(width * images.size(), height, Bitmap.Config.ARGB_8888);
+//        Canvas canvas = new Canvas(combinationBitmap);
+//
+//        for (int i = 0; i < images.size(); i++) {
+//            Bitmap image = images.get(i);
+//            canvas.drawBitmap(image, width * i, 0, null);
+//        }
+//
+//        return combinationBitmap;
+//    }
 
 
 
@@ -263,26 +272,26 @@ public class FindNullTime extends AppCompatActivity {
 //            }
 //        });
 //    }
-    private void downloadImagesAndProcess() {
-        String imageUrl = imageNames.get(1); // 이미지 URL 가져오기
-
-        // Firebase Storage에서 이미지 다운로드
-        storageRef.child(imageUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                // 이미지 다운로드 URL을 가져옴
-                String downloadUrl = uri.toString();
-
-                // 다운로드 URL을 사용하여 이미지에 접근 또는 처리
-                // 예: 이미지 라이브러리로 이미지 표시, 이미지 처리 작업 등
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                // 이미지 다운로드 실패 시 처리할 내용
-            }
-        });
-    }
+//    private void downloadImagesAndProcess() {
+//        String imageUrl = imageNames.get(1); // 이미지 URL 가져오기
+//
+//        // Firebase Storage에서 이미지 다운로드
+//        storageRef.child(imageUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//            @Override
+//            public void onSuccess(Uri uri) {
+//                // 이미지 다운로드 URL을 가져옴
+//                String downloadUrl = uri.toString();
+//
+//                // 다운로드 URL을 사용하여 이미지에 접근 또는 처리
+//                // 예: 이미지 라이브러리로 이미지 표시, 이미지 처리 작업 등
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                // 이미지 다운로드 실패 시 처리할 내용
+//            }
+//        });
+//    }
 
 
 
