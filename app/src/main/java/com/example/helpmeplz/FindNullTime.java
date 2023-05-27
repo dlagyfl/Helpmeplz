@@ -3,6 +3,7 @@ package com.example.helpmeplz;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,7 +57,7 @@ public class FindNullTime extends AppCompatActivity {
     private int count = 0;
     static {
         if (!OpenCVLoader.initDebug()) {
-            // Handle initialization error
+
         }
     }
     @Override
@@ -80,14 +81,13 @@ public class FindNullTime extends AppCompatActivity {
         storageRef = storage.getReference();
 
         storageRef = storage.getReference();
-//        storageReference = storageRef; // 추가
 
         String[] userUIDs = {
-                "17rFTMDlLZdg6Xi35jCedwGkJJo1",
-                "Cs1ME2O8oGO7iYbuqkZ2iBhYvCQ2",
-                "gDdb8J1V40TdaUit6Axic5hWwmw2",
-                "QPyoQ5NRcVTMZ5Iu9JdwMJKrOUj2",
-                "IQSCh7QI4pUbxGfWKgFkuoAyiyp1"
+                "dtKDwAFCL7aaH9vxVDYWczJWP653",
+                "Nt5bUeuLnOQaD0znKgzxOnfTwI82",
+                "5MWGzBocbGcKo6ZhWvgfWXRIh4k2",
+                "lIpFaKbm8eT01O9bVKo1OApxwmw2",
+                "96iFIzWGJ7ZUXGEfQcn6pCWADkj1"
         };
 
         for (String uid : userUIDs) {
@@ -102,8 +102,6 @@ public class FindNullTime extends AppCompatActivity {
                     count++;
 
                     if (count == userUIDs.length) {
-//                        tt.setText(imageNames.get(1));
-//                        downloadImagesAndProcess();
                         downloadImageUsingHttp();
                     }
 
@@ -139,7 +137,6 @@ public class FindNullTime extends AppCompatActivity {
                     }
                 }
 
-                // 이미지 다운로드가 완료되면 처리할 작업 수행
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -150,152 +147,68 @@ public class FindNullTime extends AppCompatActivity {
         }).start();
     }
 
+private void processDownloadedImages() {
+    if (imageList.size() >= 2) {
 
-    private void processDownloadedImages() {
-        // 이미지 처리 작업을 수행하거나 이미지를 화면에 표시하는 코드 작성
-        for(Bitmap bitmap : imageList) {
-            Mat mat = new Mat();
-            Utils.bitmapToMat(bitmap, mat);
-            matList.add(mat);
-        }
-        Mat result = combineImages(matList);
-        Bitmap test = Bitmap.createBitmap(result.cols(), result.rows(), Bitmap.Config.ARGB_8888);
+        Bitmap firstBitmap = imageList.get(0);
+        int width = firstBitmap.getWidth();
+        int height = firstBitmap.getHeight();
 
-        Utils.matToBitmap(result, test);
-        imageView1.setImageBitmap(test);
-    }
+        Bitmap resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
-    private Mat combineImages(ArrayList<Mat> images) {
-        int rows = images.get(0).rows();
-        int cols = images.get(0).cols();
-        Mat combinationImg = new Mat(rows, cols, CvType.CV_8UC3, new Scalar(0, 0, 0));
+        int startY = 30;
+        int startX = 28;
 
-        for (Mat image : images) {
-            for (int row = 0; row < rows; row++) {
-                for (int col = 0; col < cols; col++) {
-                    double[] pixel = image.get(row, col);
-                    double[] combinedPixel = combinationImg.get(row, col);
+        List<int[]> whiteList = new ArrayList<>();
 
-                    for (int channel = 0; channel < 3; channel++) {
-                        combinedPixel[channel] += pixel[channel];
-                    }
+        for (int y = startY; y < height; y += 40) {
+            for (int x = startX; x < width && x < startX + (40 * 5); x += 40) {
+                int combinedRed = 0;
+                int combinedGreen = 0;
+                int combinedBlue = 0;
 
-                    combinationImg.put(row, col, combinedPixel);
+                for (Bitmap bitmap : imageList) {
+                    int pixel = bitmap.getPixel(x, y);
+
+                    int red = Color.red(pixel);
+                    int green = Color.green(pixel);
+                    int blue = Color.blue(pixel);
+
+                    combinedRed += red;
+                    combinedGreen += green;
+                    combinedBlue += blue;
                 }
+
+                int numImages = imageList.size();
+                combinedRed /= numImages;
+                combinedGreen /= numImages;
+                combinedBlue /= numImages;
+
+                if (combinedRed >= 0 && combinedRed <= 31 && combinedGreen >= 0 && combinedGreen <= 31 && combinedBlue >= 0 && combinedBlue <= 31) {
+                        combinedRed = 255;
+                        combinedGreen = 255;
+                        combinedBlue = 255;
+                }
+
+                if (combinedRed == 255 && combinedGreen == 255 && combinedBlue == 255) {
+                    int[] coordinates = {x, y};
+                    whiteList.add(coordinates);
+                }
+
+                int combinedPixel = Color.rgb(combinedRed, combinedGreen, combinedBlue);
+                resultBitmap.setPixel(x, y, combinedPixel);
             }
         }
 
-        return combinationImg;
+
+            for (int[] coordinates : whiteList) {
+                int x = coordinates[0];
+                int y = coordinates[1];
+
+                Log.d("White Pixel", "x: " + x + ", y: " + y);
+            }
+        }
     }
 
 
-
-
-
-
-//    private Bitmap combineImages(List<Bitmap> images) {
-//        // 이미지를 조합하여 하나의 이미지로 만듭니다.
-//        int width = images.get(0).getWidth();
-//        int height = images.get(0).getHeight();
-//        Bitmap combinationBitmap = Bitmap.createBitmap(width * images.size(), height, Bitmap.Config.ARGB_8888);
-//        Canvas canvas = new Canvas(combinationBitmap);
-//
-//        for (int i = 0; i < images.size(); i++) {
-//            Bitmap image = images.get(i);
-//            canvas.drawBitmap(image, width * i, 0, null);
-//        }
-//
-//        return combinationBitmap;
-//    }
-
-
-
-    //    private void downloadImagesAndProcess1() {
-//            String imageName = imageNames.get(1);
-////        for (String imageName : imageNames) {
-//            StorageReference imageRef = storageRef.child(imageName);
-//            final long MAX_IMAGE_SIZE = 1024 * 1024;
-//
-//            imageRef.getBytes(MAX_IMAGE_SIZE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//                @Override
-//                public void onSuccess(byte[] bytes) {
-//                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//                    imageView1.setImageBitmap(bitmap);
-//
-//                    // Resize the bitmap if needed
-//                    // Example: Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, false);
-//
-////                    Mat mat = new Mat(bitmap.getHeight(), bitmap.getWidth(), CvType.CV_8UC4);
-////                    Utils.bitmapToMat(bitmap, mat);
-////                    matList.add(mat);
-////
-////                    if (matList.size() == imageNames.size()) {
-////                        // Combine the images
-////                        Mat resultMat = new Mat();
-////                        Core.add(matList.get(0), matList.get(1), resultMat);
-////                        for (int i = 2; i < matList.size(); i++) {
-////                            Core.add(resultMat, matList.get(i), resultMat);
-////                        }
-////
-////                        // Convert the result to Bitmap
-////                        Bitmap resultBitmap = Bitmap.createBitmap(resultMat.cols(), resultMat.rows(), Bitmap.Config.ARGB_8888);
-////                        Utils.matToBitmap(resultMat, resultBitmap);
-////
-////                        // Display the result in the ImageView
-////                        imageView1.setImageBitmap(resultBitmap);
-//                    }
-//
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception exception) {
-//                    // Handle failure
-//                }
-//            });
-//        }
-//    private void downloadImagesAndProcess() {
-//        String imageUrl = imageNames.get(1); // 이미지 URL 가져오기
-//
-//        // Firebase Storage에서 이미지 다운로드
-//        storageRef.child(imageUrl).getBytes(1000000000).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//            @Override
-//            public void onSuccess(byte[] bytes) {
-//                // 다운로드한 이미지 바이트 배열을 Bitmap으로 변환
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//
-//                // ImageView에 Bitmap 표시
-//                imageView1.setImageBitmap(bitmap);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                // 이미지 다운로드 실패 시 처리할 내용
-//            }
-//        });
-//    }
-//    private void downloadImagesAndProcess() {
-//        String imageUrl = imageNames.get(1); // 이미지 URL 가져오기
-//
-//        // Firebase Storage에서 이미지 다운로드
-//        storageRef.child(imageUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                // 이미지 다운로드 URL을 가져옴
-//                String downloadUrl = uri.toString();
-//
-//                // 다운로드 URL을 사용하여 이미지에 접근 또는 처리
-//                // 예: 이미지 라이브러리로 이미지 표시, 이미지 처리 작업 등
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                // 이미지 다운로드 실패 시 처리할 내용
-//            }
-//        });
-//    }
-
-
-
-
 }
-
-
