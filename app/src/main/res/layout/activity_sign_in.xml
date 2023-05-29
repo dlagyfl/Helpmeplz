@@ -11,13 +11,13 @@
         android:id="@+id/textView"
         android:layout_width="266dp"
         android:layout_height="31dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/강원교육튼튼"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/suit_bold"
         android:text="회원가입"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.641"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,22 +25,23 @@
         android:id="@+id/linearLayoutname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/suit_bold"
             android:text="본인이름"
             android:textColor="@color/faded_yellow"
-            android:fontFamily="@font/강원교육튼튼"
-            android:textSize="15dp"/>
+            android:textSize="15dp" />
 
         <EditText
             android:id="@+id/editText_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/suit_bold"
             android:hint="name" />
 
     </LinearLayout>
@@ -57,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ID"
-            android:fontFamily="@font/강원교육튼튼"
+            android:fontFamily="@font/suit_bold"
             android:textColor="@color/faded_yellow"
             android:textSize="15dp"/>
 
@@ -65,6 +66,7 @@
             android:id="@+id/editText_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/suit_bold"
             android:hint="id" />
     </LinearLayout>
 
@@ -80,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PASSWORD"
-            android:fontFamily="@font/강원교육튼튼"
+            android:fontFamily="@font/suit_bold"
             android:textColor="@color/faded_yellow"
             android:textSize="15dp"/>
 
@@ -89,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:fontFamily="@font/suit_bold"
             android:hint="password" />
     </LinearLayout>
 
@@ -104,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PASSWORD CONFIRM"
-            android:fontFamily="@font/강원교육튼튼"
+            android:fontFamily="@font/suit_bold"
             android:textColor="@color/faded_yellow"
             android:textSize="15dp"/>
 
@@ -113,6 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:fontFamily="@font/suit_bold"
             android:hint="password confrim" />
     </LinearLayout>
 
@@ -122,12 +126,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="가입하기"
-        android:fontFamily="@font/강원교육튼튼"
-        android:background="@drawable/button_color"
+        android:fontFamily="@font/suit_bold"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        android:background="@drawable/button_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutpwcf" />
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="72dp"
+        android:layout_height="69dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024"
+        app:srcCompat="@drawable/null_string_pink" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

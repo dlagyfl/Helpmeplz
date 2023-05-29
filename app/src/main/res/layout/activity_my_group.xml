@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyGroup">
+    tools:context=".MyGroup"
+    android:background="@drawable/background_colorful">
 
     <!--<Button
         android:layout_width="wrap_content"
@@ -28,7 +29,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="그룹명"
-        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/suit_bold"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -38,23 +41,25 @@
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/button_color"
         android:src="@drawable/baseline_more_vert_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
         android:layout_gravity="center"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="332dp"
+        android:background="@drawable/button_shadow"
+        android:fontFamily="@font/suit_bold"
         android:text="공강 시간 찾기"
-        android:textSize="20dp"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
     <ListView
         android:id="@+id/listView_member"

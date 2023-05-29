@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UploadImage">
+    tools:context=".UploadImage"
+    android:background="@drawable/background_colorful">
 
     <ImageView
         android:id="@+id/image_view"
@@ -32,24 +33,29 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload_btn"
-        android:layout_width="172dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginStart="208dp"
+        android:background="@drawable/button_shadow"
+        android:fontFamily="@font/suit_bold"
         android:text="UPLOAD"
-        android:textSize="20sp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view"
-        app:layout_constraintVertical_bias="0.687"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.366"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/suit_medium"
         android:text="내 시간표 몇시까지인지 : "
+        android:textColor="@color/dark_gray"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
@@ -59,22 +65,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:hint="입력"
+        android:fontFamily="@font/suit_medium"
         android:textSize="24sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/upload_btn"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/upload_back"
-        android:layout_width="149dp"
-        android:layout_height="62dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/button_shadow"
+        android:fontFamily="@font/suit_bold"
         android:text="뒤로가기"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/upload_btn"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.676"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
