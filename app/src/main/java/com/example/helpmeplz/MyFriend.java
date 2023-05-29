@@ -29,6 +29,7 @@ import java.util.List;
 public class MyFriend extends AppCompatActivity {
     private ListView listViewFriend;
     private ArrayAdapter<String> groupListAdapter;
+    boolean move;
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
 
@@ -48,9 +49,41 @@ public class MyFriend extends AppCompatActivity {
         button_bellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
-                startActivity(myIntent);
-                finish();
+                database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        move = dataSnapshot.exists();
+                        Log.d("MainActivity", "onClick - onDataChange : " + dataSnapshot.exists());
+//                        if(dataSnapshot.exists()) {
+//                            Log.d("MainActivity", "onClick - onDataChange : " + "true");
+//                            Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
+//                            startActivity(myIntent);
+//                            finish();
+//                        }
+//                        else {
+//                            Log.d("MainActivity", "onClick - onDataChange : " + "false");
+//                            Intent myIntent = new Intent(MyFriend.this, NoFriendRequest.class);
+//                            startActivity(myIntent);
+//                            finish();
+//                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                    }
+                });
+                if(move) {
+                    Log.d("MainActivity", "onClick - onDataChange : " + "true");
+                    Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
+                    startActivity(myIntent);
+                    finish();
+                }
+                else {
+                    Log.d("MainActivity", "onClick - onDataChange : " + "false");
+                    Intent myIntent = new Intent(MyFriend.this, NoFriendRequest.class);
+                    startActivity(myIntent);
+                    finish();
+                }
             }
         });
 
@@ -70,43 +103,6 @@ public class MyFriend extends AppCompatActivity {
     }
 
     private void getGroups() {
-        //String userId = firebaseAuth.getCurrentUser().getUid(); //groupid로 해야 하는 것이 아닌가? group별로 고유 id가 있는 것으로 이해함.
-
-//        database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendlist").addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
-//                List<String> groupList = new ArrayList<>();
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    GroupNameInfo group = snapshot.getValue(GroupNameInfo.class);
-//                    String groupName = group.getName();
-//                    groupList.add(groupName);
-//                }
-//                groupListAdapter.clear();
-//                groupListAdapter.addAll(groupList);
-//                groupListAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.e("Firebase", "Error fetching groups: " + error.getMessage());
-//            }
-//        });
-
         database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendlist").addValueEventListener(new ValueEventListener() {
 
 //        database.child("users").addValueEventListener(new ValueEventListener() {
@@ -116,6 +112,7 @@ public class MyFriend extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     GroupNameInfo group = snapshot.getValue(GroupNameInfo.class);
                     String groupName = group.getName();
+//                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + groupName);
                     groupList.add(groupName);
                 }
                 groupListAdapter.clear();

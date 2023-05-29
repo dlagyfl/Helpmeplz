@@ -3,7 +3,7 @@
 3    package="com.example.helpmeplz" >
 4
 5    <uses-sdk android:minSdkVersion="29" />
-5-->C:\Users\USER\AndroidStudioProjects\Helpmeplz\opencv\java\AndroidManifest.xml
+5-->C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
 6
 7</manifest> <!-- package="org.opencv" > -->
 8<!-- </manifest> -->
