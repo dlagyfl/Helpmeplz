@@ -291,37 +291,41 @@ public class FindNullTime extends AppCompatActivity {
 
     private void startinput(List<int[]> whiteList) {
 
+        int color = Color.parseColor("#FCEF85");
+
         for (int[] point : whiteList) {
             int x = point[0];
             int y = point[1];
 
+
+
             //1교시
             if (x == 28 && y == 30) {
                 TextView mon1 = (TextView) findViewById(R.id.monday1);
-                monday1.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday1.setBackgroundColor(color);
                 mon1.setTextColor(Color.TRANSPARENT);
 
             } else if (x == 68 && y == 30) {
                 TextView tue1 = (TextView) findViewById(R.id.tuesday1);
-                tuesday1.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday1.setBackgroundColor(color);
                 tue1.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 30) {
                 TextView wed1 = (TextView) findViewById(R.id.wednesday1);
-                wednesday1.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday1.setBackgroundColor(color);
                 wed1.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 30) {
                 TextView thu1 = (TextView) findViewById(R.id.thursday1);
-                thursday1.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday1.setBackgroundColor(color);
                 thu1.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 30) {
                 TextView fri1 = (TextView) findViewById(R.id.friday1);
-                friday1.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday1.setBackgroundColor(color);
                 fri1.setTextColor(Color.TRANSPARENT);
 
 
@@ -330,31 +334,31 @@ public class FindNullTime extends AppCompatActivity {
             //2교시
             else if (x == 28 && y == 70) {
                 TextView mon2 = (TextView) findViewById(R.id.monday2);
-                monday2.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday2.setBackgroundColor(color);
                 mon2.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 70) {
                 TextView tue2 = (TextView) findViewById(R.id.tuesday2);
-                tuesday2.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday2.setBackgroundColor(color);
                 tue2.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 70) {
                 TextView wed2 = (TextView) findViewById(R.id.wednesday2);
-                wednesday2.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday2.setBackgroundColor(color);
                 wed2.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 70) {
                 TextView thu2 = (TextView) findViewById(R.id.thursday2);
-                thursday2.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday2.setBackgroundColor(color);
                 thu2.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 70) {
                 TextView fri2 = (TextView) findViewById(R.id.friday2);
-                friday2.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday2.setBackgroundColor(color);
                 fri2.setTextColor(Color.TRANSPARENT);
             }
 
@@ -362,31 +366,31 @@ public class FindNullTime extends AppCompatActivity {
             //3교시
             else if (x == 28 && y == 110) {
                 TextView mon3 = (TextView) findViewById(R.id.monday3);
-                monday3.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday3.setBackgroundColor(color);
                 mon3.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 110) {
                 TextView tue3 = (TextView) findViewById(R.id.tuesday3);
-                tuesday3.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday3.setBackgroundColor(color);
                 tue3.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 110) {
                 TextView wed3 = (TextView) findViewById(R.id.wednesday3);
-                wednesday3.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday3.setBackgroundColor(color);
                 wed3.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 110) {
                 TextView thu3 = (TextView) findViewById(R.id.thursday3);
-                thursday3.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday3.setBackgroundColor(color);
                 thu3.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 110) {
                 TextView fri3 = (TextView) findViewById(R.id.friday3);
-                friday3.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday3.setBackgroundColor(color);
                 fri3.setTextColor(Color.TRANSPARENT);
             }
 
@@ -395,31 +399,31 @@ public class FindNullTime extends AppCompatActivity {
             //4교시
             else if (x == 28 && y == 150) {
                 TextView mon4 = (TextView) findViewById(R.id.monday4);
-                monday4.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday4.setBackgroundColor(color);
                 mon4.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 150) {
                 TextView tue4 = (TextView) findViewById(R.id.tuesday4);
-                tuesday4.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday4.setBackgroundColor(color);
                 tue4.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 150) {
                 TextView wed4 = (TextView) findViewById(R.id.wednesday4);
-                wednesday4.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday4.setBackgroundColor(color);
                 wed4.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 150) {
                 TextView thu4 = (TextView) findViewById(R.id.thursday4);
-                thursday4.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday4.setBackgroundColor(color);
                 thu4.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 150) {
                 TextView fri4 = (TextView) findViewById(R.id.friday4);
-                friday4.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday4.setBackgroundColor(color);
                 fri4.setTextColor(Color.TRANSPARENT);
             }
 
@@ -427,31 +431,31 @@ public class FindNullTime extends AppCompatActivity {
             //5교시
             else if (x == 28 && y == 190) {
                 TextView mon5 = (TextView) findViewById(R.id.monday5);
-                monday5.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday5.setBackgroundColor(color);
                 mon5.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 190) {
                 TextView tue5 = (TextView) findViewById(R.id.tuesday5);
-                tuesday5.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday5.setBackgroundColor(color);
                 tue5.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 190) {
                 TextView wed5 = (TextView) findViewById(R.id.wednesday5);
-                wednesday5.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday5.setBackgroundColor(color);
                 wed5.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 190) {
                 TextView thu5 = (TextView) findViewById(R.id.thursday5);
-                thursday5.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday5.setBackgroundColor(color);
                 thu5.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 190) {
                 TextView fri5 = (TextView) findViewById(R.id.friday5);
-                friday5.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday5.setBackgroundColor(color);
                 fri5.setTextColor(Color.TRANSPARENT);
             }
 
@@ -459,31 +463,31 @@ public class FindNullTime extends AppCompatActivity {
             //6교시
             else if (x == 28 && y == 230) {
                 TextView mon6 = (TextView) findViewById(R.id.monday6);
-                monday6.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday6.setBackgroundColor(color);
                 mon6.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 230) {
                 TextView tue6 = (TextView) findViewById(R.id.tuesday6);
-                tuesday6.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday6.setBackgroundColor(color);
                 tue6.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 230) {
                 TextView wed6 = (TextView) findViewById(R.id.wednesday6);
-                wednesday6.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday6.setBackgroundColor(color);
                 wed6.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 230) {
                 TextView thu6 = (TextView) findViewById(R.id.thursday6);
-                thursday6.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday6.setBackgroundColor(color);
                 thu6.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 230) {
                 TextView fri6 = (TextView) findViewById(R.id.friday6);
-                friday6.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday6.setBackgroundColor(color);
                 fri6.setTextColor(Color.TRANSPARENT);
             }
 
@@ -491,31 +495,31 @@ public class FindNullTime extends AppCompatActivity {
             //7교시
             else if (x == 28 && y == 270) {
                 TextView mon7 = (TextView) findViewById(R.id.monday7);
-                monday7.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday7.setBackgroundColor(color);
                 mon7.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 270) {
                 TextView tue7 = (TextView) findViewById(R.id.tuesday7);
-                tuesday7.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday7.setBackgroundColor(color);
                 tue7.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 270) {
                 TextView wed7 = (TextView) findViewById(R.id.wednesday7);
-                wednesday7.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday7.setBackgroundColor(color);
                 wed7.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 270) {
                 TextView thu7 = (TextView) findViewById(R.id.thursday7);
-                thursday7.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday7.setBackgroundColor(color);
                 thu7.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 270) {
                 TextView fri7 = (TextView) findViewById(R.id.friday7);
-                friday7.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday7.setBackgroundColor(color);
                 fri7.setTextColor(Color.TRANSPARENT);
             }
 
@@ -523,31 +527,31 @@ public class FindNullTime extends AppCompatActivity {
             //8교시
             else if (x == 28 && y == 310) {
                 TextView mon8 = (TextView) findViewById(R.id.monday8);
-                monday8.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday8.setBackgroundColor(color);
                 mon8.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 310) {
                 TextView tue8 = (TextView) findViewById(R.id.tuesday8);
-                tuesday8.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday8.setBackgroundColor(color);
                 tue8.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 310) {
                 TextView wed8 = (TextView) findViewById(R.id.wednesday8);
-                wednesday8.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday8.setBackgroundColor(color);
                 wed8.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 310) {
                 TextView thu8 = (TextView) findViewById(R.id.thursday8);
-                thursday8.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday8.setBackgroundColor(color);
                 thu8.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 310) {
                 TextView fri8 = (TextView) findViewById(R.id.friday8);
-                friday8.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday8.setBackgroundColor(color);
                 fri8.setTextColor(Color.TRANSPARENT);
             }
 
@@ -555,31 +559,31 @@ public class FindNullTime extends AppCompatActivity {
             //9교시
             else if (x == 28 && y == 350) {
                 TextView mon9 = (TextView) findViewById(R.id.monday9);
-                monday9.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday9.setBackgroundColor(color);
                 mon9.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 350) {
                 TextView tue9 = (TextView) findViewById(R.id.tuesday9);
-                tuesday9.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday9.setBackgroundColor(color);
                 tue9.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 350) {
                 TextView wed9 = (TextView) findViewById(R.id.wednesday9);
-                wednesday9.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday9.setBackgroundColor(color);
                 wed9.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 350) {
                 TextView thu9 = (TextView) findViewById(R.id.thursday9);
-                thursday9.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday9.setBackgroundColor(color);
                 thu9.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 350) {
                 TextView fri9 = (TextView) findViewById(R.id.friday9);
-                friday9.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday9.setBackgroundColor(color);
                 fri9.setTextColor(Color.TRANSPARENT);
             }
 
@@ -587,31 +591,31 @@ public class FindNullTime extends AppCompatActivity {
             //10교시
             else if (x == 28 && y == 390) {
                 TextView mon10 = (TextView) findViewById(R.id.monday10);
-                monday10.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday10.setBackgroundColor(color);
                 mon10.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 390) {
                 TextView tue10 = (TextView) findViewById(R.id.tuesday10);
-                tuesday10.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday10.setBackgroundColor(color);
                 tue10.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 390) {
                 TextView wed10 = (TextView) findViewById(R.id.wednesday10);
-                wednesday10.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday10.setBackgroundColor(color);
                 wed10.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 390) {
                 TextView thu10 = (TextView) findViewById(R.id.thursday10);
-                thursday10.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday10.setBackgroundColor(color);
                 thu10.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 390) {
                 TextView fri10 = (TextView) findViewById(R.id.friday10);
-                friday10.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday10.setBackgroundColor(color);
                 fri10.setTextColor(Color.TRANSPARENT);
             }
 
@@ -619,31 +623,31 @@ public class FindNullTime extends AppCompatActivity {
             //11교시
             else if (x == 28 && y == 430) {
                 TextView mon11 = (TextView) findViewById(R.id.monday11);
-                monday11.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday11.setBackgroundColor(color);
                 mon11.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 430) {
                 TextView tue11 = (TextView) findViewById(R.id.tuesday11);
-                tuesday11.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday11.setBackgroundColor(color);
                 tue11.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 430) {
                 TextView wed11 = (TextView) findViewById(R.id.wednesday11);
-                wednesday11.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday11.setBackgroundColor(color);
                 wed11.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 430) {
                 TextView thu11 = (TextView) findViewById(R.id.thursday11);
-                thursday11.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday11.setBackgroundColor(color);
                 thu11.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 430) {
                 TextView fri11 = (TextView) findViewById(R.id.friday11);
-                friday11.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday11.setBackgroundColor(color);
                 fri11.setTextColor(Color.TRANSPARENT);
             }
 
@@ -651,31 +655,31 @@ public class FindNullTime extends AppCompatActivity {
             //12교시
             else if (x == 28 && y == 470) {
                 TextView mon12 = (TextView) findViewById(R.id.monday12);
-                monday12.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday12.setBackgroundColor(color);
                 mon12.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 470) {
                 TextView tue12 = (TextView) findViewById(R.id.tuesday12);
-                tuesday12.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday12.setBackgroundColor(color);
                 tue12.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 470) {
                 TextView wed12 = (TextView) findViewById(R.id.wednesday12);
-                wednesday12.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday12.setBackgroundColor(color);
                 wed12.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 470) {
                 TextView thu12 = (TextView) findViewById(R.id.thursday12);
-                thursday12.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday12.setBackgroundColor(color);
                 thu12.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 470) {
                 TextView fri12 = (TextView) findViewById(R.id.friday12);
-                friday12.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday12.setBackgroundColor(color);
                 fri12.setTextColor(Color.TRANSPARENT);
             }
 
@@ -683,31 +687,31 @@ public class FindNullTime extends AppCompatActivity {
             //13교시
             else if (x == 28 && y == 510) {
                 TextView mon13 = (TextView) findViewById(R.id.monday13);
-                monday13.setBackgroundColor(Color.parseColor("#FCEF85"));
+                monday13.setBackgroundColor(color);
                 mon13.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 68 && y == 510) {
                 TextView tue13 = (TextView) findViewById(R.id.tuesday13);
-                tuesday13.setBackgroundColor(Color.parseColor("#FCEF85"));
+                tuesday13.setBackgroundColor(color);
                 tue13.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 108 && y == 510) {
                 TextView wed13 = (TextView) findViewById(R.id.wednesday13);
-                wednesday13.setBackgroundColor(Color.parseColor("#FCEF85"));
+                wednesday13.setBackgroundColor(color);
                 wed13.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 148 && y == 510) {
                 TextView thu13 = (TextView) findViewById(R.id.thursday13);
-                thursday13.setBackgroundColor(Color.parseColor("#FCEF85"));
+                thursday13.setBackgroundColor(color);
                 thu13.setTextColor(Color.TRANSPARENT);
 
 
             } else if (x == 188 && y == 510) {
                 TextView fri13 = (TextView) findViewById(R.id.friday13);
-                friday13.setBackgroundColor(Color.parseColor("#FCEF85"));
+                friday13.setBackgroundColor(color);
                 fri13.setTextColor(Color.TRANSPARENT);
             }
 
