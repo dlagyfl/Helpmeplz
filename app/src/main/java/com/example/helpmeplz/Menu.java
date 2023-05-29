@@ -19,7 +19,7 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button button_MyFriend = findViewById(R.id.button_MyFriend);
+        Button button_MyFriend = findViewById(R.id.button_findFriend);
         Button button_myGroup = findViewById(R.id.button_myGroup);
         Button button_myTable = findViewById(R.id.button_myTable);
         Button button_logout = findViewById(R.id.button_logout);

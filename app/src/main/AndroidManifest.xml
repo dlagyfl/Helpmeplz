@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpmeplz"
         tools:targetApi="31">
-        <activity
-            android:name=".SideMenu"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".SideMenu"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".AddFriend"
             android:exported="false" />
