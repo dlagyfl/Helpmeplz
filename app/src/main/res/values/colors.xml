@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#000000</color>
-    <color name="gray">#202123</color>
-    <color name="dark_gray">#595A5A</color>
-    <color name="light_gray">#858485</color>
+    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#6E85B7</color>
-    <color name="sky_blue">#B2C8DF</color>
-    <color name="faded_sky_blue">#C4D7E0</color>
-    <color name="yellow">#F8D205</color>
-    <color name="faded_yellow">#F8F9D7</color>
-    <color name="pink">#DFB0C0</color>
-
 </resources>

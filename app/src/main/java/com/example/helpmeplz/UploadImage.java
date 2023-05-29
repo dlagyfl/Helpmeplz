@@ -186,6 +186,9 @@ public class UploadImage extends AppCompatActivity {
             adjustedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
 
+            String filepath = "timetable/";
+//            System.currentTimeMillis()
+//            StorageReference fileRef = reference.child(filepath + System.currentTimeMillis() + "." + getFileExtension(uri));
             StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             UploadTask uploadTask = fileRef.putBytes(data);
 
@@ -243,25 +246,52 @@ public class UploadImage extends AppCompatActivity {
     }
 
 
+//    private Bitmap adjustImageSizeAndAddBorder(Bitmap originalBitmap, int desiredWidth, int desiredHeight) {
+//
+//        int width = originalBitmap.getWidth();
+//        int height = originalBitmap.getHeight();
+//
+//
+//        Bitmap adjustedBitmap = Bitmap.createBitmap(desiredWidth, desiredHeight, originalBitmap.getConfig());
+//
+//
+//        Canvas canvas = new Canvas(adjustedBitmap);
+//
+//
+//        canvas.drawColor(Color.BLACK);
+//
+//
+//        canvas.drawBitmap(originalBitmap, (desiredWidth - width) / 2, 0, null);
+//
+//        return adjustedBitmap;
+//    }
     private Bitmap adjustImageSizeAndAddBorder(Bitmap originalBitmap, int desiredWidth, int desiredHeight) {
-
         int width = originalBitmap.getWidth();
         int height = originalBitmap.getHeight();
 
-
         Bitmap adjustedBitmap = Bitmap.createBitmap(desiredWidth, desiredHeight, originalBitmap.getConfig());
-
-
         Canvas canvas = new Canvas(adjustedBitmap);
 
-
+        // Fill the canvas with black color
         canvas.drawColor(Color.BLACK);
 
-
+        // Draw the original bitmap on the canvas with the desired offset
+        int offsetX = (desiredWidth - width) / 2;
+        int offsetY = (desiredHeight - height) / 2;
         canvas.drawBitmap(originalBitmap, (desiredWidth - width) / 2, 0, null);
 
+        // Iterate over each pixel and change white pixels to black
+        for (int x = 0; x < desiredWidth; x++) {
+            for (int y = 0; y < desiredHeight; y++) {
+                int pixel = adjustedBitmap.getPixel(x, y);
+                if (pixel == Color.WHITE) {
+                    adjustedBitmap.setPixel(x, y, Color.BLACK);
+                }
+            }
+        }
         return adjustedBitmap;
-    }
+}
+
 
 
 }
