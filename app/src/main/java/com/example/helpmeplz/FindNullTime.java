@@ -148,14 +148,16 @@ public class FindNullTime extends AppCompatActivity {
         storageRef = storage.getReference();
 
         storageRef = storage.getReference();
+        Intent intent2 = getIntent();
+        ArrayList<String> userUIDs = intent2.getStringArrayListExtra("memberList");
 
-        String[] userUIDs = {
-                "dtKDwAFCL7aaH9vxVDYWczJWP653",
-                "Nt5bUeuLnOQaD0znKgzxOnfTwI82",
-                "5MWGzBocbGcKo6ZhWvgfWXRIh4k2",
-                "lIpFaKbm8eT01O9bVKo1OApxwmw2",
-                "96iFIzWGJ7ZUXGEfQcn6pCWADkj1"
-        };
+//        String[] userUIDs = {
+//                "dtKDwAFCL7aaH9vxVDYWczJWP653",
+//                "Nt5bUeuLnOQaD0znKgzxOnfTwI82",
+//                "5MWGzBocbGcKo6ZhWvgfWXRIh4k2",
+//                "lIpFaKbm8eT01O9bVKo1OApxwmw2",
+//                "96iFIzWGJ7ZUXGEfQcn6pCWADkj1"
+//        };
 
         back_nullTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,7 +180,7 @@ public class FindNullTime extends AppCompatActivity {
                     }
                     count++;
 
-                    if (count == userUIDs.length) {
+                    if (count == userUIDs.size()) {
                         downloadImageUsingHttp();
 
                     }

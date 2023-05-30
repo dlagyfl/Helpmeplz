@@ -107,13 +107,54 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
             }
         });
     }
+//    @Override
+//    public void onGroupItemClick(int position) {
+//        String selectedGroup = groupList.get(position);
+//
+//        Intent intent = new Intent(GroupList.this, MyGroup.class);
+//        intent.putExtra("groupName", selectedGroup);
+//        startActivity(intent);
+//    }
     @Override
     public void onGroupItemClick(int position) {
+        String userId = firebaseAuth.getCurrentUser().getUid();
         String selectedGroup = groupList.get(position);
 
-        Intent intent = new Intent(GroupList.this, MyGroup.class);
-        intent.putExtra("groupName", selectedGroup);
-        startActivity(intent);
+        DatabaseReference userRef = database.child("groups").child("users").child(userId);
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
+                    String groupId = groupSnapshot.getKey();
+
+                    DatabaseReference groupRef = database.child("groups").child("users").child(userId).child(groupId);
+                    groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String groupName = dataSnapshot.child("name").getValue(String.class); // Get the group name
+
+                            if (selectedGroup.equals(groupName)) {
+                                Intent intent = new Intent(GroupList.this, MyGroup.class);
+                                intent.putExtra("groupId", groupId);
+                                intent.putExtra("groupName", selectedGroup);
+                                startActivity(intent);
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e("Firebase", "Error fetching group data: " + databaseError.getMessage());
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error fetching user groups: " + databaseError.getMessage());
+            }
+        });
     }
 
     @Override

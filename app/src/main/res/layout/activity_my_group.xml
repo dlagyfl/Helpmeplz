@@ -14,15 +14,6 @@
 
 
     <TextView
-        android:layout_width="218dp"
-        android:layout_height="171dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="96dp"
-        android:text="textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/txtView_groupName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +39,7 @@
 
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/find_null_time"
         android:layout_width="320dp"
         android:layout_height="47dp"
         android:layout_gravity="center"
