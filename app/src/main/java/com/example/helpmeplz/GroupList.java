@@ -2,6 +2,8 @@ package com.example.helpmeplz;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,11 +27,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class GroupList extends AppCompatActivity {
+public class GroupList extends AppCompatActivity implements GroupAdapter.GroupItemClickListener {
 
-    private ListView listViewGroup;
+    private RecyclerView recyclerViewGroup;
     private ImageButton btn_makeGroup;
-    private ArrayAdapter<Object> groupListAdapter;
+    private GroupAdapter groupAdapter;
+    private List<String> groupList;
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
 
@@ -38,27 +42,21 @@ public class GroupList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_list);
 
-        listViewGroup = findViewById(R.id.listViewGroup);
+        recyclerViewGroup = findViewById(R.id.recyclerViewGroup);
         btn_makeGroup = findViewById(R.id.btn_makeGroup);
 
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+        groupList = new ArrayList<>();
 
-        groupListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listViewGroup.setAdapter(groupListAdapter);
+        recyclerViewGroup.setLayoutManager(new LinearLayoutManager(this));
+
+        groupAdapter = new GroupAdapter(groupList, this);
+        recyclerViewGroup.setAdapter(groupAdapter);
 
         getGroups();
 
-        listViewGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedGroup = (String)groupListAdapter.getItem(position);
 
-                Intent intent = new Intent(GroupList.this, MyGroup.class);
-                intent.putExtra("groupName", selectedGroup);
-                startActivity(intent);
-            }
-        });
 
         btn_makeGroup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,17 +71,15 @@ public class GroupList extends AppCompatActivity {
     private void getGroups() {
         String userId = firebaseAuth.getCurrentUser().getUid();
 
-        database.child("groups").child("users").child(userId).addValueEventListener(new ValueEventListener() {
+        database.child("groups").child("users").child(userId).child("members").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Object> groupList = new ArrayList<>();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                groupList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String groupName = snapshot.getValue(String.class);
                     groupList.add(groupName);
                 }
-                groupListAdapter.clear();
-                groupListAdapter.addAll(groupList);
-                groupListAdapter.notifyDataSetChanged();
+                groupAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -91,5 +87,20 @@ public class GroupList extends AppCompatActivity {
                 Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
             }
         });
+    }
+    @Override
+    public void onGroupItemClick(int position) {
+        String selectedGroup = groupList.get(position);
+
+        Intent intent = new Intent(GroupList.this, MyGroup.class);
+        intent.putExtra("groupName", selectedGroup);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onGroupItemLongClick(int position) {
+        // 그룹 항목 롱클릭 이벤트 처리
+        String groupName = groupList.get(position);
+        Toast.makeText(this, "Long clicked: " + groupName, Toast.LENGTH_SHORT).show();
     }
 }

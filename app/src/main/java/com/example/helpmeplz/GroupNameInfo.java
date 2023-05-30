@@ -1,25 +1,41 @@
 package com.example.helpmeplz;
 
-public class GroupNameInfo {
+import java.util.ArrayList;
 
-    private String name;
+public class GroupNameInfo {
+    private String groupId;
+    private String groupName;
+    private ArrayList<Member> members;
 
     public GroupNameInfo() {
-        // 기본 생성자 내용
+        // 기본 생성자
+    }
+    public GroupNameInfo(String groupName, ArrayList<Member> members) {
+        this.groupName = groupName;
+        this.members = members;
     }
 
-    public GroupNameInfo(String name) {
+    public String getGroupId() {
+        return groupId;
+    }
 
-        this.name = name;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public String getName() {
-
-        return name;
+        return groupName;
     }
 
-    public void setName(String name) {
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
 
-        this.name = name;
+    public ArrayList<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(ArrayList<Member> members) {
+        this.members = members;
     }
 }
