@@ -50,6 +50,16 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <Button
+        android:id="@+id/btn_temporary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="임시 그룹 버튼"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button_myTable"
         android:layout_width="0dp"
         android:layout_height="60dp"

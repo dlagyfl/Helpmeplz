@@ -68,20 +68,26 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_members"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+
             <Button
                 android:id="@+id/buttonCreateGroup"
                 android:layout_width="100dp"
                 android:layout_height="35dp"
-                android:layout_below="@id/editTextGroupName"
                 android:layout_marginStart="230dp"
-                android:layout_marginTop="370dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="200dp"
                 android:background="@drawable/button_color"
                 android:fontFamily="@font/suit_bold"
                 android:text="그룹 생성"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextGroupName" />
+                app:layout_constraintTop_toBottomOf="parent" />
+
 
         </LinearLayout>
 
