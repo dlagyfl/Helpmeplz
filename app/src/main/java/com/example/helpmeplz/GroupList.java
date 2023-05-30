@@ -71,15 +71,34 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
     private void getGroups() {
         String userId = firebaseAuth.getCurrentUser().getUid();
 
-        database.child("groups").child("users").child(userId).child("members").addValueEventListener(new ValueEventListener() {
+        DatabaseReference userRef = database.child("groups").child("users").child(userId);
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 groupList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String groupName = snapshot.getValue(String.class);
-                    groupList.add(groupName);
+
+                for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
+                    DatabaseReference groupRef = groupSnapshot.getRef();
+
+                    groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // Get the group name
+                            String groupName = dataSnapshot.child("name").getValue(String.class);
+
+                            // Add the group name to the list
+                            groupList.add(groupName);
+
+                            // Notify the adapter about the data change
+                            groupAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e("Firebase", "Error fetching group name: " + databaseError.getMessage());
+                        }
+                    });
                 }
-                groupAdapter.notifyDataSetChanged();
             }
 
             @Override

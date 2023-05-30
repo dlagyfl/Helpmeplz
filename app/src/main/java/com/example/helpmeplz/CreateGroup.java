@@ -64,8 +64,12 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
                 ArrayList<Member> selectedMembers = friendAdapter.getSelectedMembers();
 
-                GroupNameInfo newGroup = new GroupNameInfo(groupName, selectedMembers);
-                createGroup(newGroup);
+                if (selectedMembers.isEmpty()) {
+                    Toast.makeText(CreateGroup.this, "Please select at least one member.", Toast.LENGTH_SHORT).show();
+                } else {
+                    GroupNameInfo newGroup = new GroupNameInfo(groupName, selectedMembers);
+                    createGroup(newGroup);
+                }
             }
         });
 
@@ -84,6 +88,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
     private void createGroup(GroupNameInfo group) {
         //mDatabase.child("users").child(uid).child("name").setValue(name);
+        ArrayList<Member> selectedMembers = friendAdapter.getSelectedMembers();
         String userId = firebaseAuth.getCurrentUser().getUid();
         String groupId = reference.child("groups").child("users").child(userId).push().getKey();
 
@@ -92,7 +97,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
         HashMap<String, Object> memberMap = new HashMap<>();
         for(Member member : selectedMembers){
-            memberMap.put(member.getId(), true);
+                memberMap.put(member.getId(), member.getName());
         }
         groupMap.put("members", memberMap);
 
@@ -143,18 +148,15 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
         });
     }
 
-    // ...
 
     @Override
     public void onMemberCheckedChange(Member member, boolean isChecked) {
-        // Handle member checkbox state change
+
         if (isChecked) {
-            // Add member to selected members
-            // You can perform any additional logic here if needed
-            selectedMembers.add(member);
+            if (!selectedMembers.contains(member)) {
+                selectedMembers.add(member);
+            }
         } else {
-            // Remove member from selected members
-            // You can perform any additional logic here if needed
             selectedMembers.remove(member);
         }
     }

@@ -78,6 +78,27 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
 
         public void bind(Member member) {
             checkBoxMember.setText(member.getName());
+            checkBoxMember.setChecked(selectedMembers.contains(member));
+
+            checkBoxMember.setOnCheckedChangeListener(null);  // 기존의 리스너 해제
+
+            checkBoxMember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Member member = memberList.get(position);
+                        listener.onMemberCheckedChange(member, isChecked);
+
+                        // Update selectedMembers list
+                        if (isChecked) {
+                            selectedMembers.add(member);
+                        } else {
+                            selectedMembers.remove(member);
+                        }
+                    }
+                }
+            });
         }
     }
 }
