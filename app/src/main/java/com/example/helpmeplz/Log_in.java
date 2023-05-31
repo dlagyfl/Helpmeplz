@@ -116,13 +116,13 @@ public class Log_in extends AppCompatActivity {
             }
         };
 
-//        google_login_btn= findViewById(R.id.button_google_login);
-//        google_login_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                signIn();
-//            }
-//        });
+        google_login_btn= findViewById(R.id.button_google_login);
+        google_login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn();
+            }
+        });
 
 
     }

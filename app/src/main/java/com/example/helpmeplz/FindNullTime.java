@@ -55,7 +55,8 @@ public class FindNullTime extends AppCompatActivity {
     private StorageReference storageRef;
 
 //    private FirebaseAuth firebaseAuth;
-    private int count = 0;
+    private int count1 = 0;
+    private int count2 = 0;
     static {
         if (!OpenCVLoader.initDebug()) {
 
@@ -185,17 +186,20 @@ public class FindNullTime extends AppCompatActivity {
                     String imageName = dataSnapshot.getValue(String.class);
                     if (imageName != null) {
                         imageNames.add(imageName);
-                    }
-                    count++;
-
-                    if (count == userUIDs.size()) {
-                        downloadImageUsingHttp();
-
-                    }
-                    else {
-                        Toast.makeText(FindNullTime.this, "누군가의 시간표 이미지가 없습니다", Toast.LENGTH_SHORT).show();
+                        count1++;
                     }
 
+                    count2++;
+
+
+
+                    if (count2 == userUIDs.size()) {
+                        if(count1 != count2) {
+                            Toast.makeText(FindNullTime.this, "누군가의 시간표 이미지가 없습니다", Toast.LENGTH_SHORT).show();
+                        } else {
+                            downloadImageUsingHttp();
+                        }
+                    }
                 }
 
                 @Override
