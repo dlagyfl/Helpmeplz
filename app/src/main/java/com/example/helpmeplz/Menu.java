@@ -23,8 +23,8 @@ public class Menu extends AppCompatActivity {
         Button button_myGroup = findViewById(R.id.button_myGroup);
         Button button_myTable = findViewById(R.id.button_myTable);
         Button button_logout = findViewById(R.id.button_logout);
-        Button button_find_null_time = findViewById(R.id.button_find_null_time);
-        Button btn_temporary = findViewById(R.id.btn_temporary);
+//        Button button_find_null_time = findViewById(R.id.button_find_null_time);
+//        Button btn_temporary = findViewById(R.id.btn_temporary);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
@@ -49,13 +49,13 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        btn_temporary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Menu.this, GroupList.class);
-                startActivity(intent);
-            }
-        });
+//        btn_temporary.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Menu.this, GroupList.class);
+//                startActivity(intent);
+//            }
+//        });
 
         button_myTable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,13 +74,13 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        button_find_null_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Menu.this, FindNullTime.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        button_find_null_time.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Menu.this, FindNullTime.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 }
