@@ -1,19 +1,19 @@
 @echo off
-"C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe" ^
-  "-HC:\\Users\\USER\\AndroidStudioProjects\\Helpmeplz\\opencv\\libcxx_helper" ^
+"C:\\Users\\amied\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe" ^
+  "-HC:\\Users\\amied\\StudioProjects\\Helpmeplz\\opencv\\libcxx_helper" ^
   "-DCMAKE_SYSTEM_NAME=Android" ^
   "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" ^
   "-DCMAKE_SYSTEM_VERSION=29" ^
   "-DANDROID_PLATFORM=android-29" ^
   "-DANDROID_ABI=x86_64" ^
   "-DCMAKE_ANDROID_ARCH_ABI=x86_64" ^
-  "-DANDROID_NDK=C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393" ^
-  "-DCMAKE_ANDROID_NDK=C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393" ^
-  "-DCMAKE_TOOLCHAIN_FILE=C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\build\\cmake\\android.toolchain.cmake" ^
-  "-DCMAKE_MAKE_PROGRAM=C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
-  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\USER\\AndroidStudioProjects\\Helpmeplz\\opencv\\build\\intermediates\\cxx\\Debug\\1y3422r1\\obj\\x86_64" ^
-  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\\Users\\USER\\AndroidStudioProjects\\Helpmeplz\\opencv\\build\\intermediates\\cxx\\Debug\\1y3422r1\\obj\\x86_64" ^
+  "-DANDROID_NDK=C:\\Users\\amied\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393" ^
+  "-DCMAKE_ANDROID_NDK=C:\\Users\\amied\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393" ^
+  "-DCMAKE_TOOLCHAIN_FILE=C:\\Users\\amied\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\build\\cmake\\android.toolchain.cmake" ^
+  "-DCMAKE_MAKE_PROGRAM=C:\\Users\\amied\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\amied\\StudioProjects\\Helpmeplz\\opencv\\build\\intermediates\\cxx\\Debug\\1y3422r1\\obj\\x86_64" ^
+  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\\Users\\amied\\StudioProjects\\Helpmeplz\\opencv\\build\\intermediates\\cxx\\Debug\\1y3422r1\\obj\\x86_64" ^
   "-DCMAKE_BUILD_TYPE=Debug" ^
-  "-BC:\\Users\\USER\\AndroidStudioProjects\\Helpmeplz\\opencv\\.cxx\\Debug\\1y3422r1\\x86_64" ^
+  "-BC:\\Users\\amied\\StudioProjects\\Helpmeplz\\opencv\\.cxx\\Debug\\1y3422r1\\x86_64" ^
   -GNinja ^
   "-DANDROID_STL=c++_shared"

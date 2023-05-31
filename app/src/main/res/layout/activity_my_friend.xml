@@ -95,8 +95,8 @@
 
             <ListView
                 android:id="@+id/listViewFriend"
-                android:layout_width="349dp"
-                android:layout_height="576dp"
+                android:layout_width="260dp"
+                android:layout_height="479dp"
                 android:layout_marginTop="75dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.483"
