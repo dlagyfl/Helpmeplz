@@ -110,7 +110,7 @@ public class MyFriend extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<String> groupList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    GroupNameInfo group = snapshot.getValue(GroupNameInfo.class);
+                    FriendNameInfo group = snapshot.getValue(FriendNameInfo.class);
                     String groupName = group.getName();
 //                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + groupName);
                     groupList.add(groupName);
