@@ -6,84 +6,107 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_color">
 
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="370dp"
-        android:layout_height="350dp"
+        android:layout_height="425dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.569"
+        app:layout_constraintVertical_bias="0.594"
         app:srcCompat="@drawable/rectangle_background" />
 
-    <Button
-        android:id="@+id/button_logout"
-        android:layout_width="140dp"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_color"
-        android:fontFamily="@font/suit_bold"
-        android:text="로그아웃"
-        android:gravity="center"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_myGroup"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_myTable" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-    <Button
-        android:id="@+id/button_findFriend"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="28dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_color"
-        android:fontFamily="@font/suit_bold"
-        android:text="아이디로 친구 찾기"
-        android:gravity="center"
-        android:textSize="15dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_myGroup"
-        app:layout_constraintEnd_toStartOf="@+id/button_myGroup"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button_myTable"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/button_color"
+            android:fontFamily="@font/suit_bold"
+            android:text="내 시간표"
+            android:textSize="15dp" />
 
-    <Button
-        android:id="@+id/button_myGroup"
-        android:layout_width="140dp"
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/button_color"
+            android:fontFamily="@font/suit_bold"
+            android:text="로그아웃"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="237dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_color"
-        android:fontFamily="@font/suit_bold"
-        android:text="나의 그룹"
-        android:gravity="center"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_findFriend"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        <Button
+            android:id="@+id/button_findFriend"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_weight="5"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/button_color"
+            android:fontFamily="@font/suit_bold"
+            android:text="아이디로 친구 찾기"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/button_myGroup"
+            app:layout_constraintTop_toBottomOf="@+id/button_myTable" />
+
+        <Button
+            android:id="@+id/button_myGroup"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_weight="5"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/button_color"
+            android:fontFamily="@font/suit_bold"
+            android:text="나의 그룹"
+            android:textSize="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/button_logout"
+            tools:layout_editor_absoluteX="220dp" />
+
+    </LinearLayout>
+
+
 
     <Button
-        android:id="@+id/button_myTable"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_color"
-        android:fontFamily="@font/suit_bold"
-        android:text="내 시간표"
-        android:gravity="center"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_findFriend"
-        app:layout_constraintEnd_toStartOf="@+id/button_logout"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/btn_temporary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="임시 그룹 버튼"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <ImageView
         android:id="@+id/imageView9"
@@ -95,49 +118,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/null_string_yb" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="434dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button_myGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2">
-
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="353dp"
         android:layout_height="92dp"
-        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.044"
         app:srcCompat="@drawable/colorful_rectangle" />
 
     <TextView
@@ -152,6 +141,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.174" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
