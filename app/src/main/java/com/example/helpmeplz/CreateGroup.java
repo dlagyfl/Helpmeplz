@@ -136,7 +136,6 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                     String friendName = friendSnapshot.child("name").getValue(String.class);
                     selectedMembers.add(new Member(friendName, friendId));
                 }
-
                 // Update the RecyclerView
                 friendAdapter.notifyDataSetChanged();
             }
@@ -146,6 +145,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                 // Handle error
             }
         });
+
     }
 
 

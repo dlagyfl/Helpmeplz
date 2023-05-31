@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,6 +52,8 @@ public class FindNullTime extends AppCompatActivity {
     private DatabaseReference databaseRef;
     private FirebaseStorage storage;
     private StorageReference storageRef;
+
+//    private FirebaseAuth firebaseAuth;
     private int count = 0;
     static {
         if (!OpenCVLoader.initDebug()) {
@@ -148,8 +151,12 @@ public class FindNullTime extends AppCompatActivity {
         storageRef = storage.getReference();
 
         storageRef = storage.getReference();
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        String userId = firebaseAuth.getCurrentUser().getUid();
+
         Intent intent2 = getIntent();
         ArrayList<String> userUIDs = intent2.getStringArrayListExtra("memberList");
+//        userUIDs.add(userId);
 
 //        String[] userUIDs = {
 //                "dtKDwAFCL7aaH9vxVDYWczJWP653",
