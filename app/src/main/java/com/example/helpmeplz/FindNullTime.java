@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -190,6 +191,9 @@ public class FindNullTime extends AppCompatActivity {
                     if (count == userUIDs.size()) {
                         downloadImageUsingHttp();
 
+                    }
+                    else {
+                        Toast.makeText(FindNullTime.this, "누군가의 시간표 이미지가 없습니다", Toast.LENGTH_SHORT).show();
                     }
 
                 }
