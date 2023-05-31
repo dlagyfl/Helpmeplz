@@ -15,39 +15,34 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598"
+        app:layout_constraintVertical_bias="0.594"
         app:srcCompat="@drawable/rectangle_background" />
 
     <Button
         android:id="@+id/button_logout"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="332dp"
         android:layout_weight="1"
         android:background="@drawable/button_color"
         android:fontFamily="@font/suit_bold"
         android:text="로그아웃"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_myGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_myTable" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="220dp" />
 
     <Button
         android:id="@+id/button_myGroup"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="237dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         android:layout_weight="1"
         android:background="@drawable/button_color"
         android:fontFamily="@font/suit_bold"
         android:text="나의 그룹"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_findFriend"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/button_logout"
+        tools:layout_editor_absoluteX="220dp" />
 
     <Button
         android:id="@+id/btn_temporary"
@@ -61,34 +56,31 @@
 
     <Button
         android:id="@+id/button_myTable"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="42dp"
+        android:layout_marginTop="332dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:background="@drawable/button_color"
         android:fontFamily="@font/suit_bold"
         android:text="내 시간표"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_findFriend"
         app:layout_constraintEnd_toStartOf="@+id/button_logout"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_findFriend"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="42dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="28dp"
         android:layout_weight="1"
         android:background="@drawable/button_color"
         android:fontFamily="@font/suit_bold"
         android:text="아이디로 친구 찾기"
         android:textSize="15dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_myGroup"
         app:layout_constraintEnd_toStartOf="@+id/button_myGroup"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_myTable" />
 
     <Button
         android:id="@+id/button_find_null_time"
