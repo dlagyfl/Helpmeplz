@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -38,6 +39,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
     private MemberAdapter friendAdapter;
     private RecyclerView recyclerViewFriend;
+    private String currentUserName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,38 +89,72 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
     }
 
     private void createGroup(GroupNameInfo group) {
-        //mDatabase.child("users").child(uid).child("name").setValue(name);
         ArrayList<Member> selectedMembers = friendAdapter.getSelectedMembers();
         String userId = firebaseAuth.getCurrentUser().getUid();
         String groupId = reference.child("groups").child("users").child(userId).push().getKey();
+        DatabaseReference nameRef = reference.child("users").child(userId).child("name");
+        nameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Long nameValue = dataSnapshot.getValue(Long.class);
+                String userName = String.valueOf(nameValue);
+                currentUserName = userName;
 
-        HashMap<String, Object> groupMap = new HashMap<>();
-        groupMap.put("name", group.getName());
+                HashMap<String, Object> groupMap = new HashMap<>();
+                groupMap.put("name", group.getName());
 
-        HashMap<String, Object> memberMap = new HashMap<>();
-        for(Member member : selectedMembers){
-                memberMap.put(member.getId(), member.getName());
-        }
-        groupMap.put("members", memberMap);
+                reference.child("groups").child("users").child(userId).child(groupId).updateChildren(groupMap);
 
-        reference.child("groups").child("users").child(userId).child(groupId).updateChildren(groupMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        // 그룹 생성 성공 시 처리할 작업
-                        Toast.makeText(CreateGroup.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
-                        editTextGroupName.setText(null);
+                for (Member member : selectedMembers) {
+                    String memberId = member.getId();
+                    HashMap<String, Object> memberMap = new HashMap<>();
+                    memberMap.put("name", member.getName());
+
+                    reference.child("groups").child("users").child(memberId).child(groupId).child("members").child(memberId).setValue(memberMap);
+
+                    HashMap<String, Object> currentUserMap = new HashMap<>();
+                    currentUserMap.put("name", currentUserName);
+                    reference.child("groups").child("users").child(memberId).child(groupId).child("members").child(userId).setValue(currentUserMap);
+
+                    for (Member otherMember : selectedMembers) {
+                        String otherMemberId = otherMember.getId();
+                        if (!otherMemberId.equals(memberId)) {
+                            reference.child("groups").child("users").child(otherMemberId).child(groupId).child("members").child(memberId).setValue(memberMap);
+
+                            currentUserMap = new HashMap<>();
+                            currentUserMap.put("name", currentUserName);
+                            reference.child("groups").child("users").child(otherMemberId).child(groupId).child("members").child(userId).setValue(currentUserMap);
+                        }
                     }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // 그룹 생성 실패 시 처리할 작업
-                        Toast.makeText(CreateGroup.this, "Failed to create group.", Toast.LENGTH_SHORT).show();
-                        editTextGroupName.setText(null);
-                    }
-                });
+                }
+
+                HashMap<String, Object> currentUserMap = new HashMap<>();
+                currentUserMap.put("name", currentUserName);
+                reference.child("groups").child("users").child(userId).child(groupId).child("members").child(userId).setValue(currentUserMap);
+                HashMap<String, Object> memberMap = new HashMap<>();
+                for (Member member : selectedMembers) {
+                    String memberId = member.getId();
+                    memberMap.put("name", member.getName());
+                    reference.child("groups").child("users").child(userId).child(groupId).child("members").child(memberId).setValue(memberMap);
+                }
+
+                for (Member member : selectedMembers) {
+                    String memberId = member.getId();
+                    reference.child("groups").child("users").child(memberId).child(groupId).child("name").setValue(group.getName());
+                }
+
+                Toast.makeText(CreateGroup.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
+                editTextGroupName.setText(null);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error fetching name: " + databaseError.getMessage());
+            }
+        });
     }
+
+
 
 
     private void loadFriendList() {
