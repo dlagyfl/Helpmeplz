@@ -96,8 +96,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
         nameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Long nameValue = dataSnapshot.getValue(Long.class);
-                String userName = String.valueOf(nameValue);
+                String userName = dataSnapshot.getValue(String.class);
                 currentUserName = userName;
 
                 HashMap<String, Object> groupMap = new HashMap<>();
