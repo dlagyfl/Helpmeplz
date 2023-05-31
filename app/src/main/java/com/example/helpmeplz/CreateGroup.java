@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -144,6 +145,9 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
                 Toast.makeText(CreateGroup.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
                 editTextGroupName.setText(null);
+
+                Intent intent = new Intent(CreateGroup.this, GroupList.class);
+                startActivity(intent);
             }
 
             @Override
