@@ -5,6 +5,10 @@ public class Member {
     private String id;
     private boolean isSelected;
 
+    public Member() {
+        // 인자 없는 생성자
+    }
+
     public Member(String name, String id) {
         this.name = name;
         this.id = id;

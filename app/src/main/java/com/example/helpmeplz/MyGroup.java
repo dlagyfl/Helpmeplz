@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,8 +26,11 @@ public class MyGroup extends AppCompatActivity {
     private Button find_null_time;
     private ListView listView_member;
     private TextView txtView_groupName;
+    private ArrayAdapter<Object> groupListAdapter;
 
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference reference;
+    private String groupId;
     List<String> memberList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +41,14 @@ public class MyGroup extends AppCompatActivity {
         listView_member = findViewById(R.id.listView_member);
         txtView_groupName = findViewById(R.id.txtView_groupName);
         firebaseAuth = FirebaseAuth.getInstance();
-
-
+        reference = FirebaseDatabase.getInstance().getReference();
 
         String groupName = getIntent().getStringExtra("groupName");
+        groupId = getIntent().getStringExtra("groupId"); //groupId 가지고 오기
+
+        groupListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        getGroupMember(groupId);
+        listView_member.setAdapter(groupListAdapter);
 
         txtView_groupName.setText(groupName);
 
@@ -84,6 +92,28 @@ public class MyGroup extends AppCompatActivity {
 
 
 
+    }
+
+    private void getGroupMember(String groupId) {
+        String userId = firebaseAuth.getCurrentUser().getUid();
+        reference.child("groups").child("users").child(userId).child(groupId).child("members").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Object> memberList = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Member member = snapshot.getValue(Member.class);
+                    memberList.add(member.getName());
+                }
+                groupListAdapter.clear();
+                groupListAdapter.addAll(memberList);
+                groupListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+            }
+        });
     }
 
     private void findNullTime() {

@@ -31,35 +31,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    signingConfigs {
-        release {
-            try {
-                def keystoreFile = file("your_keystore_file_path")
-                def keystorePassword = "your_keystore_password"
-                def keyAlias = "your_key_alias"
-                def keyPassword = "your_key_password"
-
-                storeFile = keystoreFile
-                storePassword = keystorePassword
-                keyAlias = keyAlias
-                keyPassword = keyPassword
-
-                def keyStore = new java.util.zip.ZipFile(keystoreFile)
-                def certEntry = keyStore.getEntry("META-INF/CERT.RSA")
-                def certStream = keyStore.getInputStream(certEntry)
-                def publicKey = java.security.cert.CertificateFactory.getInstance("X509")
-                        .generateCertificate(certStream).publicKey
-                def sha1 = java.security.MessageDigest.getInstance("SHA-1")
-                        .digest(publicKey.getEncoded()).collect { String.format("%02X", it) }.join().toLowerCase()
-
-                println "SHA1: $sha1"
-            } catch (Exception e) {
-                println "Error: $e.message"
-            }
-        }
-    }
-
 }
 
 dependencies {
