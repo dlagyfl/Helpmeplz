@@ -29,7 +29,8 @@ import java.util.List;
 public class MyFriend extends AppCompatActivity {
     private ListView listViewFriend;
     private ArrayAdapter<String> groupListAdapter;
-    boolean move;
+
+    long childrencount = 0;
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
 
@@ -49,30 +50,7 @@ public class MyFriend extends AppCompatActivity {
         button_bellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        move = dataSnapshot.exists();
-                        Log.d("MainActivity", "onClick - onDataChange : " + dataSnapshot.exists());
-//                        if(dataSnapshot.exists()) {
-//                            Log.d("MainActivity", "onClick - onDataChange : " + "true");
-//                            Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
-//                            startActivity(myIntent);
-//                            finish();
-//                        }
-//                        else {
-//                            Log.d("MainActivity", "onClick - onDataChange : " + "false");
-//                            Intent myIntent = new Intent(MyFriend.this, NoFriendRequest.class);
-//                            startActivity(myIntent);
-//                            finish();
-//                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
-                    }
-                });
-                if(move) {
+                if (childrencount != 0) {
                     Log.d("MainActivity", "onClick - onDataChange : " + "true");
                     Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
                     startActivity(myIntent);
@@ -100,6 +78,7 @@ public class MyFriend extends AppCompatActivity {
         listViewFriend.setAdapter(groupListAdapter);
 
         getGroups();
+        getRequest();
     }
 
     private void getGroups() {
@@ -110,9 +89,10 @@ public class MyFriend extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<String> groupList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + snapshot.getKey());
                     FriendNameInfo group = snapshot.getValue(FriendNameInfo.class);
                     String groupName = group.getName();
-//                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + groupName);
+                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + groupName);
                     groupList.add(groupName);
                 }
                 groupListAdapter.clear();
@@ -120,6 +100,19 @@ public class MyFriend extends AppCompatActivity {
                 groupListAdapter.notifyDataSetChanged();
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    private void getRequest() {
+        database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                childrencount = dataSnapshot.getChildrenCount();
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());

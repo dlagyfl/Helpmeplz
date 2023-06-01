@@ -47,20 +47,26 @@ public class AddFriend extends AppCompatActivity {
                 // 내 DB에 친구 UID 넣기
                 database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendlist").child(friendUID).child("name").setValue(friendName);
                 // 내 DB의 friendrequest에서 친구 추가한 UID 삭제하기
-                database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").child(friendUID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
+                Log.d("MainActivity", "onCreate - onClick : " + 1);
+                database.getRef().child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").child(friendUID).removeValue();
+                Log.d("MainActivity", "onCreate - onClick : " + 2);
+//                database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").child(friendUID).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Intent myIntent = new Intent(AddFriend.this, CheckFriend.class);
+//                        startActivity(myIntent);
+//                        finish();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//
+//                    }
+//                });
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-                Intent myIntent = new Intent(AddFriend.this, CheckFriend.class);
-                startActivity(myIntent);
+                Intent myIntent3 = new Intent(AddFriend.this, CheckFriend.class);
+                Log.d("MainActivity", "onCreate - onClick : " + 3);
+                startActivity(myIntent3);
                 finish();
             }
         });
@@ -80,8 +86,8 @@ public class AddFriend extends AppCompatActivity {
                     }
                 });
 
-                Intent myIntent = new Intent(AddFriend.this, MyFriend.class);
-                startActivity(myIntent);
+                Intent myIntent2 = new Intent(AddFriend.this, MyFriend.class);
+                startActivity(myIntent2);
                 finish();
             }
         });
@@ -98,6 +104,7 @@ public class AddFriend extends AppCompatActivity {
                     friendUID = snapshot.getKey();
                     Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendUID);
                 }
+                Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendUID);
                 getName(friendUID);
             }
 
@@ -115,7 +122,7 @@ public class AddFriend extends AppCompatActivity {
                     friendName = (String) snapshot.getValue();
                     Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendName);
                 }
-//                Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendName);
+                Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendName);
                 view.setText(friendName);
             }
 

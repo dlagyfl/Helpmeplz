@@ -24,9 +24,11 @@
             android:name=".AddFriendComplete"
             android:exported="false" />
         <activity
+            android:name=".AddFriendFailed"
+            android:exported="false" />
+        <activity
             android:name=".NoFriendRequest"
             android:exported="false" />
-
         <activity
             android:name=".CheckFriend"
             android:exported="false" />
