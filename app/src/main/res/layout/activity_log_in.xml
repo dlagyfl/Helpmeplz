@@ -89,25 +89,25 @@
         app:layout_constraintTop_toBottomOf="@+id/button_login"
         tools:layout_editor_absoluteX="0dp" />
 
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/button_shadow"
-        android:fontFamily="@font/suit_bold"
-        android:text="go menu without login"
-        android:textColor="@color/gray"
-        android:textSize="11dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />
+<!--    <Button-->
+<!--        android:id="@+id/test_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:background="@drawable/button_shadow"-->
+<!--        android:fontFamily="@font/suit_bold"-->
+<!--        android:text="go menu without login"-->
+<!--        android:textColor="@color/gray"-->
+<!--        android:textSize="11dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />-->
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/button_google_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="108dp"
         android:background="@drawable/button_shadow"
         android:fontFamily="@font/suit_bold"
         android:text="Button"
@@ -115,9 +115,10 @@
         android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button_sign_in"
+        app:layout_constraintVertical_bias="0.825" />
+    <!--        app:layout_constraintTop_toBottomOf="@+id/test_button"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,7 +64,7 @@ public class Log_in extends AppCompatActivity {
         editText_email= findViewById(R.id.editText_email);
         editText_Password= findViewById(R.id.editText_Password);
 
-        test_btn= findViewById(R.id.test_button);
+//        test_btn= findViewById(R.id.test_button);
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -73,13 +73,13 @@ public class Log_in extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
-        test_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Menu.class);
-                startActivity(intent);
-            }
-        });
+//        test_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(),Menu.class);
+//                startActivity(intent);
+//            }
+//        });
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
