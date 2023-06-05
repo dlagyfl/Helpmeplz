@@ -42,7 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/suit_bold"
-            android:hint="name" />
+            android:hint="name"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -67,7 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/suit_bold"
-            android:hint="id" />
+            android:hint="id"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -92,7 +96,9 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:fontFamily="@font/suit_bold"
-            android:hint="password" />
+            android:hint="password"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -117,7 +123,9 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:fontFamily="@font/suit_bold"
-            android:hint="password confrim" />
+            android:hint="password confrim"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <Button
