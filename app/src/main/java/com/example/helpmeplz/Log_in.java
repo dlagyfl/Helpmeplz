@@ -69,7 +69,7 @@ public class Log_in extends AppCompatActivity {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
-                .build();//구글로그인을 위한 토큰발급
+                .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
@@ -81,7 +81,7 @@ public class Log_in extends AppCompatActivity {
 //            }
 //        });
 
-        signup_btn.setOnClickListener(new View.OnClickListener() {//회원가입 엑티비티로 이동하는 버튼
+        signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Sign_in.class);
@@ -91,7 +91,7 @@ public class Log_in extends AppCompatActivity {
 
         login_btn= findViewById(R.id.button_login);
 
-        login_btn.setOnClickListener(new View.OnClickListener() {//로그인버튼 아이디와 비밀번호가 비어있는지 확인하고 로그인함수 호출
+        login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!editText_email.getText().toString().equals("") && !editText_Password.getText().toString().equals("")) {
@@ -103,7 +103,7 @@ public class Log_in extends AppCompatActivity {
         });
 
 
-        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {//인증정보가 변경돠면(로그인되면) 메뉴엑티비티로 이동
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -116,7 +116,7 @@ public class Log_in extends AppCompatActivity {
             }
         };
 
-        google_login_btn= findViewById(R.id.button_google_login);//구글 로그인을 위한 함수호출
+        google_login_btn= findViewById(R.id.button_google_login);
         google_login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,16 +126,17 @@ public class Log_in extends AppCompatActivity {
 
 
     }
-    private void signIn(){//구글로그인 함수 구현
+    private void signIn(){
         Intent signInIntent=mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
     }
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {//구글로그인 함수 구현
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        //signin함수에서 getSignInIntent()가 실행되서 결과값이 넘어오면 실행되는 함수
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account=task.getResult(ApiException.class);
@@ -148,7 +149,7 @@ public class Log_in extends AppCompatActivity {
         }
     }
 
-    private void firebaseAuthWithGoogle(String idToken,GoogleSignInAccount account){//토큰으로 구글로그인 서버와 통신하여 인증
+    private void firebaseAuthWithGoogle(String idToken,GoogleSignInAccount account){
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -158,7 +159,7 @@ public class Log_in extends AppCompatActivity {
                             Toast.makeText(Log_in.this,"구글 로그인 성공",Toast.LENGTH_SHORT).show();
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("name").setValue(account.getDisplayName());
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("email").setValue(account.getEmail());
-                            //데이터베이스에 구글로그인한 유저의 정보추가
+
                             Intent intent = new Intent(getApplicationContext(),Menu.class);
                             intent.putExtra("UserName", account.getDisplayName());
                             intent.putExtra("PhotoUrl", account.getPhotoUrl());
@@ -172,7 +173,7 @@ public class Log_in extends AppCompatActivity {
     }
 
 
-    public void loginUser(String email, String password) {//일반로그인 처리함수 firebaseAuth의 인증기능을 사용함
+    public void loginUser(String email, String password) {
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

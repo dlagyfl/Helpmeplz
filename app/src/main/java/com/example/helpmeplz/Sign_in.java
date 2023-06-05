@@ -64,7 +64,7 @@ public class Sign_in extends AppCompatActivity {
                                     Toast.makeText(Sign_in.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
-                                    // If sign in fails, display a message to the user.
+                                    // 가입에 실패하면 사용자에게 표시
                                     Log.w("TAG", "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(Sign_in.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
