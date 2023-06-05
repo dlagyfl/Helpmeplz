@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:fontFamily="@font/suit_bold"
-            android:hint="password"
+            android:hint="password(6자리이상)"
             android:textCursorDrawable="@null"
             android:textColor="@color/white"/>
     </LinearLayout>
