@@ -75,7 +75,7 @@
                 android:padding="0dp"
                 android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                android:src="@drawable/more_background"
+                android:src="@drawable/more"
                 app:layout_constraintEnd_toStartOf="@+id/bellImageButton"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,7 +91,7 @@
                 tools:ignore="SpeakableTextPresentCheck"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bell_background" />
+                app:srcCompat="@drawable/bell" />
 
             <ListView
                 android:id="@+id/listViewFriend"

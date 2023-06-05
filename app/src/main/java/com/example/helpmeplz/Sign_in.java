@@ -58,6 +58,7 @@ public class Sign_in extends AppCompatActivity {
                                         String uid=user.getUid();
                                         mDatabase.child("users").child(uid).child("name").setValue(name);
                                         mDatabase.child("users").child(uid).child("email").setValue(email);
+                                        mDatabase.child("search").child(name).child(uid);
                                     }
                                     Log.d("TAG", "createUserWithEmail:success");
                                     Toast.makeText(Sign_in.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();

@@ -38,6 +38,7 @@
         <activity
             android:name=".CreateGroup"
             android:exported="false" />
+<!--        dddd-->
         <activity
             android:name=".GroupList"
             android:exported="false" />

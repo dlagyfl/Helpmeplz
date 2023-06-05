@@ -51,7 +51,7 @@
             app:layout_constraintVertical_bias="0.228" />
 
         <TextView
-            android:id="@+id/textView_check_id"
+            android:id="@+id/textView_checkfriend_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.343"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_check_id" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_checkfriend_id" />
 
         <TextView
             android:id="@+id/textView9"
@@ -122,12 +122,14 @@
             android:id="@+id/button_next2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NEXT"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/button_color"
             android:fontFamily="@font/suit_bold"
+            android:text="NEXT"
             android:textSize="15sp"
-            tools:layout_editor_absoluteX="248dp"
-            tools:layout_editor_absoluteY="291dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

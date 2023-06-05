@@ -9,29 +9,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class CheckFriend extends AppCompatActivity {
+    TextView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 1);
+        Intent intent1 = getIntent();
+        String groupID = intent1.getStringExtra("nickname");
+
+        Log.d("MainActivity", "ValueEventListener - onDataChange : " + groupID + " in CheckFriend onCreate");
+        view = findViewById(R.id.textView_checkfriend_id);
+//        view.setText(1111);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_friend);
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 2);
+        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 22);
 
         Button button_Accept2 = findViewById(R.id.button_next2);
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 3);
 
         button_Accept2.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                Log.d("MainActivity", "ValueEventListener - onDataChange : " + 5);
                 Intent myIntent5 = new Intent(CheckFriend.this, MyFriend.class);
                 startActivity(myIntent5);
                 finish();
             }
         });
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 4);
     }
 }

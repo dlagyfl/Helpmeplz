@@ -1,7 +1,6 @@
 package com.example.helpmeplz;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -9,14 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,12 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyFriend extends AppCompatActivity {
+    private String userId;
     private ListView listViewFriend;
     private ArrayAdapter<String> groupListAdapter;
 
-    long childrencount = 0;
+    private long cnt = 0;
     private DatabaseReference database;
-    private FirebaseAuth firebaseAuth;
 
     @SuppressLint("MissingInflatedId") //모름..
     @Override
@@ -40,17 +37,22 @@ public class MyFriend extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_friend);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            userId = user.getUid();
+            Log.d("uid", userId);
+        }
+
         listViewFriend = findViewById(R.id.listViewFriend);
         ImageButton button_bellButton = (ImageButton) findViewById(R.id.bellImageButton);
         ImageButton button_moreButton = (ImageButton) findViewById(R.id.moreImageButton);
 
         database = FirebaseDatabase.getInstance().getReference();
-        firebaseAuth = FirebaseAuth.getInstance();
 
         button_bellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (childrencount != 0) {
+                if (cnt != 0) {
                     Log.d("MainActivity", "onClick - onDataChange : " + "true");
                     Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
                     startActivity(myIntent);
@@ -82,7 +84,7 @@ public class MyFriend extends AppCompatActivity {
     }
 
     private void getGroups() {
-        database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendlist").addValueEventListener(new ValueEventListener() {
+        database.child("users").child(userId).child("friendlist").addValueEventListener(new ValueEventListener() {
 
 //        database.child("users").addValueEventListener(new ValueEventListener() {
             @Override
@@ -108,10 +110,10 @@ public class MyFriend extends AppCompatActivity {
     }
 
     private void getRequest() {
-        database.child("users").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").child("friendrequest").addValueEventListener(new ValueEventListener() {
+        database.child("users").child(userId).child("friendrequest").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                childrencount = dataSnapshot.getChildrenCount();
+                cnt = dataSnapshot.getChildrenCount();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

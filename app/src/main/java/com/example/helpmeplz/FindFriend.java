@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FindFriend extends AppCompatActivity {
     private boolean match;
+    private String userId;
     private String requestUID;
     private Button buttonBack;
     private Button buttonAddFriend;
@@ -49,6 +50,12 @@ public class FindFriend extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            userId = user.getUid();
+            Log.d("uid", userId);
+        }
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +77,8 @@ public class FindFriend extends AppCompatActivity {
         String nickname = ((EditText)findViewById(R.id.editText_friend_id)).getText().toString();
         Log.d("MainActivity", "FindFriend - addFriend : " + nickname);
 
+//        db.collection("컬렉션 이름").whereField("필드명", isEqualTo: "포마")
+
         database.child("search").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,14 +86,16 @@ public class FindFriend extends AppCompatActivity {
                     Log.d("MainActivity", "FindFriend - addFriend - onDataChange : " + nickname);
                     if (nickname.equals(snapshot.getKey())) {
                         match = true;
-//                        requestUID = (String) snapshot.getValue();
+                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getKey());
+                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getValue().toString().substring(1, 29));
+                        requestUID = snapshot.getValue().toString().substring(1, 29);
                     }
                 }
-                if (match) {
-                    requestUID = "5MWGzBocbGcKo6ZhWvgfWXRIh4k2";
+                Log.d("MainActivity", "addFriend - onDataChange : " + !database.child("user").child(userId).child("friendlist").equals(requestUID));
+                if (match && !database.child("user").child(userId).child("friendlist").equals(requestUID)) {
                     Log.d("MainActivity", "addFriend - onDataChange : " + requestUID);
                     // friendrequest에 내 UID 넣기
-                    database.child("users").child(requestUID).child("friendrequest").child("IYFpUCw26AQRYfKTVgoRazAR1oC2").setValue("");
+                    database.child("users").child(requestUID).child("friendrequest").child(userId).setValue("");
                     Log.d("MainActivity", "addFriend - onDataChange : " + 1111);
 
                     Intent myIntent = new Intent(FindFriend.this, AddFriendComplete.class);
