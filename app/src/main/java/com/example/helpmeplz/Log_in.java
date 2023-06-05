@@ -157,6 +157,7 @@ public class Log_in extends AppCompatActivity {
                             Toast.makeText(Log_in.this,"구글 로그인 성공",Toast.LENGTH_SHORT).show();
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("name").setValue(account.getDisplayName());
                             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("email").setValue(account.getEmail());
+                            mDatabase.child("search").child(account.getDisplayName()).child(mAuth.getCurrentUser().getUid()).setValue("");
                             //데이터베이스에 구글로그인한 유저의 정보추가
                             Intent intent = new Intent(getApplicationContext(),Menu.class);
                             intent.putExtra("UserName", account.getDisplayName());

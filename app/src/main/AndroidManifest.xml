@@ -73,6 +73,9 @@
         <activity
             android:name=".FindNullTime"
             android:exported="false" />
+        <activity
+            android:name=".AddFriendExists"
+            android:exported="false" />
 
     </application>
 

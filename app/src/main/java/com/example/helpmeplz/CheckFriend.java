@@ -9,29 +9,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class CheckFriend extends AppCompatActivity {
-    TextView view;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_friend);
+
+        Button button_Accept2 = findViewById(R.id.button_next2);
+
+        TextView view = findViewById(R.id.textView_checkfriend_id);
+
         Intent intent1 = getIntent();
         String friendId = intent1.getStringExtra("nickname");
 
         Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendId + " in CheckFriend onCreate");
-        view = findViewById(R.id.textView_checkfriend_id);
-//        view.setText(1111);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_friend);
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + 22);
-
-        Button button_Accept2 = findViewById(R.id.button_next2);
+        view.setText(friendId);
 
         button_Accept2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent5 = new Intent(CheckFriend.this, MyFriend.class);
+                Intent myIntent5 = new Intent(CheckFriend.this, Menu.class);
                 startActivity(myIntent5);
                 finish();
             }

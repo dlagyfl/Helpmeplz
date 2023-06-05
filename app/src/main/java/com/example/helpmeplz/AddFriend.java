@@ -69,7 +69,7 @@ public class AddFriend extends AppCompatActivity {
                 database.child("users").child(userId).child("friendlist").child(friendId).child("name").setValue(friendName);
                 // 내 DB의 friendrequest에서 친구 추가한 UID 삭제하기
                 Log.d("MainActivity", "onCreate - onClick : " + 1);
-                sleep(100);
+                sleep(500);
                 database.getRef().child("users").child(userId).child("friendrequest").child(friendId).removeValue();
                 Log.d("MainActivity", "onCreate - onClick : " + 2);
 

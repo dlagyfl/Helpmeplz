@@ -19,7 +19,7 @@ public class AddFriendComplete extends AppCompatActivity {
         button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(AddFriendComplete.this, MyFriend.class);
+                Intent myIntent = new Intent(AddFriendComplete.this, Menu.class);
                 startActivity(myIntent);
                 finish();
             }
