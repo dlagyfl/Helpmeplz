@@ -40,7 +40,6 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
     private MemberAdapter friendAdapter;
     private RecyclerView recyclerViewFriend;
-    private String currentUserName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +67,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                 ArrayList<Member> selectedMembers = friendAdapter.getSelectedMembers();
 
                 if (selectedMembers.isEmpty()) {
-                    Toast.makeText(CreateGroup.this, "Please select at least one member.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateGroup.this, "그룹 멤버를 선택해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
                     GroupNameInfo newGroup = new GroupNameInfo(groupName, selectedMembers);
                     createGroup(newGroup);
@@ -94,16 +93,22 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
         String userId = firebaseAuth.getCurrentUser().getUid();
         String groupId = reference.child("groups").child("users").child(userId).push().getKey();
         DatabaseReference nameRef = reference.child("users").child(userId).child("name");
+
+        HashMap<String, Object> hostMap = new HashMap<>();
+        hostMap.put("host", userId);
+
         nameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String userName = dataSnapshot.getValue(String.class);
-                currentUserName = userName;
 
                 HashMap<String, Object> groupMap = new HashMap<>();
                 groupMap.put("name", group.getName());
 
+
                 reference.child("groups").child("users").child(userId).child(groupId).updateChildren(groupMap);
+
+                reference.child("groups").child("users").child(userId).child(groupId).updateChildren(hostMap);
 
                 for (Member member : selectedMembers) {
                     String memberId = member.getId();
@@ -112,8 +117,10 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
 
                     reference.child("groups").child("users").child(memberId).child(groupId).child("members").child(memberId).setValue(memberMap);
 
+                    reference.child("groups").child("users").child(memberId).child(groupId).updateChildren(hostMap);
+
                     HashMap<String, Object> currentUserMap = new HashMap<>();
-                    currentUserMap.put("name", currentUserName);
+                    currentUserMap.put("name", userName);
                     reference.child("groups").child("users").child(memberId).child(groupId).child("members").child(userId).setValue(currentUserMap);
 
                     for (Member otherMember : selectedMembers) {
@@ -122,14 +129,14 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                             reference.child("groups").child("users").child(otherMemberId).child(groupId).child("members").child(memberId).setValue(memberMap);
 
                             currentUserMap = new HashMap<>();
-                            currentUserMap.put("name", currentUserName);
+                            currentUserMap.put("name", userName);
                             reference.child("groups").child("users").child(otherMemberId).child(groupId).child("members").child(userId).setValue(currentUserMap);
                         }
                     }
                 }
 
                 HashMap<String, Object> currentUserMap = new HashMap<>();
-                currentUserMap.put("name", currentUserName);
+                currentUserMap.put("name", userName);
                 reference.child("groups").child("users").child(userId).child(groupId).child("members").child(userId).setValue(currentUserMap);
                 HashMap<String, Object> memberMap = new HashMap<>();
                 for (Member member : selectedMembers) {
@@ -143,7 +150,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                     reference.child("groups").child("users").child(memberId).child(groupId).child("name").setValue(group.getName());
                 }
 
-                Toast.makeText(CreateGroup.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateGroup.this, "그룹을 생성하였습니다", Toast.LENGTH_SHORT).show();
                 editTextGroupName.setText(null);
 
                 Intent intent = new Intent(CreateGroup.this, GroupList.class);
