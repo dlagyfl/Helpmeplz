@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml:2:1-71
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml:2:1-71
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml:2:1-71
+ADDED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml:2:1-71
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml:2:1-71
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml:2:1-71
 	package
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml:2:1-71
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+		ADDED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml:2:1-71
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml:2:11-69
 uses-sdk
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+		ADDED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
-		INJECTED from C:\Users\user\Documents\GitHub\Helpmeplz\opencv\java\AndroidManifest.xml
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+		ADDED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml
+		INJECTED from C:\Users\bookm\AndroidStudioProjects\Helpmeplz2\opencv\java\AndroidManifest.xml

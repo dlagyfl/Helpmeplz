@@ -30,7 +30,7 @@ public class Sign_in extends AppCompatActivity {
         signin = findViewById(R.id.button_sign_in);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        signin.setOnClickListener(new Button.OnClickListener() {
+        signin.setOnClickListener(new Button.OnClickListener() {//회원가입 버튼 함수 호출하는 것
             @Override
             public void onClick(android.view.View view) {
                 signUp();
@@ -38,7 +38,7 @@ public class Sign_in extends AppCompatActivity {
         });
 
     }
-    private void signUp(){
+    private void signUp(){//사용자가 입력한 정보들을 서버에 저장하고 데이터베이스에 항목생성
         String name=((EditText)findViewById(R.id.editText_name)).getText().toString();
         String email=((EditText)findViewById(R.id.editText_id)).getText().toString();
         String password=((EditText)findViewById(R.id.editText_password)).getText().toString();
@@ -52,7 +52,7 @@ public class Sign_in extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
+                                    // 회원가입에 성공하면 user변수에 추가
                                     FirebaseUser user=mAuth.getCurrentUser();
                                     if(user!=null){
                                         String uid=user.getUid();
