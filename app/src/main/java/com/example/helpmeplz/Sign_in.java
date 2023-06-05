@@ -66,7 +66,7 @@ public class Sign_in extends AppCompatActivity {
                                 } else {
                                     // 가입에 실패하면 사용자에게 표시
                                     Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(Sign_in.this, "Authentication failed.",
+                                    Toast.makeText(Sign_in.this, "회원가입 실패,이메일의 형식과 비밀번호가 6자리이상인지 확인해주세요",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
