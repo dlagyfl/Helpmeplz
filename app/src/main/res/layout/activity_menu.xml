@@ -74,7 +74,7 @@
             android:layout_marginHorizontal="5dp"
             android:background="@drawable/button_color"
             android:fontFamily="@font/suit_bold"
-            android:text="아이디로 친구 찾기"
+            android:text="친구 목록"
             android:textSize="15dp"
             app:layout_constraintEnd_toStartOf="@+id/button_myGroup"
             app:layout_constraintTop_toBottomOf="@+id/button_myTable" />
