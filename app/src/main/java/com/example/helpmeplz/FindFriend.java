@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,8 +32,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FindFriend extends AppCompatActivity {
-    private boolean match;
     private String userId;
     private String requestUID;
     private Button buttonBack;
@@ -52,9 +55,9 @@ public class FindFriend extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user != null){
+        if (user != null) {
             userId = user.getUid();
-            Log.d("uid", userId);
+//            Log.d("uid", userId);
         }
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -73,27 +76,46 @@ public class FindFriend extends AppCompatActivity {
             }
         });
     }
-    private void addFriend(){
-        String nickname = ((EditText)findViewById(R.id.editText_friend_id)).getText().toString();
-        Log.d("MainActivity", "FindFriend - addFriend : " + nickname);
 
-//        db.collection("컬렉션 이름").whereField("필드명", isEqualTo: "포마")
+    private void addFriend() {
+        String nickname = ((EditText) findViewById(R.id.editText_friend_id)).getText().toString();
+//        Log.d("MainActivity", "FindFriend - addFriend : " + nickname);
 
         database.child("search").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Log.d("MainActivity", "FindFriend - addFriend - onDataChange : " + nickname);
+//                    Log.d("MainActivity", "FindFriend - addFriend - onDataChange : " + nickname);
                     if (nickname.equals(snapshot.getKey())) {
-                        match = true;
-                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getKey());
-                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getValue().toString().substring(1, 29));
+//                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getKey());
+//                        Log.d("MainActivity", "addFriend - onDataChange : " + snapshot.getValue().toString().substring(1, 29));
                         requestUID = snapshot.getValue().toString().substring(1, 29);
+                        validation();
                     }
                 }
-                Log.d("MainActivity", "addFriend - onDataChange : " + !database.child("user").child(userId).child("friendlist").equals(requestUID));
-                if (match && !database.child("user").child(userId).child("friendlist").equals(requestUID)) {
-                    Log.d("MainActivity", "addFriend - onDataChange : " + requestUID);
+
+                Intent myIntent = new Intent(FindFriend.this, AddFriendFailed.class);
+                startActivity(myIntent);
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    private void validation() {
+        database.child("users").child(userId).child("friendlist").child(requestUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("MainActivity", "ChildEventListener - onChildChanged : " + dataSnapshot.exists() + " friendcheck");
+                if (dataSnapshot.exists()) {
+                    Intent myIntent = new Intent(FindFriend.this, AddFriendExists.class);
+                    startActivity(myIntent);
+                    finish();
+                } else {
                     // friendrequest에 내 UID 넣기
                     database.child("users").child(requestUID).child("friendrequest").child(userId).setValue("");
                     Log.d("MainActivity", "addFriend - onDataChange : " + 1111);
@@ -102,17 +124,12 @@ public class FindFriend extends AppCompatActivity {
                     startActivity(myIntent);
                     finish();
                 }
-                else {
-                    Log.d("MainActivity", "FindFriend - addFriend - onDataChange : " + 1);
-                    Intent myIntent = new Intent(FindFriend.this, AddFriendFailed.class);
-                    startActivity(myIntent);
-                    finish();
-                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
-    };
+    }
 }
