@@ -53,7 +53,7 @@ public class AddFriend extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
 
@@ -95,7 +95,6 @@ public class AddFriend extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 database.child("users").child(userId).child("friendrequest").child(friendId).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    // 38D30CEbX4ew1Hj3QcIuG0Ea6WH2
                     @Override
                     public void onSuccess(Void aVoid) {
 
@@ -131,7 +130,7 @@ public class AddFriend extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
     }
@@ -146,7 +145,7 @@ public class AddFriend extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
     }

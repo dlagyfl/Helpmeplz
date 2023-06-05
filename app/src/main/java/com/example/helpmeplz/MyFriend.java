@@ -24,18 +24,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyFriend extends AppCompatActivity {
-    private String userId;
-    private ListView listViewFriend;
-    private ArrayAdapter<String> groupListAdapter;
-
     private long cnt = 0;
+    private String userId;
+    private ArrayAdapter<String> friendListAdapter;
+    private ListView listViewFriend;
     private DatabaseReference database;
 
-    @SuppressLint("MissingInflatedId") //모름..
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_friend);
+
+        listViewFriend = findViewById(R.id.listViewFriend);
+        ImageButton button_bellButton = (ImageButton) findViewById(R.id.bellImageButton);
+        ImageButton button_moreButton = (ImageButton) findViewById(R.id.moreImageButton);
+
+        database = FirebaseDatabase.getInstance().getReference();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
@@ -43,11 +48,14 @@ public class MyFriend extends AppCompatActivity {
             Log.d("uid", userId);
         }
 
-        listViewFriend = findViewById(R.id.listViewFriend);
-        ImageButton button_bellButton = (ImageButton) findViewById(R.id.bellImageButton);
-        ImageButton button_moreButton = (ImageButton) findViewById(R.id.moreImageButton);
-
-        database = FirebaseDatabase.getInstance().getReference();
+        button_moreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MyFriend.this, FindFriend.class);
+                startActivity(myIntent);
+                finish();
+            }
+        });
 
         button_bellButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,44 +75,34 @@ public class MyFriend extends AppCompatActivity {
             }
         });
 
-        button_moreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(MyFriend.this, FindFriend.class);
-                startActivity(myIntent);
-                finish();
-            }
-        });
+        friendListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listViewFriend.setAdapter(friendListAdapter);
 
-        groupListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listViewFriend.setAdapter(groupListAdapter);
-
-        getGroups();
+        getFriends();
         getRequest();
     }
 
-    private void getGroups() {
+    private void getFriends() {
         database.child("users").child(userId).child("friendlist").addValueEventListener(new ValueEventListener() {
 
-//        database.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> groupList = new ArrayList<>();
+                List<String> friendList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + snapshot.getKey());
-                    FriendNameInfo group = snapshot.getValue(FriendNameInfo.class);
-                    String groupName = group.getName();
-                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + groupName);
-                    groupList.add(groupName);
+                    FriendNameInfo friend = snapshot.getValue(FriendNameInfo.class);
+                    assert friend != null;
+                    String friendName = friend.getName();
+                    Log.d("MainActivity", "ChildEventListener - onChildChanged : " + friendName);
+                    friendList.add(friendName);
                 }
-                groupListAdapter.clear();
-                groupListAdapter.addAll(groupList);
-                groupListAdapter.notifyDataSetChanged();
+                friendListAdapter.clear();
+                friendListAdapter.addAll(friendList);
+                friendListAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
     }
@@ -117,7 +115,7 @@ public class MyFriend extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());
+                Log.e("Firebase", "Error fetching friends: " + databaseError.getMessage());
             }
         });
     }

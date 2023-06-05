@@ -16,9 +16,9 @@ public class CheckFriend extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent1 = getIntent();
-        String groupID = intent1.getStringExtra("nickname");
+        String friendId = intent1.getStringExtra("nickname");
 
-        Log.d("MainActivity", "ValueEventListener - onDataChange : " + groupID + " in CheckFriend onCreate");
+        Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendId + " in CheckFriend onCreate");
         view = findViewById(R.id.textView_checkfriend_id);
 //        view.setText(1111);
 
