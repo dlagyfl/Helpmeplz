@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,15 +45,14 @@ public class FindNullTime extends AppCompatActivity {
 
 
 
-    private ArrayList<Mat> matList;
+//    private ArrayList<Mat> matList;
     private List<String> imageNames;
     private List<Bitmap> imageList;
-    private StorageReference storageReference;
+//    private StorageReference storageReference;
     private DatabaseReference databaseRef;
-    private FirebaseStorage storage;
-    private StorageReference storageRef;
 
-//    private FirebaseAuth firebaseAuth;
+
+    //    private FirebaseAuth firebaseAuth;
     private int count1 = 0;
     private int count2 = 0;
     static {
@@ -147,18 +144,16 @@ public class FindNullTime extends AppCompatActivity {
 
         imageNames = new ArrayList<>();
         imageList = new ArrayList<>();
-        matList = new ArrayList<>();
+//        matList = new ArrayList<>();
 
         databaseRef = FirebaseDatabase.getInstance().getReference();
-        storage = FirebaseStorage.getInstance();
-        storageRef = storage.getReference();
 
-        storageRef = storage.getReference();
 //        firebaseAuth = FirebaseAuth.getInstance();
 //        String userId = firebaseAuth.getCurrentUser().getUid();
 
         Intent intent2 = getIntent();
         ArrayList<String> userUIDs = intent2.getStringArrayListExtra("memberList");
+        ArrayList<String> noImageUIDs = new ArrayList<>();
 //        userUIDs.add(userId);
 
 //        String[] userUIDs = {
@@ -179,21 +174,68 @@ public class FindNullTime extends AppCompatActivity {
 
 
 
+//        for (String uid : userUIDs) {
+//            DatabaseReference timetableRef = databaseRef.child("users").child(uid).child("timetable");
+//            timetableRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    String imageName = dataSnapshot.getValue(String.class);
+//                    if (imageName != null) {
+//                        imageNames.add(imageName);
+//                        count1++;
+//                    } else {
+//                        noImageUIDs.add(imageName);
+//                    }
+//                    count2++;
+//
+//                    if (count2 == userUIDs.size()) {
+//                        if (count1 != count2) {
+//
+//                            Toast.makeText(FindNullTime.this, "누군가의 시간표 이미지가 없습니다", Toast.LENGTH_SHORT).show();
+//                        }
+//                        else {
+//                            downloadImageUsingHttp();
+//                        }
+//                    }
+//
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
+//        }
         for (String uid : userUIDs) {
-            DatabaseReference timetableRef = databaseRef.child("users").child(uid).child("timetable");
+            DatabaseReference timetableRef = databaseRef.child("users").child(uid);
             timetableRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String imageName = dataSnapshot.getValue(String.class);
+                    String imageName = dataSnapshot.child("timetable").getValue(String.class);
+                    String noExitImageName = dataSnapshot.child("name").getValue(String.class);
+//                            dataSnapshot.getValue(String.class);
                     if (imageName != null) {
                         imageNames.add(imageName);
                         count1++;
+                    } else {
+                        noImageUIDs.add(noExitImageName);
                     }
                     count2++;
 
                     if (count2 == userUIDs.size()) {
                         if (count1 != count2) {
-                            Toast.makeText(FindNullTime.this, "누군가의 시간표 이미지가 없습니다", Toast.LENGTH_SHORT).show();
+                            StringBuilder toastMessage = new StringBuilder();
+                            for (String userName : noImageUIDs) {
+                                toastMessage.append(userName + ", ");
+                            }
+                            if (toastMessage.length() > 0 && toastMessage.charAt(toastMessage.length() - 2) == ',') {
+                                toastMessage.deleteCharAt(toastMessage.length() - 1);
+                                toastMessage.deleteCharAt(toastMessage.length() - 1);
+                            }
+                            toastMessage.append("님의 시간표 이미지가 없습니다");
+                            Log.d("toast", "toast_error");
+                            Toast.makeText(FindNullTime.this, toastMessage, Toast.LENGTH_SHORT).show();
                         }
                         else {
                             downloadImageUsingHttp();
@@ -211,7 +253,7 @@ public class FindNullTime extends AppCompatActivity {
         }
     }
 
-//    downloadImageUsingHttp() 메서드를 사용하여 Firebase Storage에서 이미지를 다운로드하고,
+    //    downloadImageUsingHttp() 메서드를 사용하여 Firebase Storage에서 이미지를 다운로드하고,
 //    다운로드된 이미지는 Bitmap 객체로 변환하여 imageList에 저장됩니다.
     private void downloadImageUsingHttp() {
         new Thread(new Runnable() {
