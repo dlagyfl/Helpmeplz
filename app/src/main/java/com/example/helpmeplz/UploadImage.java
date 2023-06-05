@@ -272,15 +272,12 @@ public class UploadImage extends AppCompatActivity {
         Bitmap adjustedBitmap = Bitmap.createBitmap(desiredWidth, desiredHeight, originalBitmap.getConfig());
         Canvas canvas = new Canvas(adjustedBitmap);
 
-        // Fill the canvas with black color
         canvas.drawColor(Color.BLACK);
 
-        // Draw the original bitmap on the canvas with the desired offset
-        int offsetX = (desiredWidth - width) / 2;
-        int offsetY = (desiredHeight - height) / 2;
+//        int offsetX = (desiredWidth - width) / 2;
+//        int offsetY = (desiredHeight - height) / 2;
         canvas.drawBitmap(originalBitmap, (desiredWidth - width) / 2, 0, null);
 
-        // Iterate over each pixel and change white pixels to black
         for (int x = 0; x < desiredWidth; x++) {
             for (int y = 0; y < desiredHeight; y++) {
                 int pixel = adjustedBitmap.getPixel(x, y);
@@ -290,9 +287,7 @@ public class UploadImage extends AppCompatActivity {
             }
         }
         return adjustedBitmap;
-}
-
-
+    }
 
 }
 

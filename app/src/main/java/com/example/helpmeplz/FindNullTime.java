@@ -26,6 +26,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
 import java.io.IOException;
@@ -210,6 +211,8 @@ public class FindNullTime extends AppCompatActivity {
         }
     }
 
+//    downloadImageUsingHttp() 메서드를 사용하여 Firebase Storage에서 이미지를 다운로드하고,
+//    다운로드된 이미지는 Bitmap 객체로 변환하여 imageList에 저장됩니다.
     private void downloadImageUsingHttp() {
         new Thread(new Runnable() {
             @Override
@@ -235,82 +238,130 @@ public class FindNullTime extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        processDownloadedImages();
+                        findBlackPixels();
                     }
                 });
             }
         }).start();
     }
-
-    private void processDownloadedImages() {
+    private void findBlackPixels() {
         if (imageList.size() >= 2) {
 
-            Bitmap firstBitmap = imageList.get(0);
-            int width = firstBitmap.getWidth();
-            int height = firstBitmap.getHeight();
-
-            Bitmap resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            Mat firstMat = new Mat();
+            Utils.bitmapToMat(imageList.get(0), firstMat);
 
             int startY = 30;
             int startX = 28;
 
-            List<int[]> whiteList = new ArrayList<>();
+            int width = firstMat.cols();
+            int height = firstMat.rows();
+
+            List<int[]> blackList = new ArrayList<>();
 
             for (int y = startY; y < height; y += 40) {
-                for (int x = startX; x < width && x < startX + (40 * 5); x += 40) {
-                    int red = 0;
-                    int green = 0;
-                    int blue = 0;
+                for (int x = startX; x < width; x += 40) {
+                    int totalRed = 0;
+                    int totalGreen = 0;
+                    int totalBlue = 0;
 
                     for (Bitmap bitmap : imageList) {
-                        int pixel = bitmap.getPixel(x, y);
+                        Mat mat = new Mat();
+                        Utils.bitmapToMat(bitmap, mat);
 
-                        int add_red = Color.red(pixel);
-                        int add_green = Color.green(pixel);
-                        int add_blue = Color.blue(pixel);
+                        double[] pixel = mat.get(y, x);
 
-                        red += add_red;
-                        green += add_green;
-                        blue += add_blue;
+                        totalRed += pixel[0];
+                        totalGreen += pixel[1];
+                        totalBlue += pixel[2];
                     }
 
                     int numImages = imageList.size();
-                    red /= numImages;
-                    green /= numImages;
-                    blue /= numImages;
+                    int red = totalRed / numImages;
+                    int green = totalGreen / numImages;
+                    int blue = totalBlue / numImages;
 
                     if (red >= 0 && red <= 31 && green >= 0 && green <= 31 && blue >= 0 && blue <= 31) {
-                        red = 255;
-                        green = 255;
-                        blue = 255;
-                    }
-
-                    if (red == 255 && green == 255 && blue == 255) {
                         int[] coordinates = {x, y};
-                        whiteList.add(coordinates);
+                        blackList.add(coordinates);
                     }
-
-                    int combinedPixel = Color.rgb(red, green, blue);
-                    resultBitmap.setPixel(x, y, combinedPixel);
                 }
             }
-//            imageView1.setImageBitmap(resultBitmap);
-            startinput(whiteList);
 
-                for (int[] coordinates : whiteList) {
-                    int x = coordinates[0];
-                    int y = coordinates[1];
-
-                    Log.d("White Pixel", "x: " + x + ", y: " + y);
-                }
-            }
+            applyColorToTextViews(blackList);
         }
+    }
 
-    private void startinput(List<int[]> whiteList) {
+
+
+//    private void findBlackPixels() {
+//        if (imageList.size() >= 2) {
+//
+//            Bitmap firstBitmap = imageList.get(0);
+//
+////            Bitmap resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//
+//            int startY = 30;
+//            int startX = 28;
+//
+//            int width = firstBitmap.getWidth();
+//            int height = firstBitmap.getHeight();
+//
+//            List<int[]> blackList = new ArrayList<>();
+//
+//            for (int y = startY; y < height; y += 40) {
+//                for (int x = startX; x < width && x < startX + (40 * 5); x += 40) {
+//                    int red = 0;
+//                    int green = 0;
+//                    int blue = 0;
+//
+//                    for (Bitmap bitmap : imageList) {
+//                        int pixel = bitmap.getPixel(x, y);
+//
+//                        int add_red = Color.red(pixel);
+//                        int add_green = Color.green(pixel);
+//                        int add_blue = Color.blue(pixel);
+//
+//                        red += add_red;
+//                        green += add_green;
+//                        blue += add_blue;
+//                    }
+//
+//                    int numImages = imageList.size();
+//                    red /= numImages;
+//                    green /= numImages;
+//                    blue /= numImages;
+//
+//                    if (red >= 0 && red <= 31 && green >= 0 && green <= 31 && blue >= 0 && blue <= 31) {
+//                        int[] coordinates = {x, y};
+//                        blackList.add(coordinates);
+//                    }
+//
+////                    if (red == 255 && green == 255 && blue == 255) {
+////                        int[] coordinates = {x, y};
+////                        blackList.add(coordinates);
+////                    }
+//
+////                    int combinedPixel = Color.rgb(red, green, blue);
+////                    resultBitmap.setPixel(x, y, combinedPixel);
+//                }
+//            }
+////            imageView1.setImageBitmap(resultBitmap);
+//            applyColorToTextViews(blackList);
+//
+////                for (int[] coordinates : whiteList) {
+////                    int x = coordinates[0];
+////                    int y = coordinates[1];
+////
+////                    Log.d("White Pixel", "x: " + x + ", y: " + y);
+////                }
+//            }
+//        }
+
+    private void applyColorToTextViews(List<int[]> blackList) {
 
         int color = Color.parseColor("#FCEF85");
 
-        for (int[] point : whiteList) {
+        for (int[] point : blackList) {
             int x = point[0];
             int y = point[1];
 
