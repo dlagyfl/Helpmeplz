@@ -286,9 +286,16 @@ public class FindNullTime extends AppCompatActivity {
             }
         }).start();
     }
+
+
     private void findBlackPixels() {
+        // 먼저, findBlackPixels 메소드는 imageList에 두 개 이상의 이미지가 포함되어 있는지 확인한다.
+        // 만약 이 조건이 충족되지 않으면 메서드는 다음 코드를 실행하지 않고 종료된다.
         if (imageList.size() >= 2) {
 
+            //다음으로, OpenCV Utils의 bitmapToMat() 메서드를 사용하여 imageList에서 첫 번째 이미지를 OpenCV의 Mat 객체로 변환한다.
+            // 그리고 startX와 startY를 28과 30으로 설정하고, width와 height 변수에 이미지의 너비와 높이를 저장한다.
+            // 검은색의 픽셀을 저장할 리스트를 선언한다.
             Mat firstMat = new Mat();
             Utils.bitmapToMat(imageList.get(0), firstMat);
 
@@ -300,12 +307,15 @@ public class FindNullTime extends AppCompatActivity {
 
             List<int[]> blackList = new ArrayList<>();
 
+//          이제 시작점인 startX와 startY로 정의된 좌표에서부터 40씩 증가하면서 반복한다.
             for (int y = startY; y < height; y += 40) {
                 for (int x = startX; x < width; x += 40) {
                     int totalRed = 0;
                     int totalGreen = 0;
                     int totalBlue = 0;
 
+                    //imageList의 이미지를 반복하여 지정된 좌표에서 픽셀을 검색하고 빨간색, 녹색 및 파란색 값을 누적하여 저장한다.
+                    // 이후에는 평균 RGB 값을 계산한다.
                     for (Bitmap bitmap : imageList) {
                         Mat mat = new Mat();
                         Utils.bitmapToMat(bitmap, mat);
@@ -322,6 +332,9 @@ public class FindNullTime extends AppCompatActivity {
                     int green = totalGreen / numImages;
                     int blue = totalBlue / numImages;
 
+                    //이 방법은 계산된 평균 색상이 특정 범위에 포함되는지 여부를 확인한다.
+                    // 세 가지 색상 성분(빨간색, 녹색 및 파란색)이 모두 0에서 31 사이인지 확인한다.
+                    // 이 기준을 충족하면 픽셀 좌표가 blackList에 추가된다.
                     if (red >= 0 && red <= 31 && green >= 0 && green <= 31 && blue >= 0 && blue <= 31) {
                         int[] coordinates = {x, y};
                         blackList.add(coordinates);
@@ -329,10 +342,11 @@ public class FindNullTime extends AppCompatActivity {
                 }
             }
 
+            //검은색 픽셀 좌표 값이 저장되어 있는 blackList를 applyColorToTextViews() 메서드로 보낸다.
+            //applyColorToTextViews() 메서드는 검은색 픽셀의 좌표를 기준으로 특정 텍스트 뷰에 색상을 적용하는 역할을 한다.
             applyColorToTextViews(blackList);
         }
     }
-
 
 
 //    private void findBlackPixels() {

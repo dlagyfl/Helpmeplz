@@ -43,6 +43,8 @@ public class FindFriend extends AppCompatActivity {
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
 
+    private boolean check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,8 @@ public class FindFriend extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+
+        check = true;
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -111,7 +115,7 @@ public class FindFriend extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("MainActivity", "ChildEventListener - onChildChanged : " + dataSnapshot.exists() + " friendcheck");
-                if (dataSnapshot.exists()) {
+                if (check && dataSnapshot.exists()) {
                     Intent myIntent = new Intent(FindFriend.this, AddFriendExists.class);
                     startActivity(myIntent);
                     finish();
@@ -119,6 +123,7 @@ public class FindFriend extends AppCompatActivity {
                     // friendrequest에 내 UID 넣기
                     database.child("users").child(requestUID).child("friendrequest").child(userId).setValue("");
                     Log.d("MainActivity", "addFriend - onDataChange : " + 1111);
+                    check = false;
 
                     Intent myIntent = new Intent(FindFriend.this, AddFriendComplete.class);
                     startActivity(myIntent);
