@@ -156,6 +156,7 @@ public class CreateGroup extends AppCompatActivity implements MemberAdapter.OnMe
                 Intent intent = new Intent(CreateGroup.this, GroupList.class);
                 startActivity(intent);
                 finish();
+
             }
 
             @Override

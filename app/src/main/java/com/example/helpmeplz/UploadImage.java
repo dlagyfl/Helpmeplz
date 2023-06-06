@@ -281,7 +281,6 @@ public class UploadImage extends AppCompatActivity {
                 }
             }
         }
-
         // 조정된 비트맵을 반환합니다.
         return adjustedBitmap;
     }

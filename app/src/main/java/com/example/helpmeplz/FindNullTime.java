@@ -435,7 +435,6 @@ public class FindNullTime extends AppCompatActivity {
                 monday3.setBackgroundColor(color);
                 mon3.setTextColor(Color.TRANSPARENT);
 
-
             }
             //조건이 충족되면 텍스트 뷰의 배경색을 이전에 설정한 색으로 변경 후
             //글자 색은 투명색으로 바꾼다.
