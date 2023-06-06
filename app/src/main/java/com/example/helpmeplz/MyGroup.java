@@ -136,6 +136,7 @@ public class MyGroup extends AppCompatActivity {
                 Intent intent = new Intent(MyGroup.this, FindNullTime.class);
                 intent.putExtra("memberList",  (ArrayList<String>) memberList);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -168,7 +169,7 @@ public class MyGroup extends AppCompatActivity {
                                 });
                         builder.create().show();
                     } else {
-                        builder.setMessage("그룹에서 나가시겠습니까?")
+                        builder.setMessage("그룹을 삭제하시겠습니까?")
                                 .setPositiveButton("예", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         Toast.makeText(getApplicationContext(), "방장만 사용할 수 있는 기능입니다.", Toast.LENGTH_SHORT).show();

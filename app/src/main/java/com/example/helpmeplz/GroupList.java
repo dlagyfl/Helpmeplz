@@ -138,6 +138,7 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
                                 intent.putExtra("groupId", groupId);
                                 intent.putExtra("groupName", selectedGroup);
                                 startActivity(intent);
+                                finish();
 
                             }
                         }

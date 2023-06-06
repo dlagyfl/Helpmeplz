@@ -1,12 +1,10 @@
 package com.example.helpmeplz;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -44,7 +42,6 @@ public class UploadImage extends AppCompatActivity {
 
     private ImageView imageView;
     private ProgressBar progressBar;
-    private final DatabaseReference root = FirebaseDatabase.getInstance().getReference();
     private final StorageReference reference = FirebaseStorage.getInstance().getReference();
     private Uri imageUri;
 
@@ -54,7 +51,6 @@ public class UploadImage extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +90,7 @@ public class UploadImage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UploadImage.this, Menu.class);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -186,9 +183,7 @@ public class UploadImage extends AppCompatActivity {
             adjustedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
 
-            String filepath = "timetable/";
-//            System.currentTimeMillis()
-//            StorageReference fileRef = reference.child(filepath + System.currentTimeMillis() + "." + getFileExtension(uri));
+
             StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
             UploadTask uploadTask = fileRef.putBytes(data);
 
@@ -202,10 +197,6 @@ public class UploadImage extends AppCompatActivity {
 
                             String imageUrl = uri.toString();
 
-                            Model model = new Model(imageUrl);
-                            String modelId = root.push().getKey();
-//                            root.child(modelId).setValue(model);
-//
                             String userId = mAuth.getCurrentUser().getUid();
 
                             mDatabase.child("users").child(userId).child("timetable").setValue(imageUrl);
@@ -230,9 +221,10 @@ public class UploadImage extends AppCompatActivity {
                 }
             });
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
+
 
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
@@ -241,30 +233,13 @@ public class UploadImage extends AppCompatActivity {
     }
 
 
+
     private Bitmap resizeImage(Bitmap originalImage, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalImage, newWidth, newHeight, false);
     }
 
 
-//    private Bitmap adjustImageSizeAndAddBorder(Bitmap originalBitmap, int desiredWidth, int desiredHeight) {
-//
-//        int width = originalBitmap.getWidth();
-//        int height = originalBitmap.getHeight();
-//
-//
-//        Bitmap adjustedBitmap = Bitmap.createBitmap(desiredWidth, desiredHeight, originalBitmap.getConfig());
-//
-//
-//        Canvas canvas = new Canvas(adjustedBitmap);
-//
-//
-//        canvas.drawColor(Color.BLACK);
-//
-//
-//        canvas.drawBitmap(originalBitmap, (desiredWidth - width) / 2, 0, null);
-//
-//        return adjustedBitmap;
-//    }
+
     private Bitmap adjustImageSizeAndAddBorder(Bitmap originalBitmap, int desiredWidth, int desiredHeight) {
         int width = originalBitmap.getWidth();
         int height = originalBitmap.getHeight();
@@ -274,8 +249,6 @@ public class UploadImage extends AppCompatActivity {
 
         canvas.drawColor(Color.BLACK);
 
-//        int offsetX = (desiredWidth - width) / 2;
-//        int offsetY = (desiredHeight - height) / 2;
         canvas.drawBitmap(originalBitmap, (desiredWidth - width) / 2, 0, null);
 
         for (int x = 0; x < desiredWidth; x++) {
@@ -288,7 +261,6 @@ public class UploadImage extends AppCompatActivity {
         }
         return adjustedBitmap;
     }
-
 }
 
 
