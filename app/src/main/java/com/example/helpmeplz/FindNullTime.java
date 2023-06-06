@@ -34,6 +34,7 @@ import java.util.List;
 
 public class FindNullTime extends AppCompatActivity {
 
+    // UI 요소 선언
     private Button back_nullTime;
     View monday1, monday2, monday3, monday4, monday5, monday6, monday7, monday8, monday9, monday10, monday11, monday12, monday13;
     View tuesday1, tuesday2, tuesday3, tuesday4, tuesday5, tuesday6, tuesday7, tuesday8, tuesday9, tuesday10, tuesday11, tuesday12, tuesday13;
@@ -42,11 +43,19 @@ public class FindNullTime extends AppCompatActivity {
     View friday1, friday2, friday3, friday4, friday5, friday6, friday7, friday8, friday9, friday10, friday11, friday12, friday13;
 
 
+    // 이미지 이름을 저장할 List 선언
     private List<String> imageNames;
+
+    // 이미지를 저장할 List 선언
     private List<Bitmap> imageList;
+
+    // Firebase Realtime Database에 대한 참조 객체
     private DatabaseReference databaseRef;
 
+    // 이미지 개수를 세는 변수
     private int count_image = 0;
+
+    // 사람 수를 세는 변수
     private int count_people = 0;
     //OpenCV 라이브러리를 초기화
     static {
@@ -59,6 +68,7 @@ public class FindNullTime extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_null_time);
 
+        // UI 요소 초기화
         monday1 = findViewById(R.id.monday1);
         monday2 = findViewById(R.id.monday2);
         monday3 = findViewById(R.id.monday3);
@@ -73,6 +83,7 @@ public class FindNullTime extends AppCompatActivity {
         monday12 = findViewById(R.id.monday12);
         monday13 = findViewById(R.id.monday13);
 
+        // UI 요소 초기화
         tuesday1 = findViewById(R.id.tuesday1);
         tuesday2 = findViewById(R.id.tuesday2);
         tuesday3 = findViewById(R.id.tuesday3);
@@ -87,6 +98,7 @@ public class FindNullTime extends AppCompatActivity {
         tuesday12 = findViewById(R.id.tuesday12);
         tuesday13 = findViewById(R.id.tuesday13);
 
+        // UI 요소 초기화
         wednesday1 = findViewById(R.id.wednesday1);
         wednesday2 = findViewById(R.id.wednesday2);
         wednesday3 = findViewById(R.id.wednesday3);
@@ -101,7 +113,7 @@ public class FindNullTime extends AppCompatActivity {
         wednesday12 = findViewById(R.id.wednesday12);
         wednesday13 = findViewById(R.id.wednesday13);
 
-
+        // UI 요소 초기화
         thursday1 = findViewById(R.id.thursday1);
         thursday2 = findViewById(R.id.thursday2);
         thursday3 = findViewById(R.id.thursday3);
@@ -116,7 +128,7 @@ public class FindNullTime extends AppCompatActivity {
         thursday12 = findViewById(R.id.thursday12);
         thursday13 = findViewById(R.id.thursday13);
 
-
+        // UI 요소 초기화
         friday1 = findViewById(R.id.friday1);
         friday2 = findViewById(R.id.friday2);
         friday3 = findViewById(R.id.friday3);
@@ -133,13 +145,18 @@ public class FindNullTime extends AppCompatActivity {
 
         back_nullTime = findViewById(R.id.back_nullTime);
 
+        // 이미지 이름과 이미지 목록을 저장할 ArrayList 초기화
         imageNames = new ArrayList<>();
         imageList = new ArrayList<>();
 
+        // Firebase Realtime Database에 대한 참조 객체
         databaseRef = FirebaseDatabase.getInstance().getReference();
 
+        // 이전 액티비티로부터 전달된 사용자 UID 목록을 저장할 변수
         Intent intent2 = getIntent();
         ArrayList<String> userUIDs = intent2.getStringArrayListExtra("memberList");
+
+        // 이미지가 없는 사용자 UID 목록을 저장할 ArrayList 선언 및 초기화
         ArrayList<String> noImageUIDs = new ArrayList<>();
 
         //Menu로 이동하는 버튼
@@ -230,7 +247,7 @@ public class FindNullTime extends AppCompatActivity {
                         inputStream.close(); // 입력 스트림을 닫는다
                         connection.disconnect(); // 연결을 끊는다
                     } catch (IOException e) {
-                        Log.e("DownloadImage", "이미지 다운을 실패했습니다" + e.getMessage()); // 다운로드 중에 예외가 있는 경우 오류 기록
+                        Log.e("DownloadImage", "이미지 다운을 실패했습니다"); // 다운로드 중에 예외가 있는 경우 오류 기록
                     }
                 }
 
