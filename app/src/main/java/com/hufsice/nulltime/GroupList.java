@@ -160,6 +160,6 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
     public void onGroupItemLongClick(int position) {
         // 그룹 항목 롱클릭 이벤트 처리
         String groupName = groupList.get(position);
-        Toast.makeText(this, "Long clicked: " + groupName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, groupName, Toast.LENGTH_SHORT).show();
     }
 }

@@ -71,6 +71,7 @@ public class MyGroup extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
+
                 for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                     String memberId = memberSnapshot.getKey();
                     memberList.add(memberId);
@@ -154,16 +155,19 @@ public class MyGroup extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MyGroup.this);
                     if (host.equals(userId)) {
                         builder.setMessage("그룹을 삭제하시겠습니까?")
-                                .setPositiveButton("아니요", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.dismiss();
-                                    }
-                                })
                                 .setNegativeButton("예", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         deleteGroup(groupId);
                                         dialog.dismiss(); // 대화상자 닫기
                                         Toast.makeText(getApplicationContext(), "그룹이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(MyGroup.this, GroupList.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                })
+                                .setPositiveButton("아니요", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.dismiss();
                                     }
                                 });
                         builder.create().show();
