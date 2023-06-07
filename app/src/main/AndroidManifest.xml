@@ -18,44 +18,44 @@
 <!--            android:name=".SideMenu"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".AddFriend"
+            android:name="com.hufsice.nulltime.AddFriend"
             android:exported="false" />
         <activity
-            android:name=".AddFriendComplete"
+            android:name="com.hufsice.nulltime.AddFriendComplete"
             android:exported="false" />
         <activity
-            android:name=".AddFriendFailed"
+            android:name="com.hufsice.nulltime.AddFriendFailed"
             android:exported="false" />
         <activity
-            android:name=".NoFriendRequest"
+            android:name="com.hufsice.nulltime.NoFriendRequest"
             android:exported="false" />
         <activity
-            android:name=".CheckFriend"
+            android:name="com.hufsice.nulltime.CheckFriend"
             android:exported="false" />
         <activity
-            android:name=".FindFriend"
+            android:name="com.hufsice.nulltime.FindFriend"
             android:exported="false" />
         <activity
-            android:name=".CreateGroup"
+            android:name="com.hufsice.nulltime.CreateGroup"
             android:exported="false" />
 <!--        dddd-->
         <activity
-            android:name=".GroupList"
+            android:name="com.hufsice.nulltime.GroupList"
             android:exported="false" />
         <activity
-            android:name=".MyGroup"
+            android:name="com.hufsice.nulltime.MyGroup"
             android:exported="false" />
         <activity
-            android:name=".SearchID"
+            android:name="com.hufsice.nulltime.SearchID"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name="com.hufsice.nulltime.Menu"
             android:exported="false" />
         <activity
-            android:name=".MyFriend"
+            android:name="com.hufsice.nulltime.MyFriend"
             android:exported="false" />
         <activity
-            android:name=".Log_in"
+            android:name="com.hufsice.nulltime.Log_in"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,17 +64,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Sign_in"
+            android:name="com.hufsice.nulltime.Sign_in"
             android:exported="false" />
         <activity
-            android:name=".UploadImage"
+            android:name="com.hufsice.nulltime.UploadImage"
             android:exported="false" />
 
         <activity
-            android:name=".FindNullTime"
+            android:name="com.hufsice.nulltime.FindNullTime"
             android:exported="false" />
         <activity
-            android:name=".AddFriendExists"
+            android:name="com.hufsice.nulltime.AddFriendExists"
             android:exported="false" />
 
     </application>

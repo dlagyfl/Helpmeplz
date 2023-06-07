@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.helpmeplz'
+    namespace 'com.hufsice.nulltime'
     compileSdk 33
 
     defaultConfig {
@@ -12,7 +12,7 @@ android {
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
-        applicationId "com.example.helpmeplz"
+        applicationId "com.hufsice.nulltime"
         minSdk 29
         targetSdk 33
         versionCode 1

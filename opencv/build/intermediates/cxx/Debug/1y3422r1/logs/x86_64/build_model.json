@@ -126,7 +126,7 @@
         "rootBuildGradleFolder": "C:\\Users\\USER\\AndroidStudioProjects\\Helpmeplz",
         "sdkFolder": "C:\\Users\\USER\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86_64,x86",
+        "ideBuildTargetAbi": "x86_64,arm64-v8a",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
