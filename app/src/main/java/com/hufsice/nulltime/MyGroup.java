@@ -122,6 +122,7 @@ public class MyGroup extends AppCompatActivity {
                 groupListAdapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("Firebase", "Error fetching groups: " + databaseError.getMessage());

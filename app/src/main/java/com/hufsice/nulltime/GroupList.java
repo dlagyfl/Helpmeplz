@@ -125,6 +125,7 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
                 for (DataSnapshot groupSnapshot : dataSnapshot.getChildren()) {
                     String groupId = groupSnapshot.getKey();
 
+
                     DatabaseReference groupRef = database.child("groups").child("users").child(userId).child(groupId);
                     groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
