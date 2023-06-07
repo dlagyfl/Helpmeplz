@@ -21,16 +21,16 @@
             android:name="com.hufsice.nulltime.AddFriend"
             android:exported="false" />
         <activity
-            android:name="com.hufsice.nulltime.AddFriendComplete"
+            android:name="com.hufsice.nulltime.FindFriendComplete"
+            android:exported="false" />
+        <activity
+            android:name="com.hufsice.nulltime.FindFriendFailed"
             android:exported="false" />
         <activity
             android:name="com.hufsice.nulltime.AddFriendFailed"
             android:exported="false" />
         <activity
-            android:name="com.hufsice.nulltime.NoFriendRequest"
-            android:exported="false" />
-        <activity
-            android:name="com.hufsice.nulltime.CheckFriend"
+            android:name="com.hufsice.nulltime.AddFriendComplete"
             android:exported="false" />
         <activity
             android:name="com.hufsice.nulltime.FindFriend"
@@ -74,7 +74,7 @@
             android:name="com.hufsice.nulltime.FindNullTime"
             android:exported="false" />
         <activity
-            android:name="com.hufsice.nulltime.AddFriendExists"
+            android:name="com.hufsice.nulltime.FindFriendExists"
             android:exported="false" />
 
     </application>

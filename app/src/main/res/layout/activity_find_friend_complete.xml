@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_color"
-    android:orientation="vertical">
+    android:background="@drawable/background_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -14,7 +13,7 @@
         android:layout_height="350dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="120dp"
         android:background="@drawable/rectangle_background"
         android:orientation="vertical"
@@ -25,20 +24,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028">
 
-        <!--    tools:layout_editor_absoluteY="137dp"-->
-
-
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="100dp"
             android:fontFamily="@font/suit_medium"
-            android:text="친구 추가 신청이"
+            android:text="친구 신청이"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintHorizontal_bias="0.183"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,43 +45,12 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/suit_medium"
-            android:text="없습니다."
+            android:text="완료되었습니다."
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1555"
+            app:layout_constraintHorizontal_bias="0.246"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-<!--        <Button-->
-<!--            android:id="@+id/button_prev"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="15dp"-->
-<!--            android:layout_marginEnd="152dp"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            android:background="@drawable/button_color"-->
-<!--            android:fontFamily="@font/suit_bold"-->
-<!--            android:text="BACK"-->
-<!--            android:textSize="15sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/button_next3"-->
-<!--            app:layout_constraintHorizontal_bias="0.02"-->
-<!--            app:layout_constraintStart_toStartOf="parent" />-->
-
-        <Button
-            android:id="@+id/button_next3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_color"
-            android:fontFamily="@font/suit_bold"
-            android:text="HOME"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -112,6 +77,38 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.228" />
 
+        <Button
+            android:id="@+id/button_next3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_color"
+            android:fontFamily="@font/suit_bold"
+            android:text="HOME"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_bias="1.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="115dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/null_string_white" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button" />
 
 </LinearLayout>

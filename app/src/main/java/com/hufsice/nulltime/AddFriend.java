@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.hufsice.nulltime.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,7 +74,7 @@ public class AddFriend extends AppCompatActivity {
                 Log.d("MainActivity", "onCreate - onClick : " + 2);
 
                 Log.d("MainActivity", "onCreate - onClick : " + friendName + " before intent");
-                Intent intent = new Intent(AddFriend.this, CheckFriend.class);
+                Intent intent = new Intent(AddFriend.this, AddFriendComplete.class);
                 intent.putExtra("nickname", friendName);
                 startActivity(intent);
                 database.getRef().child("users").child(userId).child("friendrequest").child(friendId).removeValue();

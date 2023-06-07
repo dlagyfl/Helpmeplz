@@ -7,14 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hufsice.nulltime.R;
-
-public class AddFriendExists extends AppCompatActivity {
+public class FindFriendFailed extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_friend_exists);
+        setContentView(R.layout.activity_find_friend_failed);
 
         Button buttonPrev = findViewById(R.id.button_prev);
         Button buttonHome = findViewById(R.id.button_home);
@@ -22,7 +20,7 @@ public class AddFriendExists extends AppCompatActivity {
         buttonPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(AddFriendExists.this, FindFriend.class);
+                Intent myIntent = new Intent(FindFriendFailed.this, FindFriend.class);
                 startActivity(myIntent);
                 finish();
             }
@@ -30,7 +28,7 @@ public class AddFriendExists extends AppCompatActivity {
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(AddFriendExists.this, MyFriend.class);
+                Intent myIntent = new Intent(FindFriendFailed.this, MyFriend.class);
                 startActivity(myIntent);
                 finish();
             }

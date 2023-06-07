@@ -7,8 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hufsice.nulltime.R;
-
 public class AddFriendFailed extends AppCompatActivity {
 
     @Override
@@ -16,18 +14,9 @@ public class AddFriendFailed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend_failed);
 
-        Button buttonPrev = findViewById(R.id.button_prev);
-        Button buttonHome = findViewById(R.id.button_home);
+        Button button_MyFriend = findViewById(R.id.button_next3);
 
-        buttonPrev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(AddFriendFailed.this, FindFriend.class);
-                startActivity(myIntent);
-                finish();
-            }
-        });
-        buttonHome.setOnClickListener(new View.OnClickListener() {
+        button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(AddFriendFailed.this, MyFriend.class);

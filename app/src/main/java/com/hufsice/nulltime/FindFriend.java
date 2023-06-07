@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hufsice.nulltime.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,7 +81,7 @@ public class FindFriend extends AppCompatActivity {
                     }
                 }
 
-                Intent myIntent = new Intent(FindFriend.this, AddFriendFailed.class);
+                Intent myIntent = new Intent(FindFriend.this, FindFriendFailed.class);
                 startActivity(myIntent);
                 finish();
             }
@@ -100,7 +99,7 @@ public class FindFriend extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("MainActivity", "ChildEventListener - onChildChanged : " + dataSnapshot.exists() + " friendcheck");
                 if (check && dataSnapshot.exists()) {
-                    Intent myIntent = new Intent(FindFriend.this, AddFriendExists.class);
+                    Intent myIntent = new Intent(FindFriend.this, FindFriendExists.class);
                     startActivity(myIntent);
                     finish();
                 } else {
@@ -109,7 +108,7 @@ public class FindFriend extends AppCompatActivity {
                     Log.d("MainActivity", "addFriend - onDataChange : " + 1111);
                     check = false;
 
-                    Intent myIntent = new Intent(FindFriend.this, AddFriendComplete.class);
+                    Intent myIntent = new Intent(FindFriend.this, FindFriendComplete.class);
                     startActivity(myIntent);
                     finish();
                 }

@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.hufsice.nulltime.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -69,7 +68,7 @@ public class MyFriend extends AppCompatActivity {
                 }
                 else {
                     Log.d("MainActivity", "onClick - onDataChange : " + "false");
-                    Intent myIntent = new Intent(MyFriend.this, NoFriendRequest.class);
+                    Intent myIntent = new Intent(MyFriend.this, AddFriendFailed.class);
                     startActivity(myIntent);
                     finish();
                 }
