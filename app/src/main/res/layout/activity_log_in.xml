@@ -82,29 +82,30 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:text="LOG IN"
+        android:background="@drawable/colorful_rectangle"
         android:fontFamily="@font/suit_bold"
+        android:text="LOG IN"
         android:textColor="@color/gray"
         android:textSize="15dp"
-        android:background="@drawable/colorful_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/editText_Password" />
 
     <!--회원가입 버튼-->
     <Button
         android:id="@+id/button_sign_in"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="SIGN IN"
+        android:background="@drawable/colorful_rectangle"
         android:fontFamily="@font/suit_bold"
+        android:text="SIGN IN"
         android:textColor="@color/gray"
         android:textSize="15dp"
-        android:background="@drawable/colorful_rectangle"
-        app:layout_constraintTop_toBottomOf="@+id/button_login"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintStart_toStartOf="@+id/button_login"
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
     <!--비회원으로 메뉴를 이용하고 싶을 때 사용하는 버튼(디버그용)-->
 <!--    <Button-->
