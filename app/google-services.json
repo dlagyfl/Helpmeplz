@@ -8,75 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:823703604280:android:0e3fb8a44f41ef89dfaacd",
-        "android_client_info": {
-          "package_name": "com.hufsice.nulltime"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "823703604280-7rlgi9lrv8omjn6177o9nso2tkobn4ia.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "63d3fd17735e1daa259460d284c603ff805adc50"
-          }
-        },
-        {
-          "client_id": "823703604280-g9lbtkatd2ddom5h4rmvrvq7m05jk50n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "fe9dac08739fa36c311fb66fc0b40f81df203a2c"
-          }
-        },
-        {
-          "client_id": "823703604280-jp2noffmpsv3nn03hkqpsv3qk5gcfsdo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "0ae4b730a3b666aeb8b7ef1ad0a2696a3bff0ca4"
-          }
-        },
-        {
-          "client_id": "823703604280-k6135alt2n34g77nqspq47104kdde2s8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "25fbd8d81319540005ccef57a903c0295e17dde3"
-          }
-        },
-        {
-          "client_id": "823703604280-vfohglb4g1u07o131kjpphcv3og9uhi8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "3671665607134e33abd4c5baf3fb00d7de4001fd"
-          }
-        },
-        {
-          "client_id": "823703604280-1835ng57gvuvqmhh4hjjkffco8rfi9hd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDiaDiORwO5ExPd06rGNEKolPxh_zqYYY0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "823703604280-1835ng57gvuvqmhh4hjjkffco8rfi9hd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:823703604280:android:b1dbf90ab20ed8a4dfaacd",
         "android_client_info": {
           "package_name": "com.hufsice.nulltime"
@@ -84,31 +15,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "823703604280-3t6h9pbhnuqasdba94m6mjlg66u0rb5r.apps.googleusercontent.com",
+          "client_id": "823703604280-18iei2v9ivvujt2skusdclqg7b6c2q6h.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "63d3fd17735e1daa259460d284c603ff805adc50"
+            "certificate_hash": "e52e4e1d6d670c8855e05b9e2bcb452d74df7b3e"
           }
         },
         {
-          "client_id": "823703604280-849j3vfe01ufs29cbbjvoe70tnf4g43j.apps.googleusercontent.com",
+          "client_id": "823703604280-2koi284s6vgkfh5fbbnarh06cgusrh7i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "3671665607134e33abd4c5baf3fb00d7de4001fd"
+            "certificate_hash": "fe9dac08739fa36c311fb66fc0b40f81df203a2c"
           }
         },
         {
-          "client_id": "823703604280-la45ui4oshs6b96sg51fc4140gkh9o2n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "25fbd8d81319540005ccef57a903c0295e17dde3"
-          }
-        },
-        {
-          "client_id": "823703604280-rthdhi8rn4d9euo7gs4p1uarnsdqllj1.apps.googleusercontent.com",
+          "client_id": "823703604280-41v4leufqvui7bjc6j57um93112s6t9m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hufsice.nulltime",
@@ -116,11 +39,43 @@
           }
         },
         {
-          "client_id": "823703604280-td6lov18d8bk6499bc597i3t5iq6e3q9.apps.googleusercontent.com",
+          "client_id": "823703604280-5ft7558hana35tvf9v1dd7edj8820dvr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.hufsice.nulltime",
-            "certificate_hash": "fe9dac08739fa36c311fb66fc0b40f81df203a2c"
+            "certificate_hash": "946779db79699a43531f6f786e22a0eff89fec2b"
+          }
+        },
+        {
+          "client_id": "823703604280-a6u7vgcn1nu0rfdthjd32kp1vu2v59o6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hufsice.nulltime",
+            "certificate_hash": "4d888d9ae85925fc16c610e69800b5b693023184"
+          }
+        },
+        {
+          "client_id": "823703604280-b9lfir8ucphq2tbvu7tlmofr3j5i3vor.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hufsice.nulltime",
+            "certificate_hash": "25fbd8d81319540005ccef57a903c0295e17dde3"
+          }
+        },
+        {
+          "client_id": "823703604280-jboqe498m3b36eldgjbd6dkraqkvjhds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hufsice.nulltime",
+            "certificate_hash": "3671665607134e33abd4c5baf3fb00d7de4001fd"
+          }
+        },
+        {
+          "client_id": "823703604280-pik4qhndaii5rtf9dtl4c6at06pfpl48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hufsice.nulltime",
+            "certificate_hash": "63d3fd17735e1daa259460d284c603ff805adc50"
           }
         },
         {
