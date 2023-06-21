@@ -7,6 +7,8 @@
     android:background="@color/gray"
     tools:context="com.hufsice.nulltime.Sign_in">
 
+    <!--회원가입 화면의 회원가입 글자
+        android:text, textColor, textSize로 택스트 속성 세팅-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="266dp"
@@ -18,9 +20,10 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.641"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--회원가입 정보입력 edittext와 제목을 묶은 linearlayout-->
     <LinearLayout
         android:id="@+id/linearLayoutname"
         android:layout_width="match_parent"
@@ -44,7 +47,8 @@
             android:fontFamily="@font/suit_bold"
             android:hint="name"
             android:textCursorDrawable="@null"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"/>
 
     </LinearLayout>
 
@@ -71,7 +75,8 @@
             android:fontFamily="@font/suit_bold"
             android:hint="Email"
             android:textCursorDrawable="@null"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"/>
     </LinearLayout>
 
     <LinearLayout
@@ -98,7 +103,8 @@
             android:fontFamily="@font/suit_bold"
             android:hint="password(6자리이상)"
             android:textCursorDrawable="@null"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"/>
     </LinearLayout>
 
     <LinearLayout
@@ -125,7 +131,8 @@
             android:fontFamily="@font/suit_bold"
             android:hint="password confrim"
             android:textCursorDrawable="@null"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"/>
     </LinearLayout>
 
     <Button
@@ -142,6 +149,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutpwcf" />
 
+    <!--회원가입 화면의 로고
+            app:srcCompat로 제작한 png파일을 불러온다.-->
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="72dp"

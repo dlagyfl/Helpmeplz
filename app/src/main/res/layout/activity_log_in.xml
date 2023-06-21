@@ -7,6 +7,9 @@
     tools:context="com.hufsice.nulltime.Log_in"
     android:background="@drawable/background_color">
 
+    <!--로그인 화면디자인을 이한 이미지뷰
+        app:srcCompat를 이용해 @drawable에서 설정한 도형의 모양을 쉽게 가져왔으며
+        layout_constraint를 이용해서 중앙에 고정했다.-->
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="390dp"
@@ -18,6 +21,11 @@
         app:layout_constraintVertical_bias="0.064"
         app:srcCompat="@drawable/rectangle_background" />
 
+
+    <!--로그인 화면의 로그인 글자
+        android:fontFamily로 폰트설정
+        android:textColor로 글자 색깔 설정
+        android:textSize로 글자크 기설정-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,6 +39,8 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
+    <!--로그인 화면의 로고
+        app:srcCompat로 제작한 png파일을 불러온다.-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="364dp"
@@ -42,6 +52,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/null_string_yb" />
 
+
+    <!--로그인 화면의 아이디 입력칸-->
     <EditText
         android:id="@+id/editText_email"
         android:layout_width="370dp"
@@ -51,6 +63,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
+    <!--로그인 화면의 비밀번호 입력칸-->
     <EditText
         android:id="@+id/editText_Password"
         android:layout_width="370dp"
@@ -61,6 +75,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_email" />
 
+    <!--로그인 버튼
+        android:background를 이용하여 모양과 색깔을 버튼에 적용-->
     <Button
         android:id="@+id/button_login"
         android:layout_width="0dp"
@@ -76,6 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_Password" />
 
+    <!--회원가입 버튼-->
     <Button
         android:id="@+id/button_sign_in"
         android:layout_width="match_parent"
@@ -89,6 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_login"
         tools:layout_editor_absoluteX="0dp" />
 
+    <!--비회원으로 메뉴를 이용하고 싶을 때 사용하는 버튼(디버그용)-->
 <!--    <Button-->
 <!--        android:id="@+id/test_button"-->
 <!--        android:layout_width="wrap_content"-->
@@ -103,6 +121,9 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/button_sign_in" />-->
 
+    <!--구글 로그인 버튼
+        com.google.android.gms.common.SignInButton속성을 이용해서
+        구글로그인 전용버튼 아이콘과 모양을 가져옴 -->
     <com.google.android.gms.common.SignInButton
         android:id="@+id/button_google_login"
         android:layout_width="wrap_content"
@@ -118,7 +139,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_sign_in"
         app:layout_constraintVertical_bias="0.825" />
-    <!--        app:layout_constraintTop_toBottomOf="@+id/test_button"-->
-<!--        app:layout_constraintVertical_bias="0.0" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
