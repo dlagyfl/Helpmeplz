@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="266dp"
-        android:layout_height="31dp"
+        android:layout_width="95dp"
+        android:layout_height="29dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/suit_bold"
         android:text="회원가입"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout

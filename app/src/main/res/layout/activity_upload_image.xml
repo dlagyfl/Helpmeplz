@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="271dp"
-        android:layout_height="288dp"
+        android:layout_width="327dp"
+        android:layout_height="302dp"
         android:layout_gravity="center"
         android:layout_marginTop="156dp"
         android:background="@drawable/cell_shape"
@@ -33,8 +33,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload_btn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="148dp"
+        android:layout_height="43dp"
         android:background="@drawable/button_shadow"
         android:fontFamily="@font/suit_bold"
         android:text="UPLOAD"
@@ -42,45 +42,42 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/upload_upToTime"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/upload_back"
         app:layout_constraintTop_toTopOf="@+id/upload_back"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+        android:layout_width="265dp"
+        android:layout_height="38dp"
         android:layout_marginTop="88dp"
         android:fontFamily="@font/suit_medium"
         android:text="내 시간표 몇시까지인지 : "
         android:textColor="@color/dark_gray"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/image_view"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
     <EditText
         android:id="@+id/upload_upToTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_width="86dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/suit_medium"
-        android:hint="입력"
+        android:hint="  입력"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/upload_btn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/progress_View"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_View" />
 
     <Button
         android:id="@+id/upload_back"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="145dp"
+        android:layout_height="44dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_shadow"
         android:fontFamily="@font/suit_bold"
@@ -92,4 +89,16 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.21" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="196dp"
+        android:layout_height="38dp"
+        android:text="  여기를 눌러주세요"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_view"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/image_view"
+        app:layout_constraintTop_toTopOf="@+id/image_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
