@@ -30,10 +30,8 @@
             android:id="@+id/imageView7"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/upper_button" />
 
         <TextView
@@ -44,50 +42,34 @@
             android:text="아이디로 친구찾기"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.228" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_checkfriend_id"
-            android:layout_width="101dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="52dp"
+            android:layout_width="250dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="68dp"
             android:fontFamily="@font/suit_medium"
             android:text="이름"
             android:textColor="@color/blue"
             android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView7"
-            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.287"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="92dp"
-            android:fontFamily="@font/suit_medium"
-            android:text="님과"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="240dp"
             android:layout_height="35dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/suit_medium"
             android:text="친구가 되었습니다!"
             android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="@+id/textView_checkfriend_id"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView_checkfriend_id"
             app:layout_constraintTop_toBottomOf="@+id/textView_checkfriend_id" />
@@ -96,12 +78,12 @@
             android:id="@+id/textView9"
             android:layout_width="246dp"
             android:layout_height="34dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/suit_medium"
             android:text="이제부터 친구와"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.291"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

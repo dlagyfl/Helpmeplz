@@ -21,7 +21,7 @@ public class AddFriendComplete extends AppCompatActivity {
         TextView view = findViewById(R.id.textView_checkfriend_id);
 
         Intent intent1 = getIntent();
-        String friendId = intent1.getStringExtra("nickname");
+        String friendId = intent1.getStringExtra("nickname") + "님과";
 
         Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendId + " in CheckFriend onCreate");
         view.setText(friendId);
