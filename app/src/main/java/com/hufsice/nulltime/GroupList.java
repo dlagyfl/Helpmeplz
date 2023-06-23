@@ -171,7 +171,7 @@ public class GroupList extends AppCompatActivity implements GroupAdapter.GroupIt
                 }
             }
 
-            ////데이터 읽기 실패시 오류 발생
+            //데이터 읽기 실패시 오류 발생
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("Firebase", databaseError.getMessage());

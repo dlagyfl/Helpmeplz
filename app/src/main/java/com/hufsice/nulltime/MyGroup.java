@@ -59,11 +59,9 @@ public class MyGroup extends AppCompatActivity {
         String groupName = getIntent().getStringExtra("groupName");
         groupId = getIntent().getStringExtra("groupId");
 
-        //
         groupListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         //그룹 멤버 정보 가져오기
         getGroupMember(groupId);
-        //
         listView_member.setAdapter(groupListAdapter);
 
         //groupList activity에서 선택한 그룹에 대한 이름 textView로 보여주기
@@ -77,8 +75,6 @@ public class MyGroup extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                //모든 멤버에 대해서 멤버 id memberList에 추가
-                //어디에 사용하나여..? 이거 뭐람 배고프다
                 for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                     String memberId = memberSnapshot.getKey();
                     memberList.add(memberId);
