@@ -22,7 +22,7 @@ public class AddFriendComplete extends AppCompatActivity {
 
         //addfriend에서 넘어온 값 받기
         Intent intent1 = getIntent();
-        String friendId = intent1.getStringExtra("nickname");
+        String friendId = intent1.getStringExtra("nickname") + "님과";
 
         Log.d("MainActivity", "ValueEventListener - onDataChange : " + friendId + " in CheckFriend onCreate");
         view.setText(friendId);

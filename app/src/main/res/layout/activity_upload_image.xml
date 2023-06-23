@@ -8,6 +8,18 @@
     tools:context="com.hufsice.nulltime.UploadImage"
     android:background="@drawable/background_colorful">
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="129dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/suit_medium"
+        android:text="입력해주세요 :"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="327dp"
@@ -20,6 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:text="이곳을 눌러 이미지 파일을"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_view"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/image_view"
+        app:layout_constraintTop_toTopOf="@+id/image_view"
+        app:layout_constraintVertical_bias="0.302" />
 
     <ProgressBar
         android:id="@+id/progress_View"
@@ -40,7 +66,7 @@
         android:text="UPLOAD"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/upload_upToTime"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/upload_back"
         app:layout_constraintTop_toTopOf="@+id/upload_back"
@@ -49,13 +75,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="265dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="310dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/suit_medium"
-        android:text="내 시간표 몇시까지인지 : "
+        android:text="내 일정이 가장 늦게 끝나는 시간을 "
         android:textColor="@color/dark_gray"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
         app:layout_constraintStart_toStartOf="@+id/image_view"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
@@ -63,16 +90,15 @@
         android:id="@+id/upload_upToTime"
         android:layout_width="86dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="32dp"
         android:fontFamily="@font/suit_medium"
-        android:hint="  입력"
+        android:hint="입력"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/upload_btn"
-        app:layout_constraintEnd_toEndOf="@+id/image_view"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/progress_View" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/upload_back"
@@ -88,17 +114,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.43" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="196dp"
-        android:layout_height="38dp"
-        android:text="  여기를 눌러주세요"
-        android:textSize="24sp"
+        android:layout_width="284dp"
+        android:layout_height="34dp"
+        android:text="UPLOAD 버튼을 눌러주세요."
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/image_view"
         app:layout_constraintEnd_toEndOf="@+id/image_view"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/image_view"
-        app:layout_constraintTop_toTopOf="@+id/image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="315dp"
+        android:layout_height="33dp"
+        android:text="선택한 후 오른쪽 하단 "
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_view"
+        app:layout_constraintEnd_toEndOf="@+id/image_view"
+        app:layout_constraintStart_toStartOf="@+id/image_view"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.116" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

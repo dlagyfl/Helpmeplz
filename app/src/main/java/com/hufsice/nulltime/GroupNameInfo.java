@@ -2,8 +2,9 @@ package com.hufsice.nulltime;
 
 import java.util.ArrayList;
 
+//그룹 정보 저장 클래스(그룹 이름, 멤버정보)
 public class GroupNameInfo {
-    private String groupId;
+
     private String groupName;
     private ArrayList<Member> members;
 
@@ -15,27 +16,7 @@ public class GroupNameInfo {
         this.members = members;
     }
 
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
     public String getName() {
         return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public ArrayList<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(ArrayList<Member> members) {
-        this.members = members;
     }
 }

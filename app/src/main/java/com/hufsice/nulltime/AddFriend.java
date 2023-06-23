@@ -145,8 +145,10 @@ public class AddFriend extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {//친구의 이름을 가져와서 출력
                 Log.d("MainActivity", "ValueEventListener - onDataChange : " + (String) dataSnapshot.getValue());
+
                 friendName = (String) dataSnapshot.getValue();
-                view.setText(friendName);
+
+                view.setText(friendName + "님께서");
             }
 
             @Override

@@ -40,6 +40,7 @@ import java.io.IOException;
 
 public class UploadImage extends AppCompatActivity {
 
+
     // UI 요소 선언
     private ImageView imageView;
     private ProgressBar progressBar;
@@ -147,34 +148,34 @@ public class UploadImage extends AppCompatActivity {
             int upToTimeValue = Integer.parseInt(upToTime.getText().toString());
             // 각 upToTimeValue 값에 따른 원하는 너비와 높이 설정
 
-            if (upToTimeValue == 1) {
+            if (upToTimeValue == 1 || upToTimeValue == 13) {
                 desiredWidth = 200;
                 desiredHeight = 166;
-            } else if (upToTimeValue == 2) {
+            } else if (upToTimeValue == 2 || upToTimeValue == 14) {
                 desiredWidth = 200;
                 desiredHeight = 205;
-            } else if (upToTimeValue == 3) {
+            } else if (upToTimeValue == 3 || upToTimeValue == 15) {
                 desiredWidth = 200;
                 desiredHeight = 244;
-            } else if (upToTimeValue == 4) {
+            } else if (upToTimeValue == 4 || upToTimeValue == 16) {
                 desiredWidth = 200;
                 desiredHeight = 283;
-            } else if (upToTimeValue == 5) {
+            } else if (upToTimeValue == 5 || upToTimeValue == 17) {
                 desiredWidth = 200;
                 desiredHeight = 322;
-            } else if (upToTimeValue == 6) {
+            } else if (upToTimeValue == 6 || upToTimeValue == 18) {
                 desiredWidth = 200;
                 desiredHeight = 361;
-            } else if (upToTimeValue == 7) {
+            } else if (upToTimeValue == 7 || upToTimeValue == 19) {
                 desiredWidth = 200;
                 desiredHeight = 400;
-            } else if (upToTimeValue == 8) {
+            } else if (upToTimeValue == 8 || upToTimeValue == 20) {
                 desiredWidth = 200;
                 desiredHeight = 439;
-            } else if (upToTimeValue == 9) {
+            } else if (upToTimeValue == 9 || upToTimeValue == 21) {
                 desiredWidth = 200;
                 desiredHeight = 478;
-            } else if (upToTimeValue == 10) {
+            } else if (upToTimeValue == 10 || upToTimeValue == 22) {
                 desiredWidth = 200;
                 desiredHeight = 517;
             } else {
