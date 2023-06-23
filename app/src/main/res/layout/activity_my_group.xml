@@ -8,6 +8,8 @@
     android:background="@drawable/background_colorful">
 
 
+    <!--android:fontFamily로 폰트 지정
+    android:textColor 글자 색상 지정-->
     <TextView
         android:id="@+id/txtView_groupName"
         android:layout_width="wrap_content"
@@ -24,6 +26,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <!--android:background로 배경 색상 지정
+        android:src로 버튼 image 가지고 오기
+        그룹 삭제하기 기능 수행 버튼-->
     <ImageButton
         android:id="@+id/imbtn_exit"
         android:layout_width="39dp"
@@ -37,6 +42,8 @@
         app:layout_constraintStart_toEndOf="@+id/txtView_groupName"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--android:background 배경 색상 지정
+    android:fontFamily 폰트 지정-->
     <Button
         android:id="@+id/find_null_time"
         android:layout_width="0dp"
@@ -51,6 +58,7 @@
         app:layout_constraintStart_toStartOf="@+id/txtView_groupName"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--그룹에 속한 멤버 보여주는 ListView-->
     <ListView
         android:id="@+id/listView_member"
         android:layout_width="0dp"
