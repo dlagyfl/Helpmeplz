@@ -33,6 +33,7 @@ public class FindFriend extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friend);
 
+        //button, 파이어베이스 데이터베이스 변수선언
         buttonBack = findViewById(R.id.button_prev);
         buttonAddFriend = findViewById(R.id.button_next);
 
@@ -41,12 +42,14 @@ public class FindFriend extends AppCompatActivity {
 
         check = true;
 
+        //로그인 되어있는 유저의 UID를 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             userId = user.getUid();
 //            Log.d("uid", userId);
         }
 
+        //뒤로가기 버튼
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +59,7 @@ public class FindFriend extends AppCompatActivity {
             }
         });
 
+        //친구추가 버튼
         buttonAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
@@ -64,10 +68,12 @@ public class FindFriend extends AppCompatActivity {
         });
     }
 
+    //친구추가 함수
     private void addFriend() {
         String nickname = ((EditText) findViewById(R.id.editText_friend_id)).getText().toString();
 //        Log.d("MainActivity", "FindFriend - addFriend : " + nickname);
 
+        //친구추가할 유저의 UID를 받아옴
         database.child("search").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,6 +87,7 @@ public class FindFriend extends AppCompatActivity {
                     }
                 }
 
+                //친구찾기에 실패하면 FindFriendFailed로 이동
                 Intent myIntent = new Intent(FindFriend.this, FindFriendFailed.class);
                 startActivity(myIntent);
                 finish();
@@ -93,12 +100,13 @@ public class FindFriend extends AppCompatActivity {
         });
     }
 
+    //친구추가 성공여부 확인및 액티비티이동
     private void validation() {
         database.child("users").child(userId).child("friendlist").child(requestUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d("MainActivity", "ChildEventListener - onChildChanged : " + dataSnapshot.exists() + " friendcheck");
-                if (check && dataSnapshot.exists()) {
+                if (check && dataSnapshot.exists()) {//친구찾기에 성공시 FindFriendExists로 이동
                     Intent myIntent = new Intent(FindFriend.this, FindFriendExists.class);
                     startActivity(myIntent);
                     finish();

@@ -36,18 +36,22 @@ public class MyFriend extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_friend);
 
+        //button, listview, 파이어베이스 데이터베이스 변수선언
+
         listViewFriend = findViewById(R.id.listViewFriend);
         ImageButton button_bellButton = (ImageButton) findViewById(R.id.bellImageButton);
         ImageButton button_moreButton = (ImageButton) findViewById(R.id.moreImageButton);
 
         database = FirebaseDatabase.getInstance().getReference();
 
+        //로그인 되어있는 유저의 UID를 받아옴
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
             userId = user.getUid();
             Log.d("uid", userId);
         }
 
+        //친구찾기 버튼
         button_moreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,16 +61,17 @@ public class MyFriend extends AppCompatActivity {
             }
         });
 
+        //친구신청이 있는지 확인
         button_bellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cnt != 0) {
+                if (cnt != 0) {//친구 신청이 존재할경우 addfriend로 이동
                     Log.d("MainActivity", "onClick - onDataChange : " + "true");
                     Intent myIntent = new Intent(MyFriend.this, AddFriend.class);
                     startActivity(myIntent);
                     finish();
                 }
-                else {
+                else {//친구신청이 없을경우 addfriendfailed로 이동
                     Log.d("MainActivity", "onClick - onDataChange : " + "false");
                     Intent myIntent = new Intent(MyFriend.this, AddFriendFailed.class);
                     startActivity(myIntent);
@@ -82,11 +87,12 @@ public class MyFriend extends AppCompatActivity {
         getRequest();
     }
 
+    //친구목록을 받아옴
     private void getFriends() {
         database.child("users").child(userId).child("friendlist").addValueEventListener(new ValueEventListener() {
 
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {//친구목록을 받아와서 리스트에 추가
                 List<String> friendList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     FriendNameInfo friend = snapshot.getValue(FriendNameInfo.class);
@@ -95,6 +101,7 @@ public class MyFriend extends AppCompatActivity {
                     Log.d("MainActivity", "ChildEventListener - onChildChanged : " + friendName);
                     friendList.add(friendName);
                 }
+                //친구목록을 함수 밖 리스트에 추가
                 friendListAdapter.clear();
                 friendListAdapter.addAll(friendList);
                 friendListAdapter.notifyDataSetChanged();
@@ -107,10 +114,10 @@ public class MyFriend extends AppCompatActivity {
         });
     }
 
-    private void getRequest() {
+    private void getRequest() {//친구신청이 있는지 확인
         database.child("users").child(userId).child("friendrequest").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {//친구신청이 있을경우 친구신청이 몇개인지 확인
                 cnt = dataSnapshot.getChildrenCount();
             }
             @Override

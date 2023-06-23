@@ -8,6 +8,8 @@
     android:background="@drawable/background_color"
     android:gravity="center">
 
+    <!--디자인을 위한 네모창을 만듬
+        android:background로 디자인 변경-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
@@ -25,8 +27,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-
-
+        <!--상단의 제목을 위한 바생성
+            app:srcCompat으로 세팅한 디자인 가져옴-->
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="350dp"
@@ -37,6 +39,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/upper_button" />
 
+        <!--상단의 제목-->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"

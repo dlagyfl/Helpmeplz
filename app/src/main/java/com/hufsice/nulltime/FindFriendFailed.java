@@ -14,10 +14,11 @@ public class FindFriendFailed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friend_failed);
 
+        //button 선언
         Button buttonPrev = findViewById(R.id.button_prev);
         Button buttonHome = findViewById(R.id.button_home);
 
-        buttonPrev.setOnClickListener(new View.OnClickListener() {
+        buttonPrev.setOnClickListener(new View.OnClickListener() {//버튼 누를시 친구찾기로 이동
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(FindFriendFailed.this, FindFriend.class);
@@ -25,7 +26,7 @@ public class FindFriendFailed extends AppCompatActivity {
                 finish();
             }
         });
-        buttonHome.setOnClickListener(new View.OnClickListener() {
+        buttonHome.setOnClickListener(new View.OnClickListener() {//버튼 누를시 친구목록으로 이동
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(FindFriendFailed.this, MyFriend.class);

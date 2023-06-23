@@ -14,9 +14,11 @@ public class FindFriendExists extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friend_exists);
 
+        //button 선언
         Button buttonPrev = findViewById(R.id.button_prev);
         Button buttonHome = findViewById(R.id.button_home);
 
+        //버튼 누를시 친구찾기로 이동
         buttonPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,6 +27,8 @@ public class FindFriendExists extends AppCompatActivity {
                 finish();
             }
         });
+
+        //버튼 누를시 친구목록으로 이동
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

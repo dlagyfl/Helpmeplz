@@ -14,8 +14,10 @@ public class AddFriendFailed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend_failed);
 
+        //button 선언
         Button button_MyFriend = findViewById(R.id.button_next3);
 
+        //다음 버튼 누를시 친구목록으로 이동
         button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

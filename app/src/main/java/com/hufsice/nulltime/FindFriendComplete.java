@@ -16,6 +16,7 @@ public class FindFriendComplete extends AppCompatActivity {
 
         Button button_MyFriend = findViewById(R.id.button_next3);
 
+        //다음 버튼 누를시 메뉴로 돌아감
         button_MyFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
