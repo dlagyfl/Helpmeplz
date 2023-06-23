@@ -7,7 +7,8 @@
     android:orientation="vertical"
     tools:context="com.hufsice.nulltime.UploadImage"
     android:background="@drawable/background_colorful">
-
+<!--    이미지 업로드 화면의 "입력해주세요" 글자-
+        android:text , textColor, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView16"
         android:layout_width="129dp"
@@ -19,7 +20,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+<!--    이미지를 선택할 수 있으며 선택했을 시 선택한 이미지가 화면에 보여진다-->
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="327dp"
@@ -32,7 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
+    <!--    이미지 업로드 화면의 "이곳을 눌러 이미지 파일을" 글자-
+            android:text , textColor, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView17"
         android:layout_width="300dp"
@@ -46,7 +48,8 @@
         app:layout_constraintStart_toStartOf="@+id/image_view"
         app:layout_constraintTop_toTopOf="@+id/image_view"
         app:layout_constraintVertical_bias="0.302" />
-
+<!--firebase로 이미지 업로드 하는 것을 보여주는 로딩을 보여줌
+    언제 업로드 되는지 알 수 있음-->
     <ProgressBar
         android:id="@+id/progress_View"
         android:layout_width="match_parent"
@@ -57,6 +60,8 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
+    <!--firebase storage에 이미지를 보내는 버튼
+    android:text , textSize, background, fontFamily 로 버튼 특성 적용-->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload_btn"
         android:layout_width="148dp"
@@ -72,7 +77,8 @@
         app:layout_constraintTop_toTopOf="@+id/upload_back"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
-
+    <!--    이미지 업로드 화면의 "내 일정이 가장 늦게 끝나는 시간을" 글자-
+            android:text , textColor, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="310dp"
@@ -85,7 +91,8 @@
         app:layout_constraintEnd_toEndOf="@+id/image_view"
         app:layout_constraintStart_toStartOf="@+id/image_view"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
-
+    <!--시간 입력창
+           hint, textColor로 사용 편의성 증가-->
     <EditText
         android:id="@+id/upload_upToTime"
         android:layout_width="86dp"
@@ -99,6 +106,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <!--메뉴 화면으로 돌아가는 "뒤로가기" 버튼
+    android:text , textSize, background, fontFamily 로 버튼 특성 적용-->
 
     <Button
         android:id="@+id/upload_back"
@@ -115,7 +124,8 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.43" />
-
+    <!--    이미지 업로드 화면의 "UPLOAD 버튼을 눌러주세요." 글자-
+            android:text , textColor, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView14"
         android:layout_width="284dp"
@@ -129,7 +139,8 @@
         app:layout_constraintStart_toStartOf="@+id/image_view"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         app:layout_constraintVertical_bias="0.158" />
-
+    <!--    이미지 업로드 화면의 "선택한 후 오른쪽 하단" 글자-
+            android:text , textColor, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView15"
         android:layout_width="315dp"

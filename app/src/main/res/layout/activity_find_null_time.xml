@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_colorful">
-
+<!--    행과 열로 구성된 테이블 형태의 레이아웃 생성-->
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="366dp"
@@ -16,18 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
-
+<!--        첫 번째 행을 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black">
-
+<!--        첫 번째 열은 빈칸으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="" />
-
+            <!--두 번째 열은 텍스트를 "월" , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:text="월"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 텍스트를 "화", 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:text="화"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 텍스트를 "수" , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:text="수"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 텍스트를 "목" , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:text="목"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 텍스트를 "금" , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,13 +74,13 @@
                 android:textStyle="bold" />
 
         </TableRow>
-
+<!--    두 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+<!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 android:text="9"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday1"
                 android:layout_width="wrap_content"
@@ -98,10 +98,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday1"
                 android:layout_width="wrap_content"
@@ -109,10 +109,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday1"
                 android:layout_width="wrap_content"
@@ -120,10 +120,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday1"
                 android:layout_width="wrap_content"
@@ -131,10 +131,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday1"
                 android:layout_width="wrap_content"
@@ -142,18 +142,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    세 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "10" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,7 +164,7 @@
                 android:text="10"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday2"
                 android:layout_width="wrap_content"
@@ -171,10 +172,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday2"
                 android:layout_width="wrap_content"
@@ -182,10 +183,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday2"
                 android:layout_width="wrap_content"
@@ -193,10 +194,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday2"
                 android:layout_width="wrap_content"
@@ -204,10 +205,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday2"
                 android:layout_width="wrap_content"
@@ -215,18 +216,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--   네 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -236,7 +238,7 @@
                 android:text="11"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday3"
                 android:layout_width="wrap_content"
@@ -244,10 +246,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday3"
                 android:layout_width="wrap_content"
@@ -255,10 +257,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday3"
                 android:layout_width="wrap_content"
@@ -266,10 +268,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday3"
                 android:layout_width="wrap_content"
@@ -277,10 +279,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday3"
                 android:layout_width="wrap_content"
@@ -288,18 +290,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    다섯 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -309,7 +312,7 @@
                 android:text="12"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday4"
                 android:layout_width="wrap_content"
@@ -317,10 +320,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday4"
                 android:layout_width="wrap_content"
@@ -328,10 +331,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday4"
                 android:layout_width="wrap_content"
@@ -339,10 +342,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday4"
                 android:layout_width="wrap_content"
@@ -350,10 +353,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday4"
                 android:layout_width="wrap_content"
@@ -361,18 +364,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--   여섯 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -382,7 +386,7 @@
                 android:text="1"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday5"
                 android:layout_width="wrap_content"
@@ -390,10 +394,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday5"
                 android:layout_width="wrap_content"
@@ -401,10 +405,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday5"
                 android:layout_width="wrap_content"
@@ -412,10 +416,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday5"
                 android:layout_width="wrap_content"
@@ -423,10 +427,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday5"
                 android:layout_width="wrap_content"
@@ -434,18 +438,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    일곱 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -455,7 +460,7 @@
                 android:text="2"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday6"
                 android:layout_width="wrap_content"
@@ -463,10 +468,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday6"
                 android:layout_width="wrap_content"
@@ -474,10 +479,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday6"
                 android:layout_width="wrap_content"
@@ -485,10 +490,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday6"
                 android:layout_width="wrap_content"
@@ -496,10 +501,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday6"
                 android:layout_width="wrap_content"
@@ -507,18 +512,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    여덟 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -528,7 +534,7 @@
                 android:text="3"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday7"
                 android:layout_width="wrap_content"
@@ -536,10 +542,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday7"
                 android:layout_width="wrap_content"
@@ -547,10 +553,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday7"
                 android:layout_width="wrap_content"
@@ -558,10 +564,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday7"
                 android:layout_width="wrap_content"
@@ -569,10 +575,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday7"
                 android:layout_width="wrap_content"
@@ -580,18 +586,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    아홉 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -601,7 +608,7 @@
                 android:text="4"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday8"
                 android:layout_width="wrap_content"
@@ -609,10 +616,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday8"
                 android:layout_width="wrap_content"
@@ -620,10 +627,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday8"
                 android:layout_width="wrap_content"
@@ -631,10 +638,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday8"
                 android:layout_width="wrap_content"
@@ -642,10 +649,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday8"
                 android:layout_width="wrap_content"
@@ -653,18 +660,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    열 번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -674,7 +682,7 @@
                 android:text="5"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday9"
                 android:layout_width="wrap_content"
@@ -682,10 +690,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday9"
                 android:layout_width="wrap_content"
@@ -693,10 +701,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday9"
                 android:layout_width="wrap_content"
@@ -704,10 +712,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday9"
                 android:layout_width="wrap_content"
@@ -715,10 +723,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday9"
                 android:layout_width="wrap_content"
@@ -726,18 +734,19 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
 
+        <!--    열한번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -747,7 +756,7 @@
                 android:text="6"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday10"
                 android:layout_width="wrap_content"
@@ -755,10 +764,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday10"
                 android:layout_width="wrap_content"
@@ -766,10 +775,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday10"
                 android:layout_width="wrap_content"
@@ -777,10 +786,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday10"
                 android:layout_width="wrap_content"
@@ -788,10 +797,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday10"
                 android:layout_width="wrap_content"
@@ -799,18 +808,18 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
-
+        <!--    열두번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -820,7 +829,7 @@
                 android:text="7"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday11"
                 android:layout_width="wrap_content"
@@ -828,10 +837,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday11"
                 android:layout_width="wrap_content"
@@ -839,10 +848,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday11"
                 android:layout_width="wrap_content"
@@ -850,10 +859,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday11"
                 android:layout_width="wrap_content"
@@ -861,10 +870,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday11"
                 android:layout_width="wrap_content"
@@ -872,18 +881,18 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
-
+        <!--    열세번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -893,7 +902,7 @@
                 android:text="8"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday12"
                 android:layout_width="wrap_content"
@@ -901,10 +910,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday12"
                 android:layout_width="wrap_content"
@@ -912,10 +921,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday12"
                 android:layout_width="wrap_content"
@@ -923,10 +932,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday12"
                 android:layout_width="wrap_content"
@@ -934,10 +943,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday12"
                 android:layout_width="wrap_content"
@@ -945,18 +954,18 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
-
+        <!--    열네번째 행 정의-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black">
-
+            <!--        첫 번째 열은 "9" 텍스트로 설정 , 색상은 흰색으로 설정-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -966,7 +975,7 @@
                 android:text="9"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--두 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/monday13"
                 android:layout_width="wrap_content"
@@ -974,10 +983,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="월"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--세 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/tuesday13"
                 android:layout_width="wrap_content"
@@ -985,10 +994,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="화"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--네 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/wednesday13"
                 android:layout_width="wrap_content"
@@ -996,10 +1005,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="수"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--다섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/thursday13"
                 android:layout_width="wrap_content"
@@ -1007,10 +1016,10 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="목"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
-
+            <!--여섯 번째 열은 빈 텍스트, 배경색은 흰색으로 설정-->
             <TextView
                 android:id="@+id/friday13"
                 android:layout_width="wrap_content"
@@ -1018,11 +1027,13 @@
                 android:layout_weight="3"
                 android:background="@drawable/cell_shape"
                 android:gravity="center"
-                android:text="금"
+                android:text=""
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
         </TableRow>
+
+
 
         <TableRow>
 
@@ -1030,7 +1041,8 @@
 
 
     </TableLayout>
-
+    <!--메뉴 화면으로 돌아가는 "뒤로가기" 버튼
+        android:text , background로 버튼 특성 적용-->
     <Button
         android:id="@+id/back_nullTime"
         android:layout_width="wrap_content"
@@ -1041,7 +1053,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
+    <!-- 공강 시간 찾기 화면의 "우리들의공강시간표는?" 글자-
+                android:text , fontFamily, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -1054,7 +1067,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25" />
-
+    <!-- 공강 시간 찾기 화면의 "색칠된 부분이 우리들의 공강시간!!" 글자-
+                  android:text , fontFamily, textSize로 텍스트 속성 세팅-->
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
