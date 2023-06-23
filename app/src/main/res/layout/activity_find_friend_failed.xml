@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <!--디자인을 위한 네모창을 만듬 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
@@ -26,9 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028">
 
-        <!--    tools:layout_editor_absoluteY="137dp"-->
-
-
+        <!--안내를 위한 텍스트-->
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
@@ -43,6 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--안내를 위한 텍스트-->
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
@@ -57,6 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
+        <!--뒤로가기 버튼-->
         <Button
             android:id="@+id/button_prev"
             android:layout_width="wrap_content"
@@ -73,6 +74,7 @@
             app:layout_constraintHorizontal_bias="0.02"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!--홈으로 가는 버튼-->
         <Button
             android:id="@+id/button_home"
             android:layout_width="wrap_content"
@@ -88,6 +90,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textView12"
             app:layout_constraintVertical_bias="1.0" />
 
+        <!--상단의 제목을 위한 바생성
+           app:srcCompat으로 세팅한 디자인 가져옴-->
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="350dp"
@@ -98,6 +102,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/upper_button" />
 
+        <!--상단의 제목-->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"

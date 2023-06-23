@@ -55,6 +55,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.228" />
 
+        <!--DB에서 받아온 친구 이름을 이 textview에 적용-->
         <TextView
             android:id="@+id/textView_friend_list"
             android:layout_width="wrap_content"
@@ -69,6 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
+        <!--안내를 위한 textview-->
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
@@ -83,6 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--안내를 위한 textview-->
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
@@ -97,6 +100,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
+        <!--수락하기 버튼
+            android:fontFamily, textColor, textsize, background로 속성설정-->
         <Button
             android:id="@+id/button_accept"
             android:layout_width="320dp"
@@ -114,6 +119,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textView12"
             app:layout_constraintVertical_bias="0.291" />
 
+        <!--거절하기 버튼
+            android:fontFamily, textColor, textsize, background로 속성설정-->
         <Button
             android:id="@+id/button_refuse"
             android:layout_width="320dp"

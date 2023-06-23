@@ -9,6 +9,8 @@
     tools:context="com.hufsice.nulltime.CreateGroup"
     android:gravity="center">
 
+    <!--디자인을 위한 네모창을 만듬
+        android:background로 디자인 변경-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
@@ -26,6 +28,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028">
 
+        <!--상단의 제목을 위한 바생성
+            app:srcCompat으로 세팅한 디자인 가져옴-->
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="350dp"
@@ -35,6 +39,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/upper_button" />
 
+        <!--상단의 제목-->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -49,6 +54,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--안내를 위한 textview-->
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
@@ -63,6 +69,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
+        <!--친구의 아이디를 입력하는 edittext-->
         <EditText
             android:id="@+id/editText_friend_id"
             android:layout_width="0dp"
@@ -77,6 +84,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             app:layout_constraintVertical_bias="0.0" />
 
+        <!--이전으로 돌아가는 버튼-->
         <Button
             android:id="@+id/button_prev"
             android:layout_width="wrap_content"
@@ -93,6 +101,7 @@
             app:layout_constraintHorizontal_bias="0.02"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!--다음으로 넘어가는 버튼-->
         <Button
             android:id="@+id/button_next"
             android:layout_width="wrap_content"

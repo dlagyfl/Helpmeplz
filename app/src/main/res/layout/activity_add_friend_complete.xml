@@ -9,6 +9,8 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <!--디자인을 위한 네모창을 만듬
+        android:background로 디자인 변경-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
@@ -26,6 +28,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028">
 
+        <!--상단의 제목을 위한 바생성
+            app:srcCompat으로 세팅한 디자인 가져옴-->
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="350dp"
@@ -47,7 +51,7 @@
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            app:layout_constraintRight_toRightOf="parent"/>-->
 
-
+        <!--DB에서 가져온 친구의 이름을 보여줌-->
         <TextView
             android:id="@+id/textView_checkfriend_id"
             android:layout_width="250dp"
@@ -62,6 +66,7 @@
             app:layout_constraintHorizontal_bias="0.287"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
+        <!--친구가 되었다는 문구를 보여줌-->
         <TextView
             android:id="@+id/textView8"
             android:layout_width="240dp"
@@ -75,6 +80,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView_checkfriend_id"
             app:layout_constraintTop_toBottomOf="@+id/textView_checkfriend_id" />
 
+        <!--안내를 위한 문구를 보여줌-->
         <TextView
             android:id="@+id/textView9"
             android:layout_width="246dp"
@@ -88,6 +94,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
+        <!--안내를 위한 문구를 보여줌-->
         <TextView
             android:id="@+id/textView10"
             android:layout_width="246dp"
@@ -101,6 +108,8 @@
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
+        <!--다음 버튼설정
+            android:fontFamily, background로 속성 설정-->
         <Button
             android:id="@+id/button_next2"
             android:layout_width="wrap_content"
@@ -118,6 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:layout_constraintVertical_bias="1.0" />
 
+        <!--제목 보여주는 textview-->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"

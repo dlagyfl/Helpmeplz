@@ -8,6 +8,7 @@
     android:background="@drawable/background_color"
     android:gravity="center">
 
+    <!--디자인을 위한 네모창을 만듬 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.028">
 
+        <!--안내를 위한 텍스트-->
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
@@ -39,6 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--안내를 위한 텍스트-->
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
@@ -53,6 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
+        <!--아이디를 입력받는 EditText-->
         <EditText
             android:id="@+id/editInput"
             android:layout_width="242dp"
@@ -64,6 +68,7 @@
             tools:layout_editor_absoluteY="200dp"
             tools:ignore="MissingConstraints" />
 
+        <!--검색 버튼-->
         <Button
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
@@ -76,6 +81,8 @@
             app:layout_constraintStart_toEndOf="@+id/editInput"
             app:layout_constraintTop_toTopOf="@id/editInput" />
 
+        <!--상단의 제목을 위한 바생성
+             app:srcCompat으로 세팅한 디자인 가져옴-->
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="350dp"
@@ -86,6 +93,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/upper_button" />
 
+        <!--상단의 제목-->
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -101,6 +109,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.228" />
 
+        <!--메뉴로 돌아가는 버튼-->
         <Button
             android:id="@+id/button_next3"
             android:layout_width="wrap_content"
